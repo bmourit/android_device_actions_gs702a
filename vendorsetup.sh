@@ -20,5 +20,5 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo full_n70-userdebug
-add_lunch_combo cm_n70-userdebug
+add_lunch_combo full_gs702a-userdebug
+add_lunch_combo cm_gs702a-userdebug
