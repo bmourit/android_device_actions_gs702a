@@ -30,15 +30,18 @@ TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-ARCH_ARM_HAVE_VFP := true
 TARGET_ARCH_VARIANT_CPU := cortex-a5
 TARGET_ARCH_VARIANT_FPU := neon
+ARCH_ARM_HAVE_ARMV7A := true
+ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-ARCH_ARM_HAVE_ARMV7A := true
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
+
+KBUILD_CFLAGS += -O3
+TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := 
