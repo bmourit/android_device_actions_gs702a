@@ -26,9 +26,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
-    $(LOCAL_PATH)/ramdisk/misc.img:root/misc.img \
-    $(LOCAL_PATH)/ramdisk/fstab.gs702a:root/fstab.gs702a \ 
-    $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \ 
+    $(LOCAL_PATH)/ramdisk/fstab.gs702a:root/fstab.gs702a \
+    $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \
     $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
     $(LOCAL_PATH)/ramdisk/init.extra_modules.rc:root/init.extra_modules.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
@@ -39,16 +38,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.wifi.rc:root/init.wifi.rc \
     $(LOCAL_PATH)/ramdisk/quickboot.sh:root/quickboot.sh \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
-    $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh 
+    $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/dev,root/dev)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/dev,root/dev)
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
 
 # init.d scripts
 PRODUCT_COPY_FILES += \
@@ -69,18 +68,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/configs/vold.sdboot.fstab:system/etc/vold.sdboot.fstab \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/configs/ft5x0x_ts.idc:usr/idc/ft5x0x_ts.idc \
-    $(LOCAL_PATH)/configs/GT813.idc:usr/idc/GT813.idc \
-    $(LOCAL_PATH)/configs/mt395.idc:usr/idc/mt395.idc \
-    $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:usr/keylayout/atc260x-adckeypad.kl 
+    $(LOCAL_PATH)/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
+    $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
+    $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
+    $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl 
 
 
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,etc/usb_modeswitch.d)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
 
 # Prebuilt kernel modules
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -129,7 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.execution-mode=int:jit \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=v=n,o=v \
     ro.sf.lcd_density=160 \

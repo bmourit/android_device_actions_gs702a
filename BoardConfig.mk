@@ -17,7 +17,7 @@
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Use the non-open-source parts, if they're present
--include vendor/actions/gs702a/BoardConfigVendor.mk
+include vendor/actions/gs702a/BoardConfigVendor.mk
 
 BOARD_USES_GENERIC_AUDIO := true
 #BOARD_USES_AUDIO_LEGACY := true
@@ -39,7 +39,6 @@ ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-KBUILD_CFLAGS += -O3
 TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
@@ -48,7 +47,7 @@ BOARD_KERNEL_CMDLINE :=
 BOARD_PAGE_SIZE := 2048
 
 TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_PLATFORM := ATM702X
+TARGET_BOARD_PLATFORM := gs702a
 TARGET_BOOTLOADER_BOARD_NAME := gs702a
 
 BOARD_EGL_CFG := device/actions/gs702a/egl.cfg
