@@ -167,20 +167,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.wifi.signal.level.2=-65 \
     ro.wifi.signal.level.3=-60 \
     ro.wifi.signal.level.4=-55 \
-    ro.product.pribrand=actions \  
+    ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
     ro.ota.autorecovery=enable \
-    ro.device.model=ainol_LG 
+    ro.device.model=ainol_LG
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=USA/Pacific \
+    persist.sys.timezone=USA/Los_Angeles \
     persist.sys.language=en \
     persist.sys.country=US \
     persist.sys.use_dithering=1 \
     persist.sys.purgeable_assets=0 \
     windowsmgr.max_events_per_sec=300 \
     view.touch_slop=2 \
-    view.minimum_fling_velocity=25 
+    view.minimum_fling_velocity=25
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay

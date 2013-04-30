@@ -44,43 +44,9 @@ ro.shutmenu.recovery=enable
 ro.shutmenu.planemode=enable
 ro.shutmenu.restart=enable
 
-ro.usb.descriptor=ainol,Novo10 Hero,3.00
-ro.usbdevice.volumelabel=Novo10 Hero
-ro.serialno=4512482adf0feeee
-
-ro.config.quickboot=1
-ro.im.keysounddefenable=true
-ro.support.gpswithwifi=1
-
-#For wifi signal level. If you don't need them, just set to 0
-ro.wifi.signal.level.1=-70
-ro.wifi.signal.level.2=-65
-ro.wifi.signal.level.3=-60
-ro.wifi.signal.level.4=-55
-
-#For certification of some apk
-ro.product.pribrand=actions   
-ro.product.primodel=owlx1
-
-ro.ota.autorecovery=enable
-ro.device.model=ainol_LG
-
 ro.com.android.dateformat=MM-dd-yyyy
 ro.config.ringtone=Orion.ogg
 ro.config.notification_sound=Adara.ogg
 ro.config.alarm_alert=Cesium.ogg
 ro.carrier=unknown
-hwui.render_dirty_regions=false
-ro.product.locale.language=en
-ro.product.locale.region=US
-dalvik.vm.dexopt-flags=v=n,o=v
-dalvik.vm.checkjni=false
-dalvik.vm.heapstartsize=8m
-dalvik.vm.heapgrowthlimit=64m
-dalvik.vm.heapsize=384m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapminfree=512k
-dalvik.vm.heapmaxfree=8m
-dalvik.vm.lockprof.threshold=500
-net.bt.name=Android
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
+
