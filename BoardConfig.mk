@@ -57,7 +57,7 @@ ENABLE_WEBGL := true
 BOARD_USE_SKIA_LCDTEXT := true
 
 TARGET_RECOVERY_INITRC := device/actions/gs702a/recovery.init.rc
-#TARGET_RECOVERY_PRE_COMMAND := "busybox dd if=/misc.img of=/dev/block/mtdblock0; sync"
+TARGET_RECOVERY_PRE_COMMAND := "echo -n boot-recovery | busybox dd of=/dev/block/acta count=1 conv=sync; sync"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
 BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
