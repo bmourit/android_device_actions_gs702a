@@ -1,0 +1,55 @@
+#import init.mt6622.rc
+on post-fs
+    # mmc
+    insmod /misc/modules/mmc_core.ko
+    insmod /misc/modules/mmc_block.ko
+    insmod /misc/modules/atv5202_mmc.ko
+    #insmod /misc/modules/atv5202_mmc.ko sd1=1 use_mt5931=1  use_mt5931_mt6622=1
+
+    #camera
+    insmod /misc/modules/camera_hi253.ko
+    insmod /misc/modules/camera_gc0308.ko
+    insmod /misc/modules/camera_drv.ko
+
+    insmod /misc/modules/atv5202_vout.ko
+    insmod /misc/modules/gl5202_tvout.ko
+    insmod /misc/modules/gl5202_hdmi.ko
+
+
+ #   insmod /misc/modules/cw2015_cap_gauge.ko
+    insmod /misc/modules/atc260x_cap_gauge.ko  
+
+
+
+    #tp
+    insmod /misc/modules/ctp_ft5x06.ko
+
+    #key
+    #insmod /misc/modules/gl5202_matrixkey.ko
+
+    
+    #gsensor
+    #insmod /misc/modules/bma250.ko
+    #insmod /misc/modules/mc3230.ko
+    insmod /misc/modules/gsensor_mc3210.ko
+    #insmod /misc/modules/ltr301.ko
+    #insmod /misc/modules/mc6420.ko
+
+    #vibrate
+    insmod /misc/modules/act_vibrate.ko
+ 
+    #bt
+#   insmod /misc/modules/bt_mtk.ko
+#   insmod /misc/modules/bt_drv.ko
+
+service cp_vendor /cp_vendor_app.sh  &
+    class main
+    oneshot
+    
+	
+on charger
+    # soft gauge
+    insmod /misc/modules/atc260x_cap_gauge.ko    
+    # start charger
+    class_start charger    
+        

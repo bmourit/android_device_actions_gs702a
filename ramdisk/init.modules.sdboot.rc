@@ -1,0 +1,31 @@
+on post-fs
+#    hwclock -s
+
+    # usb
+    #insmod /misc/modules/dwc3.ko
+    #insmod /misc/modules/dwc3-actions.ko
+    insmod /misc/modules/dummy_udc.ko
+    insmod /misc/modules/g_android.ko
+    insmod /misc/modules/acts_hcd.ko
+    insmod /misc/modules/monitor.ko
+
+    #sndrv
+    insmod /misc/modules/atc260x_audio.ko
+    insmod /misc/modules/sndrv.ko
+
+    #vde_drv
+    insmod /misc/modules/vde_drv.ko
+
+    #vce_drv
+    insmod /misc/modules/vce_drv.ko
+
+    insmod /misc/modules/galcore.ko
+    
+on charger    
+    # pmic
+    insmod /misc/modules/atc260x_onoff.ko
+    insmod /misc/modules/atc260x_power.ko      
+    
+# import board extra modules
+import init.extra_modules.rc
+
