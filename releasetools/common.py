@@ -44,7 +44,7 @@ if not hasattr(os, "SEEK_SET"):
 
 class Options(object): pass
 OPTIONS = Options()
-OPTIONS.search_path = "out/host/linux-x86"
+OPTIONS.search_path = "out/host/darwin-x86"
 OPTIONS.verbose = False
 OPTIONS.tempfiles = []
 OPTIONS.device_specific = None
