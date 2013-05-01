@@ -2,7 +2,7 @@
 	bin/applypatch 
 	bin/pfmnceserver 
 	bin/recovery 
-	bin/dosfslable 
+	bin/dosfslabel 
 	bin/bugreport 
 	bin/usbmond 
 	bin/rild 
