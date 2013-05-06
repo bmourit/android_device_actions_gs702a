@@ -1,10 +1,10 @@
 # mount point	fstype		device
 
-/mnt/sdcard		vfat		/dev/block/actj
-/system		ext4		/dev/block/actc
-/cache		ext4		/dev/block/acte
-/data		ext4		/dev/block/actd
-/boot		vfat		/dev/block/actb
-/recovery		vfat		/dev/block/acta
-/misc		emmc		/dev/block/actb
-/mnt/sd-ext		vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0
+/emmc		auto		/dev/block/actj			
+/system		ext4		/dev/block/actc			
+/cache		ext4		/dev/block/acte			
+/data		ext4		/dev/block/actd			
+/boot		vfat		/dev/block/actb			
+/recovery	vfat		/dev/block/acta			
+/misc		emmc		/dev/block/actb			
+/sdcard		vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0

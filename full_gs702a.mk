@@ -22,32 +22,49 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/charger:root/charger \
-    $(LOCAL_PATH)/ramdisk/init:root/init \
-    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-    $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
-    $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
+    $(LOCAL_PATH)/ramdisk/cp_vendor_app.sh:root/cp_vendor_app.sh \
+    $(LOCAL_PATH)/ramdisk/default.prop:root/default.prop \
     $(LOCAL_PATH)/ramdisk/fstab.gs702a:root/fstab.gs702a \
     $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \
     $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
     $(LOCAL_PATH)/ramdisk/init.extra_modules.rc:root/init.extra_modules.rc \
+    $(LOCAL_PATH)/ramdisk/init.goldfish.rc:root/init.goldfish.rc \
+    $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
+    $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.modules.rc:root/init.modules.rc \
     $(LOCAL_PATH)/ramdisk/init.modules.sdboot.rc:root/init.modules.sdboot.rc \
     $(LOCAL_PATH)/ramdisk/init.quickboot.rc:root/init.quickboot.rc \
+    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.wifi.rc:root/init.wifi.rc \
     $(LOCAL_PATH)/ramdisk/quickboot.sh:root/quickboot.sh \
+    $(LOCAL_PATH)/ramdisk/recovery.fstab:root/recovery.fstab \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
+    $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/dev,root/dev)
 
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/data,root/data)
+
+PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
 
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/proc,root/proc)
+
+PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/sys,root/sys)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/system,root/system)
 
 # init.d scripts
 PRODUCT_COPY_FILES += \
@@ -117,15 +134,16 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs
+    setup_fs    
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.timezone=USA/Los_Angeles \
+    persist.sys.language=en \
+    persist.sys.country=US \
     service.adb.root=1 \
     ro.secure=0 \
     ro.allow.mock.location=1 \
-    ro.debuggable=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
     ro.com.google.locationfeatures=1 \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
@@ -134,21 +152,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.config.softopengles=0 \
     ro.config.used_hw_vsync=0 \
-    ro.launcher.swipe=disable \
     ro.settings.config.hdmi=off \
-    ro.systemui.volumekey=disable \
+    ro.systemui.volumekey=enable \
     ro.systemui.capture=disable \
-    ro.launcher.config.cling=enable \
-    ro.launcher.hideAPP=disable \
-    ro.launcher.hideactivity=disable \
-    ro.launcher.allapp.landX=10 \
-    ro.launcher.allapp.landY=6 \
-    ro.launcher.allapp.portX=5 \
-    ro.launcher.allapp.portY=8 \
-    ro.launcher.workspace.landX=8 \
-    ro.launcher.workspace.landY=7 \
-    ro.launcher.workspace.portX=8 \
-    ro.launcher.workspace.portY=7 \
     launcher.force_enable_rotation=true \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
@@ -160,7 +166,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.descriptor=ainol,Novo10 Hero,3.00 \
     ro.usbdevice.volumelabel=Novo10 Hero \
     ro.serialno=4512482adf0feeee \
-    ro.config.quickboot=1 \
+    ro.config.quickboot=0 \
     ro.im.keysounddefenable=true \
     ro.support.gpswithwifi=1 \
     ro.wifi.signal.level.1=-70 \
@@ -173,14 +179,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.device.model=ainol_LG
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=USA/Los_Angeles \
-    persist.sys.language=en \
-    persist.sys.country=US \
-    persist.sys.use_dithering=1 \
-    persist.sys.purgeable_assets=0 \
     windowsmgr.max_events_per_sec=300 \
     view.touch_slop=2 \
-    view.minimum_fling_velocity=25
+    view.minimum_fling_velocity=25 \
+    debug.egl.hw=1 \
+    debug.sf.hw=1 \
+    debug.performance.tuning=1 \
+    debug.composition.type=gpu \
+    persist.sys.ui.hw=1
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay

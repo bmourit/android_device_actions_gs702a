@@ -21,4 +21,5 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo full_gs702a-userdebug
+add_lunch_combo full_gs702a-eng
 add_lunch_combo cm_gs702a-userdebug
