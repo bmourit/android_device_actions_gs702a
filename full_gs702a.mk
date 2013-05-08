@@ -66,13 +66,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/system,root/system)
 
-# init.d scripts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.d/01preload:system/etc/init.d/01preload \
-    $(LOCAL_PATH)/init.d/03kernel:system/etc/init.d/03kernel \
-    $(LOCAL_PATH)/init.d/04mount:system/etc/init.d/04mount \
-    $(LOCAL_PATH)/init.d/98tweaks:system/etc/init.d/98tweaks
-
 # Prebuilt configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
@@ -176,17 +169,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
     ro.ota.autorecovery=enable \
-    ro.device.model=ainol_LG
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    windowsmgr.max_events_per_sec=300 \
-    view.touch_slop=2 \
-    view.minimum_fling_velocity=25 \
+    ro.device.model=ainol_LG \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \
-    debug.composition.type=gpu \
-    persist.sys.ui.hw=1
+    debug.composition.type=gpu
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay

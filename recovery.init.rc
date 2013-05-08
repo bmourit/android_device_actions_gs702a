@@ -11,26 +11,26 @@ on early-init
     mkdir /mnt 0775 root system
 
 on init
-    export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib
+    export PATH /sbin:/system/xbin
+    export LD_LIBRARY_PATH /recovery/sbin:/sbin:/bin:/system/bin:system/xbin
     export ANDROID_ROOT /system
-    export ANDROID_ASSETS /system/app
     export ANDROID_DATA /data
-    export EXTERNAL_STORAGE /mnt/sdcard
-    export TFCARD_STORAGE /mnt/sd-ext
+    export EXTERNAL_STORAGE /sdcard
+    export TFCARD_STORAGE /sdcard
     
     symlink /system/etc /etc
 
+    mkdir /sdcard
+    mkdir /boot
+    mkdir /emmc
     mkdir /mnt
-    mkdir /mnt/sdcard
-    mkdir /mnt/sd-ext
     mkdir /system
     mkdir /data
+    mkdir /misc
     mkdir /cache 0777 system cache
     mkdir /config 0500 root root
-    mount /tmp /tmp tmpfs
+    mount tmpfs tmpfs /tmp
 
-    chown root shell /tmp
     chmod 0775 /tmp
 
 	#usb
@@ -43,10 +43,12 @@ on fs
     insmod /lib/modules/blk2drv.ko
     wait /dev/block/actc
 
-    #mount ext4 /dev/block/actc /system wait noatime nodiratime nosuid nodev noauto_da_alloc
-    mount ext4 /dev/block/actd /data wait noatime nodiratime nosuid nodev noauto_da_alloc
-    mount ext4 /dev/block/acte /cache wait noatime nodiratime nosuid nodev noauto_da_alloc
-    #mount vfat /dev/block/actb /misc wait noatime nodiratime umask=0022
+    #mount ext4 /dev/block/acte /cache 
+    #mount ext4 /dev/block/actc /system 
+    #mount ext4 /dev/block/actd /data nosuid nodev
+    mount vfat /dev/block/actb /boot
+    mount emmc /dev/block/actb /misc umask=0022
+    mount vfat /dev/block/actj /emmc nosuid nodev
     mount debugfs none /sys/kernel/debug
 
 	# end from init.gs702a.rc
@@ -143,13 +145,13 @@ on property:ro.debuggable=1
     start adbd
 #    setprop sys.usb.state adb
 	
-#on property:sys.usb.config=mass_storage,adb
-#    write /sys/class/android_usb/android0/enable 0
-#    write /sys/class/android_usb/android0/idVendor 10d6
-#    write /sys/class/android_usb/android0/idProduct 0c02
-#    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-#    write /sys/class/android_usb/android0/enable 1
-#    start adbd
+on property:sys.usb.config=mass_storage,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 0c02
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
 #    setprop sys.usb.state ${sys.usb.config}	
 
 # Restart adbd so it can run as root

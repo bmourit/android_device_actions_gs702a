@@ -6,35 +6,32 @@
 
 on early-init
     start ueventd
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
+
+    # create mountpoints
+    mkdir /mnt 0775 root system
 
 on init
-    export PATH /sbin
-    export LD_LIBRARY_PATH .:/sbin
+    export PATH /sbin:/system/xbin
+    export LD_LIBRARY_PATH /recovery/sbin:/sbin:/bin:/system/bin:system/xbin
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
+    export TFCARD_STORAGE /sdcard
     
     symlink /system/etc /etc
 
-    mkdir /boot
     mkdir /sdcard
-    mkdir /datadata
+    mkdir /boot
     mkdir /emmc
+    mkdir /mnt
     mkdir /system
     mkdir /data
-    mkdir /cache
     mkdir /misc
+    mkdir /cache 0777 system cache
     mkdir /config 0500 root root
     mount tmpfs tmpfs /tmp
-    mount vfat /dev/block/actj /emmc
 
-    write /sys/devices/virtual/bdi/179:0/read_ahead_kb 2048
-    write /sys/devices/virtual/bdi/7:0/read_ahead_kb 2048
-    write /sys/devices/virtual/bdi/93:0/read_ahead_kb 2048
+    chmod 0775 /tmp
 
 	#usb
 	write /sys/class/android_usb/android0/iSerial ${ro.serialno}
@@ -46,6 +43,12 @@ on fs
     insmod /lib/modules/blk2drv.ko
     wait /dev/block/actc
 
+    #mount ext4 /dev/block/acte /cache 
+    #mount ext4 /dev/block/actc /system 
+    #mount ext4 /dev/block/actd /data nosuid nodev
+    mount vfat /dev/block/actb /boot
+    mount emmc /dev/block/actb /misc umask=0022
+    mount vfat /dev/block/actj /emmc nosuid nodev
     mount debugfs none /sys/kernel/debug
 
 	# end from init.gs702a.rc
@@ -53,8 +56,6 @@ on fs
 	# from init.modules.rc
 on post-fs
     # pmic
-    insmod /lib/modules/ctp_ft5x06.ko
-    insmod /lib/modules/act_vibrate.ko
     insmod /lib/modules/atc260x_core.ko
     insmod /lib/modules/atc260x_dcdc.ko
     insmod /lib/modules/atc260x_ldo.ko
@@ -110,7 +111,7 @@ on post-fs
 	# end from init.extra_modules.rc
 
 on boot
-    ifup lo
+   ifup lo
     hostname localhost
     domainname localdomain
 
@@ -119,14 +120,21 @@ on boot
 service ueventd /sbin/ueventd
     critical
 
+service console /system/bin/sh
+    console
+    user root
+    
+on property:ro.debuggable=1
+    start console
+
 service recovery /sbin/recovery
+	user root
 
 service adbd /sbin/adbd recovery
     disabled
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
-    setprop adb.recovery 1
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/enable 0
@@ -135,17 +143,9 @@ on property:ro.debuggable=1
     write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    setprop service.adb.root 1
-
-# In recovery, enable ums
-    chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
-    chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
-    chown system system /sys/class/android_usb/android0/f_mass_storage/lun1/file
-    chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun1/file
-    chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
-    chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
+#    setprop sys.usb.state adb
 	
-#on property:sys.usb.config=mass_storage,adb
+on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 10d6
     write /sys/class/android_usb/android0/idProduct 0c02
