@@ -118,6 +118,9 @@ PRODUCT_PACKAGES := \
     VisualizationWallpapers 
 
 PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+PRODUCT_PACKAGES += \
     Camera
 
 PRODUCT_PACKAGES += \
@@ -188,8 +191,7 @@ PRODUCT_CHARACTERISTICS := tablet
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
-$(call inherit-product, build/target/product/full_base.mk)
+$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, vendor/cm/config/gsm.mk)
 $(call inherit-product-if-exists, vendor/actions/gs702a/gs702a-vendor.mk)
