@@ -97,15 +97,13 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Wifi stuff
 BOARD_WIFI_VENDOR := realtek
-
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
 
-BOARD_WLAN_DEVICE := rtl8192cu
+#BOARD_WLAN_DEVICE := rtl8192cu
 WIFI_DRIVER_MODULE_NAME     := wlan
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
-
 WIFI_DRIVER_MODULE_ARG := ""
 WIFI_FIRMWARE_LOADER := ""
 WIFI_DRIVER_FW_PATH_STA := ""
@@ -113,7 +111,7 @@ WIFI_DRIVER_FW_PATH_AP := ""
 WIFI_DRIVER_FW_PATH_P2P := ""
 WIFI_DRIVER_FW_PATH_PARAM := ""
 
-TARGET_CUSTOM_WIFI := ../../hardware/realtek/wlan/libhardware_legacy/wifi/wifi_realtek.c
+#TARGET_CUSTOM_WIFI := ../../hardware/realtek/wlan/libhardware_legacy/wifi/wifi_realtek.c
 
 BOARD_HAVE_BLUETOOTH := false
 

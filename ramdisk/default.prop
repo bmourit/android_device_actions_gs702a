@@ -1,7 +1,7 @@
 #
 # ADDITIONAL_DEFAULT_PROPERTIES
 #
-ro.secure=1
+ro.secure=0
 ro.debuggable=1
 persist.sys.timezone=America/Los_Angeles
 persist.sys.strictmode.disable=true

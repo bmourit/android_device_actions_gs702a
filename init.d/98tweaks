@@ -1,10 +1,4 @@
 #!/system/xbin/sh
-# imoseyon mods
-
-# file system speedups
-busybox mount -o remount,noatime,barrier=0 /system
-busybox mount -o remount,noatime /data
-busybox mount -o remount,noatime,barrier=0 /cache
 
 # drop garbage in caches
 busybox rm -f /cache/*.apk

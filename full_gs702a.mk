@@ -111,46 +111,29 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
-    
-PRODUCT_PACKAGES := \
-    HoloSpiralWallpaper \
-    LiveWallpapersPicker \
-    VisualizationWallpapers 
-
-PRODUCT_PACKAGES += \
-    libnetcmdiface
 
 PRODUCT_PACKAGES += \
     Camera
 
 PRODUCT_PACKAGES += \
-    audio.primary.default \
-    audio_policy.default
+    audio.r_submix.default \
+    gralloc.default
 
 PRODUCT_PACKAGES += \
-    librs_jni \
     com.android.future.usb.accessory
-    
+
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs    
+    setup_fs
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=USA/Los_Angeles \
-    persist.sys.language=en \
-    persist.sys.country=US \
     service.adb.root=1 \
     ro.secure=0 \
     ro.allow.mock.location=1 \
     ro.debuggable=1 \
-    ro.com.google.locationfeatures=1 \
     ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.lockprof.threshold=500 \
-    dalvik.vm.dexopt-flags=v=n,o=v \
-    ro.sf.lcd_density=160 \
-    ro.opengles.version=131072 \
-    ro.config.softopengles=0 \
-    ro.config.used_hw_vsync=0 \
+    ro.config.softopengles = 0 \
+    ro.config.used_hw_vsync = 0 \
     ro.settings.config.hdmi=off \
     ro.systemui.volumekey=enable \
     ro.systemui.capture=disable \
@@ -168,18 +151,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.quickboot=0 \
     ro.im.keysounddefenable=true \
     ro.support.gpswithwifi=1 \
-    ro.wifi.signal.level.1=-70 \
-    ro.wifi.signal.level.2=-65 \
-    ro.wifi.signal.level.3=-60 \
-    ro.wifi.signal.level.4=-55 \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
-    ro.ota.autorecovery=enable \
     ro.device.model=ainol_LG \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \
-    debug.composition.type=gpu
+    debug.composition.type=gpu \
+    ro.sf.hwrotation=270 \
+    ro.sf.hdmi_rotation=0 \
+    ro.sf.default_rotation=1 \
+    ro.camerahal.configorientation=90 \
+    ro.camerahal.prevres0=SVGA,HD \
+    ro.camerahal.imageres0=SVGA,2M \
+    ro.camerahal.prevresdft0=SVGA \
+    ro.camerahal.imageresdft0=2M \
+    ro.camerahal.fpsdft0=30 \
+    ro.camerahal.prevres1=QVGA,VGA \
+    ro.camerahal.imageres1=QVGA,VGA \
+    ro.camerahal.prevresdft1=VGA \
+    ro.camerahal.imageresdft1=VGA \
+    ro.camerahal.fpsdft1=30
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
