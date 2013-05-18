@@ -14,7 +14,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-DEVICE_PACKAGE_OVERLAYS := device/actions/gs702a/overlay
+#DEVICE_PACKAGE_OVERLAYS := device/actions/gs702a/overlay
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernel:kernel
@@ -86,13 +86,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
     $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl 
 
-
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
 
 # Prebuilt kernel modules
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
+#PRODUCT_COPY_FILES += \
+#    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -113,7 +112,7 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PACKAGES += \
-    Camera
+    librs_jni 
 
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
@@ -173,8 +172,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.camerahal.imageresdft1=VGA \
     ro.camerahal.fpsdft1=30
 
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+#DEVICE_PACKAGE_OVERLAYS += \
+#    $(LOCAL_PATH)/overlay
    
 PRODUCT_AAPT_CONFIG := large mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi

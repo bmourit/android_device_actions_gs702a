@@ -13,11 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+#
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Use the non-open-source parts, if they're present
 -include vendor/actions/gs702a/BoardConfigVendor.mk
+
+BOARD_USES_GENERIC_AUDIO := true
 
 TARGET_BOARD_PLATFORM := ATM702X
 TARGET_CPU_ABI := armeabi-v7a
@@ -76,7 +78,7 @@ TARGET_DISABLE_TRIPLE_BUFFERING := false
 ENABLE_WEBGL := true
 BOARD_USE_SKIA_LCDTEXT := true
 BOARD_USES_PROPRIETARY_OMX := true
-BOARD_USES_HWCOMPOSER := true
+BOARD_USES_HWCOMPOSER := false
 
 #Camera
 USE_CAMERA_STUB := false
@@ -96,14 +98,13 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 #BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
 
 # Wifi stuff
-BOARD_WIFI_VENDOR := realtek
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+#BOARD_WIFI_VENDOR := realtek
+#WPA_SUPPLICANT_VERSION := VER_0_8_X
+#BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 #BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
-
 #BOARD_WLAN_DEVICE := rtl8192cu
 WIFI_DRIVER_MODULE_NAME     := wlan
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_PATH     := "/misc/modules/wlan.ko"
 WIFI_DRIVER_MODULE_ARG := ""
 WIFI_FIRMWARE_LOADER := ""
 WIFI_DRIVER_FW_PATH_STA := ""
@@ -114,4 +115,3 @@ WIFI_DRIVER_FW_PATH_PARAM := ""
 #TARGET_CUSTOM_WIFI := ../../hardware/realtek/wlan/libhardware_legacy/wifi/wifi_realtek.c
 
 BOARD_HAVE_BLUETOOTH := false
-
