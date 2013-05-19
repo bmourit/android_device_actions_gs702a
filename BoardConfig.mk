@@ -88,8 +88,6 @@ BOARD_CAMERA_USE_MM_HEAP := true
 TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
-
 #Recovery
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/rec/kernel

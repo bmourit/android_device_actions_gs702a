@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2008 The Android Open Source Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,15 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-# This file is executed by build/envsetup.sh, and can use anything
-# defined in envsetup.sh.
-#
-# In particular, you can add lunch options with the add_lunch_combo
-# function: add_lunch_combo generic-eng
+LOCAL_PATH := $(call my-dir)
 
-add_lunch_combo carbon_gs702a-userdebug
-add_lunch_combo carbon_gs702a-eng
-add_lunch_combo full_gs702a-userdebug
-add_lunch_combo full_gs702a-eng
+include $(call all-makefiles-under,$(LOCAL_PATH))
+

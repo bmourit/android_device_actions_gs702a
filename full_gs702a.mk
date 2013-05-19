@@ -14,8 +14,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-#DEVICE_PACKAGE_OVERLAYS := device/actions/gs702a/overlay
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/kernel:kernel
 
@@ -112,11 +110,12 @@ PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PACKAGES += \
-    librs_jni 
+    librs_jni \
+    libalc \
+    libGAL
 
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
-    gralloc.default
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
@@ -184,5 +183,5 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, vendor/carbon/config/common_gsm.mk)
 $(call inherit-product-if-exists, vendor/actions/gs702a/gs702a-vendor.mk)
