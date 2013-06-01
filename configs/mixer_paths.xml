@@ -1,0 +1,15 @@
+<mixer>
+  <!-- These are the initial mixer settings -->
+  <ctl name="Speaker Playback Switch" value="0" />
+  <ctl name="Int Spk Switch" value="0" />
+  <ctl name="HP Playback Switch" value="0" />
+  <ctl name="Headphone Jack Switch" value="0" />
+  <ctl name="AUX Switch" value="0" />
+  <ctl name="OUT Playback Switch" value="0" />
+  <ctl name="OUT Channel Switch" value="0" />
+  
+  <path name="main-mic-top">
+    <ctl name="Int Mic Switch" value="1" />
+  </path>
+  
+</mixer>
