@@ -368,7 +368,7 @@ int wpa_driver_set_ap_wps_p2p_ie(void *priv, const struct wpabuf *beacon,
 				os_memcpy(pbuf, wpabuf_head(ap_wps_p2p_ie), wpabuf_len(ap_wps_p2p_ie));
 				ret = wpa_driver_nl80211_driver_cmd(priv, buf, buf,
 					strlen(_cmd) + 3 + wpabuf_len(ap_wps_p2p_ie));
-
+				
 				os_free(buf);				
 			} else {
 				wpa_printf(MSG_ERROR, "%s: os_zalloc fail", __func__);
