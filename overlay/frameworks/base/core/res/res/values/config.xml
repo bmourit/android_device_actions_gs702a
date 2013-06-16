@@ -27,12 +27,6 @@
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
 
-    <!-- Indicate whether the SD card is accessible without removing the battery. -->
-    <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <!-- Diable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
-
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
 	<bool name="config_automatic_brightness_available">false</bool>
@@ -78,9 +72,7 @@
     <bool name="config_showNavigationBar">true</bool>
 
     <bool name="config_enableWifiDisplay">true</bool>
-        
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
-        
+                
         <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
     

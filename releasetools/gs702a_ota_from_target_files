@@ -99,7 +99,7 @@ OPTIONS.wipe_user_data = False
 OPTIONS.omit_prereq = False
 OPTIONS.extra_script = None
 OPTIONS.aslr_mode = True
-OPTIONS.worker_threads = 3
+OPTIONS.worker_threads = 4
 OPTIONS.backuptool = False
 OPTIONS.modelidcfg = True
 OPTIONS.override_device = 'auto'
@@ -435,7 +435,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   Item.GetMetadata(input_zip)
   Item.Get("system").SetPermissions(script)
   script.SetPermissions("/system/bin/pppd", 0, 2000, 06755)
-  script.SetPermissions("/system/etc/usb_modeswitch.sh", 0, 2000, 0755)
+  script.SetPermissions("/system/xbin/usb_modeswitch", 0, 2000, 0755)
 
   common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
   common.ZipWriteStr(output_zip, "boot.img", boot_img.data)

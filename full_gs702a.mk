@@ -65,24 +65,30 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/sys,root/sys)
 
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/init.d,system/etc/init.d)
+
+PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/system,root/system)
 
 # Prebuilt configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
     $(LOCAL_PATH)/configs/gpu_config:system/etc/gpu_config \
+    $(LOCAL_PATH)/configs/game_r2:system/etc/game_r2 \
+    $(LOCAL_PATH)/configs/game_r3:system/etc/game_r3 \
+    $(LOCAL_PATH)/configs/builtinapk:system/etc/builtinapk \
     $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/platform.xml:system/etc/permissions/platform.xml \
+    $(LOCAL_PATH)/configs/features.xml:system/etc/permissions/features.xml \
+    $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    $(LOCAL_PATH)/configs/packages-compat-default.xml:system/etc/packages-compat-default.xml \
     $(LOCAL_PATH)/configs/omx_codec.xml:system/etc/omx_codec.xml \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/configs/vold.sdboot.fstab:system/etc/vold.sdboot.fstab \
     $(LOCAL_PATH)/configs/ppp/ip-up-vpn:system/etc/ppp/ip-up-vpn \
-    $(LOCAL_PATH)/configs/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
-    $(LOCAL_PATH)/configs/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
-    $(LOCAL_PATH)/configs/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
     $(LOCAL_PATH)/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
     $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
@@ -114,7 +120,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
     device/actions/gs702a/prebuilt/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     device/actions/gs702a/prebuilt/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
-    device/actions/gs702a/prebuilt/bluetooth.default.so:system/lib/hw/bluetooth.default.so \
     device/actions/gs702a/prebuilt/camera.ATM702X.so:system/lib/hw/camera.ATM702X.so \
     device/actions/gs702a/prebuilt/camera.goldfish.so:system/lib/hw/camera.goldfish.so \
     device/actions/gs702a/prebuilt/cvbs.ATM702X.so:system/lib/hw/cvbs.ATM702X.so \
@@ -138,7 +143,9 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
     device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
     device/actions/gs702a/prebuilt/libwpa_client.so:system/lib/libwpa_client.so \
-    device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/actions/gs702a/prebuilt/vdc:system/bin/vdc \
+    device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond
 
 PRODUCT_PACKAGES += \
     libalc \
@@ -176,14 +183,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.support.gpswithwifi=1 \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
-    ro.device.model=ainol_LG \
-    dalvik.vm.dexopt-data-only=1 \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \
     debug.composition.type=gpu \
-    persist.sys.ui.hw=1 \
-    opengl.vivante.texture=1 \
     ro.sf.hwrotation=270 \
     ro.sf.hdmi_rotation=0 \
     ro.sf.default_rotation=1 \
@@ -201,7 +204,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_AAPT_CONFIG := large mdpi
+PRODUCT_AAPT_CONFIG := large xlarge mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_CHARACTERISTICS := tablet
