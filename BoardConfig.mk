@@ -40,7 +40,6 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 #Lib BINDER
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 TARGET_USES_ION := true
-DISABLE_HW_ID_MATCH_CHECK := true
 
 #boot
 BOARD_KERNEL_CMDLINE := console=ttyS5,115200 earlyprintk
@@ -72,14 +71,14 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 TARGET_PREBUILT_KERNEL := device/actions/gs702a/kernel
-DEVICE_RESOLUTION := 800x1280
+DEVICE_RESOLUTION := 1280x800
 
 #Releasetools
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/actions/gs702a/releasetools/gs702a_ota_from_target_files
 
 #Graphics
 BOARD_EGL_CFG := $(LOCAL_PATH)/egl.cfg
-TARGET_BOARD_PLATFORM_GPU := VIVANTE
+#TARGET_BOARD_PLATFORM_GPU := VIVANTE
 BOARD_USES_ION := true
 USE_OPENGL_RENDERER := true
 TARGET_USES_GL_VENDOR_EXTENSIONS := true
@@ -92,7 +91,7 @@ BOARD_USES_HWCOMPOSER := true
 #Camera
 USE_CAMERA_STUB := false
 
-#TARGET_TOOLS_PREFIX := /Volumes/MacintoshHD2/CM10.1/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7/bin/arm-linux-androideabi-
+TARGET_TOOLS_PREFIX := /Volumes/MacintoshHD2/CM10.1/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7/bin/arm-linux-androideabi-
 TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
@@ -104,12 +103,12 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 #BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
 
 # Wifi stuff
-PRODUCT_WIRELESS_TOOLS := true
+#PRODUCT_WIRELESS_TOOLS := true
 WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko
 WIFI_DRIVER_MODULE_NAME := wlan
 
-WIFI_DRIVER_FW_PATH_STA := none
-WIFI_DRIVER_MODULE_ARG := "ifname=wlan0 if2name=p2p0"
+#WIFI_DRIVER_FW_PATH_STA := none
+#WIFI_DRIVER_MODULE_ARG := "ifname=wlan0 if2name=p2p0"
 
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
