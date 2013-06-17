@@ -29,7 +29,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a5
+TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_ARMV7A := true
 ARCH_ARM_HAVE_VFP := true
@@ -91,9 +91,9 @@ BOARD_USES_HWCOMPOSER := true
 #Camera
 USE_CAMERA_STUB := false
 
-TARGET_TOOLS_PREFIX := /Volumes/MacintoshHD2/CM10.1/prebuilts/gcc/darwin-x86/arm/arm-linux-androideabi-4.7/bin/arm-linux-androideabi-
-TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
+TARGET_TOOLS_PREFIX :=
+TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
 #Recovery
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
