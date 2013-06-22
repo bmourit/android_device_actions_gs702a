@@ -37,7 +37,7 @@
     <storage android:mountPoint="/mnt/sdcard"
     		 android:storageDescription="@string/storage_internal"
     		 android:primary="true"
-                 android:emulated="true"
+                 android:emulated="false"
                  android:allowMassStorage="true" 
     		 android:removable="false" 
                  android:mtpReserve="100"
@@ -45,19 +45,13 @@
 
     <storage android:mountPoint="/mnt/sd-ext"
     		 android:storageDescription="@string/storage_sd_card" 
-                 android:primary="false"
-                 android:emulated="false"
     		 android:removable="true"
                  android:allowMassStorage="true"
-                 android:mtpReserve="100"
                  android:maxFileSize="0" />
 
     <storage android:mountPoint="/mnt/uhost"
     		 android:storageDescription="@string/storage_usb"
-                 android:primary="false"
-                 android:emulated="false"
     		 android:removable="true"
-                 android:mtpReserve="100"
                  android:maxFileSize="0" />
 
 </StorageList>

@@ -52,7 +52,6 @@ TARGET_PROVIDES_INIT_RC := true
 TARGET_BOOTLOADER_BOARD_NAME := full_gs702a
 TARGET_NO_RADIOIMAGE := true
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_BLUETOOTH := true
 TARGET_HAVE_HDMI_OUT := true
 
 #Vold
@@ -91,7 +90,7 @@ BOARD_USES_HWCOMPOSER := true
 #Camera
 USE_CAMERA_STUB := false
 
-TARGET_TOOLS_PREFIX :=
+#TARGET_TOOLS_PREFIX := prebuilts/gcc/linux-x86/arm/linaro-4.8/bin/arm-linux-androideabi- 
 TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
@@ -107,8 +106,8 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko
 WIFI_DRIVER_MODULE_NAME := wlan
 
-#WIFI_DRIVER_FW_PATH_STA := none
-#WIFI_DRIVER_MODULE_ARG := "ifname=wlan0 if2name=p2p0"
+WIFI_DRIVER_FW_PATH_STA := none
+WIFI_DRIVER_MODULE_ARG := "ifname=wlan0 if2name=p2p0"
 
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -118,7 +117,7 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_rtl
 
 BOARD_WLAN_DEVICE := rtl8188eu
 
-#TARGET_CUSTOM_WIFI := device/actions/gs702a/wifi_realtek.c
+TARGET_CUSTOM_WIFI := device/actions/gs702a/wifi_realtek.c
 
 TARGET_BOOTANIMATION_PRELOAD := true
 

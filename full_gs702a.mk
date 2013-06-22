@@ -93,9 +93,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
     $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
     $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl \
-    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
-    $(LOCAL_PATH)/modules/wlan.ko:system/lib/modules/wlan.ko \
-    $(LOCAL_PATH)/modules/rtl8150.ko:system/lib/modules/rtl8150.ko \
+    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-run-hooks:system/etc/dhcpcd/dhcpcd-run-hooks \
+    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-hooks/20-dns.conf:system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf \
+    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-hooks/95-configured:system/etc/dhcpcd/dhcpcd-hooks/95-configured \
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
@@ -149,7 +151,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libalc \
-    libGAL
+    libGAL \
+    kallsymsprint
 
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
@@ -160,17 +163,14 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
-    static_busybox \
     make_ext4fs
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
+    ro.opengles.version=131072 \
+    ro.config.softopengles=0 \
+    ro.config.used_hw_vsync=0 \
     service.adb.root=1 \
-    ro.secure=0 \
-    ro.allow.mock.location=1 \
-    ro.debuggable=1 \
     ro.setupwizard.enable_bypass=1 \
-    ro.config.used_hw_vsync = 0 \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
@@ -187,6 +187,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \
     debug.composition.type=gpu \
+    persist.sys.ui.hw=1 \
+    ro.device.model=unknown \
+    hwui.render_dirty_regions=false \
+    dalvik.vm.dexopt-flags=v=n,o=v \
+    dalvik.vm.checkjni=false \
+    dalvik.vm.heapgrowthlimit=80m \
+    dalvik.vm.heapminfree=512k \
     ro.sf.hwrotation=270 \
     ro.sf.hdmi_rotation=0 \
     ro.sf.default_rotation=1 \
