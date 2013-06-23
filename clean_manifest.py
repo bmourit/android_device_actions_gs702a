@@ -58,8 +58,8 @@ Execute the function with args
                    help='The default manifest.xml.')
    parser.add_argument('-l', '--local', dest = 'local', default = None,
                    help='A local manifest seed to add the remove-projects tag')
-   parser.add_argument('-x', '--excluded', dest = 'excluded', type = str, default = "acer,asus,htc,lge,motorola,samsung",
-                   help='A list of name (brands) comma separated that we want to exclude from the main manifest.xml. default "acer,asus,htc,motorola,samsung"')
+   parser.add_argument('-x', '--excluded', dest = 'excluded', type = str, default = "acer,asus,bn,htc,lge,motorola,oppo,samsung,sony",
+                   help='A list of name (brands) comma separated that we want to exclude from the main manifest.xml. default "acer,asus,bn,htc,lge,motorola,oppo,samsung,sony"')
 
    args = parser.parse_args()
    excluded = args.excluded.split(',')
