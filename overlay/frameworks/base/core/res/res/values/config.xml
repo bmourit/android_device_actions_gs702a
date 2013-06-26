@@ -115,6 +115,7 @@
 
     <integer-array translatable="false" name="config_tether_upstream_regexs">
         <item>"wlan\\d"</item>
+    </integer-array>
     <!-- This string array should be overridden by the device to present a
          list of radio attributes. This is used by the connectivity manager
          to decide which networks can coexist based on the hardware -->

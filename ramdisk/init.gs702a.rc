@@ -44,7 +44,8 @@ on fs
 
     # mount disks	
     mount_all /fstab.gs702a
-
+    
+    mkdir /vendor/app
     mount vfat /dev/block/actg /mnt/media ro wait noatime nodiratime umask=0022 utf8
     mount vfat /dev/block/acth /vendor/app ro wait noatime nodiratime umask=0022
     symlink /vendor/app/lib /vendor/lib
@@ -54,7 +55,7 @@ on fs
 on post-fs-data
 #
     chmod 06755 /system/xbin/su
-    symlink /system/xbin/su /system/bin/su	
+    symlink /system/xbin/su /system/bin/su
     
 on boot
     chown system system /sys/class/backlight/act_pwm_backlight/brightness
@@ -98,5 +99,5 @@ service batteryservice /charger
     class charger
     oneshot
 
-on charger
+on charger    
     # NOTE: class_start is moved to init.modules.rc
