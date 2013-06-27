@@ -171,6 +171,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.used_hw_vsync=0 \
     service.adb.root=1 \
     ro.setupwizard.enable_bypass=1 \
+    persist.sys.ubs.config=mtp \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \

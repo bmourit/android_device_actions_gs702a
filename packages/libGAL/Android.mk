@@ -12,10 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(PREBUILT_VIV_GPU),true)
 LOCAL_PATH := $(call my-dir) 
 
 include $(CLEAR_VARS) 
-LOCAL_MODULE := libGAL 
-LOCAL_SRC_FILES := libGAL.so 
-include $(PREBUILT_SHARED_LIBRARY)
+LOCAL_SRC_FILES := libGAL.so
+LOCAL_MODULE := libGAL
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib/
+include $(BUILD_PREBUILT)
 
