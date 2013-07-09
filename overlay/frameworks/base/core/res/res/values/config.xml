@@ -21,11 +21,6 @@
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     
-    <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.location</string>
-    <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName" translatable="false">com.google.android.location</string>
-
     <!-- If true, the screen can be rotated via the accelerometer in all 4
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
@@ -112,23 +107,19 @@
     
     <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>"wlan0"</item>
+        <item>"p2p0"</item>
     </string-array>
 
     <integer-array translatable="false" name="config_tether_upstream_types">
         <item>1</item>
+        <item>13</item>
         <!-- <item>4</item> -->
-    </integer-array>
-
-    <integer-array translatable="false" name="config_tether_upstream_regexs">
-        <item>"wlan\\d"</item>
     </integer-array>
     <!-- This string array should be overridden by the device to present a
          list of radio attributes. This is used by the connectivity manager
          to decide which networks can coexist based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
          [# simultaneous connection types]" -->
-
-    <bool name="config_gsensorCalibrationAppLinks">false</bool>
 
         <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->

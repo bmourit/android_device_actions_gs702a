@@ -15,9 +15,6 @@
 LOCAL_PATH := $(call my-dir) 
 
 include $(CLEAR_VARS) 
-LOCAL_SRC_FILES := libalc.so
-LOCAL_MODULE := libalc
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_PATH := $(TARGET_OUT)/lib/
-include $(BUILD_PREBUILT)
+LOCAL_MODULE := libalc 
+LOCAL_SRC_FILES := libalc.so 
+include $(PREBUILT_SHARED_LIBRARY)

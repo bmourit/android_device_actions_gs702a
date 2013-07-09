@@ -110,7 +110,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
@@ -172,12 +171,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.root=1 \
     ro.setupwizard.enable_bypass=1 \
     persist.sys.ubs.config=mtp \
+    debug.sf.no_hw_vsync=1 \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
     ro.product.ptpdevice.PID=4e43 \
-    ro.usb.descriptor=ainol,Novo10 Hero,3.00 \
-    ro.usbdevice.volumelabel=Novo10 Hero \
+    ro.usb.descriptor=ainol,Novo10/ Hero,3.00 \
+    ro.usbdevice.volumelabel=Novo10/ Hero \
     ro.serialno=4512482adf0feeee \
     ro.config.quickboot=0 \
     ro.im.keysounddefenable=true \
