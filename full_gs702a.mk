@@ -143,7 +143,7 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/vold:system/bin/vold \
     device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
     device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
-    device/actions/gs702a/prebuilt/libwpa_client.so:system/lib/libwpa_client.so \
+    device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/actions/gs702a/prebuilt/vdc:system/bin/vdc \
     device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond
@@ -176,14 +176,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
     ro.product.ptpdevice.PID=4e43 \
-    ro.usb.descriptor=ainol,Novo10/ Hero,3.00 \
-    ro.usbdevice.volumelabel=Novo10/ Hero \
+    ro.usb.descriptor=ainol,Novo10,Hero,3.00 \
+    ro.usbdevice.volumelabel=Novo10,Hero \
     ro.serialno=4512482adf0feeee \
     ro.config.quickboot=0 \
     ro.im.keysounddefenable=true \
     ro.support.gpswithwifi=1 \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
+    ro.recovery.wipe=false \
+    ro.ota.autorecovery=enable \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \

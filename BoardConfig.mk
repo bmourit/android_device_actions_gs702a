@@ -59,8 +59,6 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 50331648
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 50331648
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 536870912
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
-BOARD_CACHEIMAGE_PARTITION_SIZE := 67108864
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -105,8 +103,8 @@ TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/rec/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
-#BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
-#BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
+BOARD_UMS_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun0/file"
+BOARD_UMS_2ND_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun1/file"
 
 # Wifi stuff
 WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko
