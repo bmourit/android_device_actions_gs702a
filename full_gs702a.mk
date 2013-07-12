@@ -26,7 +26,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \
     $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
     $(LOCAL_PATH)/ramdisk/init.extra_modules.rc:root/init.extra_modules.rc \
-    $(LOCAL_PATH)/ramdisk/init.goldfish.rc:root/init.goldfish.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
@@ -122,10 +121,8 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     device/actions/gs702a/prebuilt/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
     device/actions/gs702a/prebuilt/camera.ATM702X.so:system/lib/hw/camera.ATM702X.so \
-    device/actions/gs702a/prebuilt/camera.goldfish.so:system/lib/hw/camera.goldfish.so \
     device/actions/gs702a/prebuilt/cvbs.ATM702X.so:system/lib/hw/cvbs.ATM702X.so \
     device/actions/gs702a/prebuilt/displayengine.ATM702X.so:system/lib/hw/displayengine.ATM702X.so \
-    device/actions/gs702a/prebuilt/gps.goldfish.so:system/lib/hw/gps.goldfish.so \
     device/actions/gs702a/prebuilt/gpuhwcomposer.ATM702X.so:system/lib/hw/gpuhwcomposer.ATM702X.so \
     device/actions/gs702a/prebuilt/gralloc.ATM702X.so:system/lib/hw/gralloc.ATM702X.so \
     device/actions/gs702a/prebuilt/gralloc.default.so:system/lib/hw/gralloc.default.so \
@@ -133,11 +130,9 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/hwcomposer.ATM702X.so:system/lib/hw/hwcomposer.ATM702X.so \
     device/actions/gs702a/prebuilt/keystore.default.so:system/lib/hw/keystore.default.so \
     device/actions/gs702a/prebuilt/lights.ATM702X.so:system/lib/hw/lights.ATM702X.so \
-    device/actions/gs702a/prebuilt/lights.goldfish.so:system/lib/hw/lights.goldfish.so \
     device/actions/gs702a/prebuilt/local_time.default.so:system/lib/hw/local_time.default.so \
     device/actions/gs702a/prebuilt/power.default.so:system/lib/hw/power.default.so \
     device/actions/gs702a/prebuilt/sensors.ATM702X.so:system/lib/hw/sensors.ATM702X.so \
-    device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
     device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
     device/actions/gs702a/prebuilt/netd:system/bin/netd \
     device/actions/gs702a/prebuilt/vold:system/bin/vold \
