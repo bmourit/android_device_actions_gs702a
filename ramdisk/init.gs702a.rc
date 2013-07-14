@@ -83,6 +83,9 @@ on boot
     write /data/data/ant_status on
     chmod 0666 /data/data/ant_status
 
+#cancel wipe-data after abnormal shuoff
+    setprop persist.sys.shutok init
+
 on init
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/actions.jar
 

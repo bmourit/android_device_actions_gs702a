@@ -103,8 +103,8 @@ TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/rec/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_UMS_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun0/file"
-BOARD_UMS_2ND_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun1/file"
+#BOARD_UMS_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun0/file"
+#BOARD_UMS_2ND_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun1/file"
 
 # Wifi stuff
 WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko

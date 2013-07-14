@@ -109,6 +109,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
@@ -121,8 +122,10 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     device/actions/gs702a/prebuilt/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
     device/actions/gs702a/prebuilt/camera.ATM702X.so:system/lib/hw/camera.ATM702X.so \
+    device/actions/gs702a/prebuilt/camera.goldfish.so:system/lib/hw/camera.goldfish.so \
     device/actions/gs702a/prebuilt/cvbs.ATM702X.so:system/lib/hw/cvbs.ATM702X.so \
     device/actions/gs702a/prebuilt/displayengine.ATM702X.so:system/lib/hw/displayengine.ATM702X.so \
+    device/actions/gs702a/prebuilt/gps.goldfish.so:system/lib/hw/gps.goldfish.so \
     device/actions/gs702a/prebuilt/gpuhwcomposer.ATM702X.so:system/lib/hw/gpuhwcomposer.ATM702X.so \
     device/actions/gs702a/prebuilt/gralloc.ATM702X.so:system/lib/hw/gralloc.ATM702X.so \
     device/actions/gs702a/prebuilt/gralloc.default.so:system/lib/hw/gralloc.default.so \
@@ -130,18 +133,25 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/hwcomposer.ATM702X.so:system/lib/hw/hwcomposer.ATM702X.so \
     device/actions/gs702a/prebuilt/keystore.default.so:system/lib/hw/keystore.default.so \
     device/actions/gs702a/prebuilt/lights.ATM702X.so:system/lib/hw/lights.ATM702X.so \
+    device/actions/gs702a/prebuilt/lights.goldfish.so:system/lib/hw/lights.goldfish.so \
     device/actions/gs702a/prebuilt/local_time.default.so:system/lib/hw/local_time.default.so \
     device/actions/gs702a/prebuilt/power.default.so:system/lib/hw/power.default.so \
     device/actions/gs702a/prebuilt/sensors.ATM702X.so:system/lib/hw/sensors.ATM702X.so \
+    device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
     device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
     device/actions/gs702a/prebuilt/netd:system/bin/netd \
     device/actions/gs702a/prebuilt/vold:system/bin/vold \
     device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
     device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
+    device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/actions/gs702a/prebuilt/vdc:system/bin/vdc \
-    device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond
+    device/actions/gs702a/prebuilt/updater:system/bin/updater \
+    device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
+    device/actions/gs702a/prebuilt/qemu-props:system/bin/qemu-props \
+    device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond \
+    device/actions/gs702a/prebuilt/opcontrol:system/xbin/opcontrol
 
 PRODUCT_PACKAGES += \
     libalc \
@@ -179,8 +189,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.support.gpswithwifi=1 \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
-    ro.recovery.wipe=false \
-    ro.ota.autorecovery=enable \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     debug.performance.tuning=1 \
