@@ -153,6 +153,43 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond \
     device/actions/gs702a/prebuilt/opcontrol:system/xbin/opcontrol
 
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/actions/gs702a/prebuilt/lib,system/lib)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/actions/gs702a/prebuilt/egl,system/lib/egl)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/actions/gs702a/prebuilt/plugins,system/lib/plugins)
+
+PRODUCT_COPY_FILES += \
+  device/actions/gs702a/prebuilt/bin/dosfslabel:system/bin/dosfslabel \
+  device/actions/gs702a/prebuilt/bin/hostapd:system/bin/hostapd \
+  device/actions/gs702a/prebuilt/bin/hostapd_cli:system/bin/hostapd_cli \
+  device/actions/gs702a/prebuilt/bin/pfmnceserver:system/bin/pfmnceserver \
+  device/actions/gs702a/prebuilt/bin/stagefright:system/bin/stagefright \
+  device/actions/gs702a/prebuilt/bin/rild:system/bin/rild \
+  device/actions/gs702a/prebuilt/xbin/e2fsck:system/xbin/e2fsck \
+  device/actions/gs702a/prebuilt/xbin/iostat:system/xbin/iostat \
+  device/actions/gs702a/prebuilt/xbin/mke2fs:system/xbin/mke2fs \
+  device/actions/gs702a/prebuilt/xbin/netperf:system/xbin/netperf \
+  device/actions/gs702a/prebuilt/xbin/netserver:system/xbin/netserver \
+  device/actions/gs702a/prebuilt/xbin/tcpdump:system/xbin/tcpdump \
+  device/actions/gs702a/prebuilt/xbin/usb_modeswitch:system/xbin/usb_modeswitch \
+  device/actions/gs702a/prebuilt/app/ActSensorCalib.apk:system/app/ActSensorCalib.apk \
+  device/actions/gs702a/prebuilt/app/AdobeFlashPlayer.apk:system/app/AdobeFlashPlayer.apk \
+  device/actions/gs702a/prebuilt/app/DLNA.apk:system/app/DLNA.apk \
+  device/actions/gs702a/prebuilt/framework/actions.jar:system/framework/actions.jar \
+  device/actions/gs702a/prebuilt/lib/libalc.so:obj/lib/libalc.so \
+  device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so \
+
+# HACK: Creat some intermediate files to link with
+    $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libalc_intermediates) \
+    $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libGAL_intermediates) \
+    $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libsync_intermediates) \
+    $(shell touch out/target/product/gs702a/obj/SHARED_LIBRARIES/libalc_intermediates/export_includes) \
+    $(shell touch out/target/product/gs702a/obj/SHARED_LIBRARIES/libGAL_intermediates/export_includes)
+
 PRODUCT_PACKAGES += \
     libalc \
     libGAL \
@@ -176,7 +213,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.root=1 \
     ro.setupwizard.enable_bypass=1 \
     persist.sys.ubs.config=mtp \
-    debug.sf.no_hw_vsync=1 \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
@@ -226,4 +262,3 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product-if-exists, vendor/actions/gs702a/gs702a-vendor.mk)
