@@ -30,10 +30,12 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_ARMV7A := true
 ARCH_ARM_HAVE_VFP := true
+ARCH_ARM_HAVE_VFP_D32 := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_THUMB_SUPPORT := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
@@ -53,6 +55,8 @@ TARGET_HAVE_HDMI_OUT := true
 #Vold
 BOARD_VOLD_MAX_PARTITIONS := 20
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun%d/file"
+TARGET_USE_CUSTOM_SECOND_LUN_NUM := 1
 
 #Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 50331648
@@ -103,12 +107,12 @@ TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/rec/kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
-#BOARD_UMS_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun0/file"
+BOARD_UMS_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun0/file"
 #BOARD_UMS_2ND_LUNFILE := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun1/file"
 
 # Wifi stuff
-WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko
 WIFI_DRIVER_MODULE_NAME := wlan
+WIFI_DRIVER_MODULE_PATH := /misc/modules/wlan.ko
 
 WIFI_DRIVER_FW_PATH_STA := none
 WIFI_DRIVER_MODULE_ARG := "ifname=wlan0 if2name=p2p0"
