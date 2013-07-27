@@ -150,7 +150,7 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
     device/actions/gs702a/prebuilt/qemu-props:system/bin/qemu-props \
-    device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond \
+    device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond 
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/actions/gs702a/prebuilt/lib,system/lib)
@@ -169,13 +169,19 @@ PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/bin/stagefright:system/bin/stagefright \
   device/actions/gs702a/prebuilt/bin/rild:system/bin/rild \
   device/actions/gs702a/prebuilt/xbin/iostat:system/xbin/iostat \
+  device/actions/gs702a/prebuilt/xbin/tcpdump:system/xbin/tcpdump \
+  device/actions/gs702a/prebuilt/xbin/netserver:system/xbin/netserver \
+  device/actions/gs702a/prebuilt/xbin/netperf:system/xbin/netperf \
+  device/actions/gs702a/prebuilt/xbin/mke2fs:system/xbin/mke2fs \
+  device/actions/gs702a/prebuilt/xbin/e2fsck:system/xbin/e2fsck \
+  device/actions/gs702a/prebuilt/xbin/oprofile:system/xbin/oprofile \
   device/actions/gs702a/prebuilt/xbin/usb_modeswitch:system/xbin/usb_modeswitch \
   device/actions/gs702a/prebuilt/app/ActSensorCalib.apk:system/app/ActSensorCalib.apk \
   device/actions/gs702a/prebuilt/app/AdobeFlashPlayer.apk:system/app/AdobeFlashPlayer.apk \
   device/actions/gs702a/prebuilt/app/DLNA.apk:system/app/DLNA.apk \
   device/actions/gs702a/prebuilt/framework/actions.jar:system/framework/actions.jar \
   device/actions/gs702a/prebuilt/lib/libalc.so:obj/lib/libalc.so \
-  device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so \
+  device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so
 
 # HACK: Creat some intermediate files to link with
     $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libalc_intermediates) \
@@ -198,14 +204,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
-    btt \
-    e2fsck \
-    make_ext4fs \
-    mke2fs \
-    netperf \
-    netserver \
-    oprofile \
-    tcpdump 
+    make_ext4fs
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
@@ -213,7 +212,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.used_hw_vsync=0 \
     service.adb.root=1 \
     ro.setupwizard.enable_bypass=1 \
-    persist.sys.ubs.config=mtp \
+    persist.sys.usb.config=mtp \
     ro.product.usbdevice.VID=10d6 \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
