@@ -140,6 +140,7 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
     device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
     device/actions/gs702a/prebuilt/netd:system/bin/netd \
+    device/actions/gs702a/prebuilt/opcontrol:system/bin/opcontrol \
     device/actions/gs702a/prebuilt/vold:system/bin/vold \
     device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
     device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
@@ -174,7 +175,6 @@ PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/xbin/netperf:system/xbin/netperf \
   device/actions/gs702a/prebuilt/xbin/mke2fs:system/xbin/mke2fs \
   device/actions/gs702a/prebuilt/xbin/e2fsck:system/xbin/e2fsck \
-  device/actions/gs702a/prebuilt/xbin/oprofile:system/xbin/oprofile \
   device/actions/gs702a/prebuilt/xbin/usb_modeswitch:system/xbin/usb_modeswitch \
   device/actions/gs702a/prebuilt/app/ActSensorCalib.apk:system/app/ActSensorCalib.apk \
   device/actions/gs702a/prebuilt/app/AdobeFlashPlayer.apk:system/app/AdobeFlashPlayer.apk \
