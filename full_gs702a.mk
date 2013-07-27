@@ -150,6 +150,7 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/vdc:system/bin/vdc \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
+    device/actions/gs702a/prebuilt/dbus-daemon:system/bin/dbus-daemon \
     device/actions/gs702a/prebuilt/qemu-props:system/bin/qemu-props \
     device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond 
 
