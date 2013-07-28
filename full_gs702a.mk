@@ -85,8 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     $(LOCAL_PATH)/configs/packages-compat-default.xml:system/etc/packages-compat-default.xml \
     $(LOCAL_PATH)/configs/omx_codec.xml:system/etc/omx_codec.xml \
-    $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
-    $(LOCAL_PATH)/configs/vold.sdboot.fstab:system/etc/vold.sdboot.fstab \
     $(LOCAL_PATH)/configs/ppp/ip-up-vpn:system/etc/ppp/ip-up-vpn \
     $(LOCAL_PATH)/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
@@ -140,14 +138,12 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
     device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
     device/actions/gs702a/prebuilt/netd:system/bin/netd \
-    device/actions/gs702a/prebuilt/opcontrol:system/bin/opcontrol \
-    device/actions/gs702a/prebuilt/vold:system/bin/vold \
+    device/actions/gs702a/prebuilt/udptest:system/bin/udptest \
     device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
     device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/actions/gs702a/prebuilt/vdc:system/bin/vdc \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
     device/actions/gs702a/prebuilt/dbus-daemon:system/bin/dbus-daemon \
@@ -198,7 +194,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
-    libaudioutils
+    libaudioutils \
+    libnetcmdiface
 
 PRODUCT_PACKAGES += \
     librs_jni \
