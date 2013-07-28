@@ -178,7 +178,8 @@ PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/app/DLNA.apk:system/app/DLNA.apk \
   device/actions/gs702a/prebuilt/framework/actions.jar:system/framework/actions.jar \
   device/actions/gs702a/prebuilt/lib/libalc.so:obj/lib/libalc.so \
-  device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so
+  device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so \
+  device/actions/gs702a/prebuilt/init.superuser.rc:root/init.superuser.rc
 
 # HACK: Creat some intermediate files to link with
     $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libalc_intermediates) \
