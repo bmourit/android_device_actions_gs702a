@@ -4,9 +4,12 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 /dev/block/actc	/system	ext4      ro,noatime	wait
-/dev/block/actd	/data	ext4      noatime,nosuid,nodev	wait,check
-/dev/block/acte	/cache	ext4      noatime,nosuid,nodev	wait,check
+/dev/block/actd	/data	ext4      noatime,nosuid,nodev	wait
+/dev/block/acte	/cache	ext4      noatime,nosuid,nodev	wait
 
-/devices/virtual/block/actj							/mnt/sdcard	auto      defaults		voldmanaged=flash:auto
-/devices/platform/asoc-mmc0.0/mmc_host/mmc0  		/mnt/sd-ext	auto      defaults		voldmanaged=sdcard:auto
-/devices/platform/actions-dwc3.1/dwc3.0/xhci-hcd 	/mnt/uhost	auto      defaults  	voldmanaged=uhost:auto
+# SD card
+/devices/virtual/block/actj							/storage/sdcard0	auto      defaults		voldmanaged=sdcard0:auto
+/devices/platform/asoc-mmc0.0/mmc_host/mmc0  		/storage/sdcard1	auto      defaults		voldmanaged=sdcard1:auto
+
+# USB storage
+/devices/platform/actions-dwc3.1/dwc3.0/xhci-hcd 	/storage/usbdisk	auto      defaults  	voldmanaged=usbdisk:auto

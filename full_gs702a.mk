@@ -129,7 +129,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/gralloc.default.so:system/lib/hw/gralloc.default.so \
     device/actions/gs702a/prebuilt/hdmi.ATM702X.so:system/lib/hw/hdmi.ATM702X.so \
     device/actions/gs702a/prebuilt/hwcomposer.ATM702X.so:system/lib/hw/hwcomposer.ATM702X.so \
-    device/actions/gs702a/prebuilt/keystore.default.so:system/lib/hw/keystore.default.so \
     device/actions/gs702a/prebuilt/lights.ATM702X.so:system/lib/hw/lights.ATM702X.so \
     device/actions/gs702a/prebuilt/lights.goldfish.so:system/lib/hw/lights.goldfish.so \
     device/actions/gs702a/prebuilt/local_time.default.so:system/lib/hw/local_time.default.so \
@@ -179,7 +178,6 @@ PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/framework/actions.jar:system/framework/actions.jar \
   device/actions/gs702a/prebuilt/lib/libalc.so:obj/lib/libalc.so \
   device/actions/gs702a/prebuilt/lib/libGAL.so:obj/lib/libGAL.so \
-  device/actions/gs702a/prebuilt/init.superuser.rc:root/init.superuser.rc
 
 # HACK: Creat some intermediate files to link with
     $(shell mkdir -p out/target/product/gs702a/obj/SHARED_LIBRARIES/libalc_intermediates) \
@@ -191,12 +189,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libalc \
     libGAL \
+    init.superuser.rc \
     kallsymsprint
 
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
-    libaudioutils \
-    libnetcmdiface
+    libaudioutils
 
 PRODUCT_PACKAGES += \
     librs_jni \

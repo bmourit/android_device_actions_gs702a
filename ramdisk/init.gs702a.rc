@@ -14,18 +14,33 @@ on early-init
     # use legacy virtual memory layout for compatibility
     write /proc/sys/vm/legacy_va_layout 1
 
-    export EXTERNAL_STORAGE /mnt/sdcard
-    export ASEC_STORAGE /mnt/sdcard
-    export FLASH_STORAGE /mnt/sdcard
-    export TFCARD_STORAGE /mnt/sd-ext
-    export UHOST_STORAGE /mnt/uhost
-    export MEDIA_STORAGE /mnt/media
-    mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/sd-ext 0000 system system
-    mkdir /mnt/uhost 0000 system system
-    mkdir /mnt/media 0755 system system
+    mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0000 system system
+    mkdir /storage/usbdisk 0000 system system
+
     # for backwards compatibility
-    symlink /mnt/sdcard /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard1 /sd-ext
+    symlink /storage/sdcard1 /mnt/sd-ext
+    symlink /storage/usbdisk /udisk
+    symlink /storage/usbdisk /mnt/udisk
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
+
+    #export ASEC_STORAGE /mnt/sdcard
+    #export FLASH_STORAGE /mnt/sdcard
+    #export TFCARD_STORAGE /mnt/sd-ext
+    #export UHOST_STORAGE /mnt/uhost
+    #export MEDIA_STORAGE /mnt/media
+
+    mkdir /mnt/media 0755 system system
+
+    ro.product.usbdevice.VID=10d6
+    ro.product.usbdevice.PID=fffe
+    ro.product.mtpdevice.PID=4e41
+    ro.product.ptpdevice.PID=4e43
 
     # insmod flash driver
     insmod /lib/modules/blk1drv.ko
