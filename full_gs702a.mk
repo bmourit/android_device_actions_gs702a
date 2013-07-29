@@ -138,8 +138,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
     device/actions/gs702a/prebuilt/netd:system/bin/netd \
     device/actions/gs702a/prebuilt/udptest:system/bin/udptest \
-    device/actions/gs702a/prebuilt/wpa_supplicant:system/bin/wpa_supplicant \
-    device/actions/gs702a/prebuilt/wpa_cli:system/bin/wpa_cli \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
