@@ -4,7 +4,7 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 /dev/block/actc	/system	ext4      ro,noatime	wait
-/dev/block/actd	/data	ext4      noatime,nosuid,nodev	wait
+/dev/block/actd	/data	ext4      noatime,nosuid,nodev,encryptable=footer	wait
 /dev/block/acte	/cache	ext4      noatime,nosuid,nodev	wait
 
 # SD card
