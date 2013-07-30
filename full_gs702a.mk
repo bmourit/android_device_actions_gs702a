@@ -135,8 +135,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/power.default.so:system/lib/hw/power.default.so \
     device/actions/gs702a/prebuilt/sensors.ATM702X.so:system/lib/hw/sensors.ATM702X.so \
     device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
-    device/actions/gs702a/prebuilt/netcfg:system/bin/netcfg \
-    device/actions/gs702a/prebuilt/netd:system/bin/netd \
     device/actions/gs702a/prebuilt/udptest:system/bin/udptest \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
@@ -158,8 +156,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/bin/dosfslabel:system/bin/dosfslabel \
-  device/actions/gs702a/prebuilt/bin/hostapd:system/bin/hostapd \
-  device/actions/gs702a/prebuilt/bin/hostapd_cli:system/bin/hostapd_cli \
   device/actions/gs702a/prebuilt/bin/pfmnceserver:system/bin/pfmnceserver \
   device/actions/gs702a/prebuilt/bin/stagefright:system/bin/stagefright \
   device/actions/gs702a/prebuilt/bin/rild:system/bin/rild \
