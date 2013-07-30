@@ -161,8 +161,6 @@ PRODUCT_COPY_FILES += \
   device/actions/gs702a/prebuilt/bin/rild:system/bin/rild \
   device/actions/gs702a/prebuilt/xbin/iostat:system/xbin/iostat \
   device/actions/gs702a/prebuilt/xbin/tcpdump:system/xbin/tcpdump \
-  device/actions/gs702a/prebuilt/xbin/netserver:system/xbin/netserver \
-  device/actions/gs702a/prebuilt/xbin/netperf:system/xbin/netperf \
   device/actions/gs702a/prebuilt/xbin/mke2fs:system/xbin/mke2fs \
   device/actions/gs702a/prebuilt/xbin/e2fsck:system/xbin/e2fsck \
   device/actions/gs702a/prebuilt/xbin/usb_modeswitch:system/xbin/usb_modeswitch \
