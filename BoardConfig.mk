@@ -132,3 +132,11 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 BOARD_HAVE_BLUETOOTH := false
+
+BOARD_SEPOLICY_DIR := \
+	<root>/device/actions/gs702a/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+	genfs_contexts \
+	file_contexts \
+	sepolicy.te

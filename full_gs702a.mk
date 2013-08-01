@@ -90,11 +90,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
     $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
     $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl \
-    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-run-hooks:system/etc/dhcpcd/dhcpcd-run-hooks \
-    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-hooks/20-dns.conf:system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf \
-    $(LOCAL_PATH)/configs/dhcpcd/dhcpcd-hooks/95-configured:system/etc/dhcpcd/dhcpcd-hooks/95-configured \
-    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
@@ -141,7 +136,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
-    device/actions/gs702a/prebuilt/dbus-daemon:system/bin/dbus-daemon \
     device/actions/gs702a/prebuilt/qemu-props:system/bin/qemu-props \
     device/actions/gs702a/prebuilt/usbmond:system/bin/usbmond 
 
