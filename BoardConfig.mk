@@ -126,7 +126,7 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_rtl
 BOARD_WLAN_VENDOR := REALTEK
 BOARD_WLAN_DEVICE := rtl8188eu
 
-#TARGET_CUSTOM_WIFI := device/actions/gs702a/wifi_realtek.c
+TARGET_CUSTOM_WIFI := device/actions/gs702a/wifi/wifi_realtek.c
 
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
