@@ -11,9 +11,6 @@
 /dev/gps                  0666   root       root
 /dev/bthwctl              0666   root       root
 /dev/graphics/*           0666   root       graphics
-/dev/graphics/galcore	  0660	 system	    graphics
-/dev/graphics/fb0	  0660	 system	    graphics
-
 /dev/ttyUSB*							0666   radio			radio
 /dev/ttyUSB0							0666   radio			radio
 /dev/ttyUSB1							0666   radio			radio

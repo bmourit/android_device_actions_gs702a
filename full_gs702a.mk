@@ -85,7 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     $(LOCAL_PATH)/configs/packages-compat-default.xml:system/etc/packages-compat-default.xml \
     $(LOCAL_PATH)/configs/omx_codec.xml:system/etc/omx_codec.xml \
-    $(LOCAL_PATH)/configs/ppp/ip-up-vpn:system/etc/ppp/ip-up-vpn \
     $(LOCAL_PATH)/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
     $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \

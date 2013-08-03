@@ -4,6 +4,18 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 /dev/block/mmcblk0p5	/system	ext4      ro,noatime,nodiratime,nodev,noauto_da_alloc	wait
-/dev/block/mmcblk0p6	/data	ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc	check
-/dev/block/mmcblk0p7	/cache	ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc	check
+/dev/block/mmcblk0p6	/data	ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc	wait
+/dev/block/mmcblk0p7	/cache	ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc	wait,encryptable=footer
 
+/dev/block/mmcblk0p4	/boot	vfat	defaults	defaults
+/dev/block/mmcblk0p3 /recovery	vfat	defaults	defaults
+/dev/block/mmcblk0p4 /misc	emmc	defaults	defaults
+/dev/block/mmcblk0p8	/data_bak	vfat	defaults	defaults
+
+# Vold managed volumes
+# SD card
+/devices/virtual/block/actj							/storage/sdcard0	auto      defaults		voldmanaged=sdcard0:auto
+/devices/platform/asoc-mmc0.0/mmc_host/mmc0  		/storage/sdcard1	auto      defaults		voldmanaged=sdcard1:auto
+
+# USB storage
+/devices/platform/actions-dwc3.1/dwc3.0/xhci-hcd 	/storage/usbdisk	auto      defaults  	voldmanaged=usbdisk:auto

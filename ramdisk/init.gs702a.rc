@@ -1,9 +1,3 @@
-import init.modules.rc
-import init.gs702a.usb.rc
-import init.wifi.rc
-import init.mt6620.rc
-import init.eth0.rc
-
 on early-init
     # fixme: disable hotplug by now
     write /sys/devices/system/cpu/autoplug/lock 1
@@ -14,9 +8,12 @@ on early-init
     # use legacy virtual memory layout for compatibility
     write /proc/sys/vm/legacy_va_layout 1
 
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0000 system system
     mkdir /storage/usbdisk 0000 system system
+    mkdir /mnt/media 0755 system system
 
     # for backwards compatibility
     symlink /storage/sdcard0 /mnt/sdcard
@@ -25,22 +22,11 @@ on early-init
     symlink /storage/sdcard1 /mnt/sd-ext
     symlink /storage/usbdisk /udisk
     symlink /storage/usbdisk /mnt/udisk
-
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1
-
     #export ASEC_STORAGE /mnt/sdcard
     #export FLASH_STORAGE /mnt/sdcard
     #export TFCARD_STORAGE /mnt/sd-ext
     #export UHOST_STORAGE /mnt/uhost
-    #export MEDIA_STORAGE /mnt/media
-
-    mkdir /mnt/media 0755 system system
-
-    ro.product.usbdevice.VID=10d6
-    ro.product.usbdevice.PID=fffe
-    ro.product.mtpdevice.PID=4e41
-    ro.product.ptpdevice.PID=4e43
+    export MEDIA_STORAGE /mnt/media
 
     # insmod flash driver
     insmod /lib/modules/blk1drv.ko
@@ -55,21 +41,35 @@ on early-init
     insmod /misc/modules/atv5202_lcd.ko
     insmod /misc/modules/atv5202_fb.ko
 
-on fs
+    ro.product.usbdevice.VID=10d6
+    ro.product.usbdevice.PID=fffe
+    ro.product.mtpdevice.PID=4e41
+    ro.product.ptpdevice.PID=4e43
 
+on fs
     # mount disks	
     mount_all /fstab.gs702a
 
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
     mount vfat /dev/block/actg /mnt/media ro wait noatime nodiratime umask=0022 utf8
     mount vfat /dev/block/acth /vendor/app ro wait noatime nodiratime umask=0022
+    mount vfat /dev/block/actf /data_bak rw wait nosuid 
     symlink /vendor/app/lib /vendor/lib
     
     mount debugfs none /sys/kernel/debug
+
+on fs_selinux
+    mount_all fstab.gs702a
+    # SEPolicy Reload check should be done after mount data partition
+    setprop selinux.reload_policy 1
 
 on post-fs-data
 #
     chmod 06755 /system/xbin/su
     symlink /system/xbin/su /system/bin/su
+    mkdir /data/tombstones 0711 system system
     
 on boot
     chown system system /sys/class/backlight/act_pwm_backlight/brightness
@@ -97,7 +97,7 @@ on boot
     write /data/data/ant_status on
     chmod 0666 /data/data/ant_status
 
-    #cancel wipe-data after abnormal shuoff
+    #cancel wipe-data after abnormal shutoff
 	setprop persist.sys.shutok init
 
 on init
@@ -116,5 +116,5 @@ service batteryservice /charger
     class charger
     oneshot
 
-on charger    
+on charger
     # NOTE: class_start is moved to init.modules.rc
