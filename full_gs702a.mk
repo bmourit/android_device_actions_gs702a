@@ -37,7 +37,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.wifi.rc:root/init.wifi.rc \
     $(LOCAL_PATH)/ramdisk/quickboot.sh:root/quickboot.sh \
-    $(LOCAL_PATH)/ramdisk/recovery.fstab:root/recovery.fstab \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh
@@ -52,22 +51,25 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/proc,root/proc)
+    $(shell mkdir -p out/target/product/gs702a/root/proc)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/cache,root/cache)
+    $(shell mkdir -p out/target/product/gs702a/root/cache)
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/sys,root/sys)
+    $(shell mkdir -p out/target/product/gs702a/root/sys)
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/init.d,system/etc/init.d)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/system,root/system)
+    $(shell mkdir -p out/target/product/gs702a/root/system)
+
+PRODUCT_COPY_FILES += \
+    $(shell mkdir -p out/target/product/gs702a/root/dev/shm)
 
 # Prebuilt configs
 PRODUCT_COPY_FILES += \
