@@ -55,7 +55,7 @@ on fs
     # results in failure to launch late-start class.
     mount vfat /dev/block/actg /mnt/media ro wait noatime nodiratime umask=0022 utf8
     mount vfat /dev/block/acth /vendor/app ro wait noatime nodiratime umask=0022
-    mount vfat /dev/block/actf /data_bak rw wait nosuid 
+    #mount vfat /dev/block/actf /data_bak rw wait nosuid 
     symlink /vendor/app/lib /vendor/lib
     
     mount debugfs none /sys/kernel/debug

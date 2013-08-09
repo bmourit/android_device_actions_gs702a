@@ -477,6 +477,7 @@ service surfaceflinger /system/bin/surfaceflinger
 service pfmnceserver /system/bin/pfmnceserver
     class main
     user root
+    seclabel u:r:pfmnceserver:s0
     onrestart restart zygote
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
