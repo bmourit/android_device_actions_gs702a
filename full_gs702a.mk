@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
-    $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
     $(LOCAL_PATH)/ramdisk/init.modules.sdboot.rc:root/init.modules.sdboot.rc \
     $(LOCAL_PATH)/ramdisk/init.quickboot.rc:root/init.quickboot.rc \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
