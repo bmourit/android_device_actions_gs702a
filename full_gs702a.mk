@@ -25,17 +25,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/fstab.gs702a:root/fstab.gs702a \
     $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \
     $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
-    $(LOCAL_PATH)/ramdisk/init.extra_modules.rc:root/init.extra_modules.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.usb.rc:root/init.gs702a.usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.modules.rc:root/init.modules.rc \
     $(LOCAL_PATH)/ramdisk/init.modules.sdboot.rc:root/init.modules.sdboot.rc \
     $(LOCAL_PATH)/ramdisk/init.quickboot.rc:root/init.quickboot.rc \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-    $(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
-    $(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.wifi.rc:root/init.wifi.rc \
     $(LOCAL_PATH)/ramdisk/quickboot.sh:root/quickboot.sh \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
@@ -51,52 +46,40 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
 
 PRODUCT_COPY_FILES += \
-    $(shell mkdir -p out/target/product/gs702a/root/proc)
-
-PRODUCT_COPY_FILES += \
-    $(shell mkdir -p out/target/product/gs702a/root/cache)
-
-PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
 
 PRODUCT_COPY_FILES += \
-    $(shell mkdir -p out/target/product/gs702a/root/sys)
-
-PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/init.d,system/etc/init.d)
-
-PRODUCT_COPY_FILES += \
-    $(shell mkdir -p out/target/product/gs702a/root/system)
 
 PRODUCT_COPY_FILES += \
     $(shell mkdir -p out/target/product/gs702a/root/dev/shm)
 
 # Prebuilt configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
-    $(LOCAL_PATH)/configs/gpu_config:system/etc/gpu_config \
-    $(LOCAL_PATH)/configs/game_r2:system/etc/game_r2 \
-    $(LOCAL_PATH)/configs/game_r3:system/etc/game_r3 \
-    $(LOCAL_PATH)/configs/builtinapk:system/etc/builtinapk \
-    $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/platform.xml:system/etc/permissions/platform.xml \
-    $(LOCAL_PATH)/configs/features.xml:system/etc/permissions/features.xml \
-    $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    $(LOCAL_PATH)/configs/packages-compat-default.xml:system/etc/packages-compat-default.xml \
-    $(LOCAL_PATH)/configs/omx_codec.xml:system/etc/omx_codec.xml \
-    $(LOCAL_PATH)/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    $(LOCAL_PATH)/configs/GT813.idc:system/usr/idc/GT813.idc \
-    $(LOCAL_PATH)/configs/mt395.idc:system/usr/idc/mt395.idc \
-    $(LOCAL_PATH)/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl \
+    $(LOCAL_PATH)/prebuilt/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
+    $(LOCAL_PATH)/prebuilt/configs/gpu_config:system/etc/gpu_config \
+    $(LOCAL_PATH)/prebuilt/configs/game_r2:system/etc/game_r2 \
+    $(LOCAL_PATH)/prebuilt/configs/game_r3:system/etc/game_r3 \
+    $(LOCAL_PATH)/prebuilt/configs/builtinapk:system/etc/builtinapk \
+    $(LOCAL_PATH)/prebuilt/configs/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/prebuilt/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/prebuilt/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/prebuilt/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/prebuilt/configs/platform.xml:system/etc/permissions/platform.xml \
+    $(LOCAL_PATH)/prebuilt/configs/features.xml:system/etc/permissions/features.xml \
+    $(LOCAL_PATH)/prebuilt/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    $(LOCAL_PATH)/prebuilt/configs/packages-compat-default.xml:system/etc/packages-compat-default.xml \
+    $(LOCAL_PATH)/prebuilt/configs/omx_codec.xml:system/etc/omx_codec.xml \
+    $(LOCAL_PATH)/prebuilt/configs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
+    $(LOCAL_PATH)/prebuilt/configs/GT813.idc:system/usr/idc/GT813.idc \
+    $(LOCAL_PATH)/prebuilt/configs/mt395.idc:system/usr/idc/mt395.idc \
+    $(LOCAL_PATH)/prebuilt/configs/atc260x-adckeypad.kl:system/usr/keylayout/atc260x-adckeypad.kl \
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/prebuilt/configs/usb_modeswitch.d,system/etc/usb_modeswitch.d)
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    $(LOCAL_PATH)/prebuilt/configs/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
@@ -131,7 +114,6 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/power.default.so:system/lib/hw/power.default.so \
     device/actions/gs702a/prebuilt/sensors.ATM702X.so:system/lib/hw/sensors.ATM702X.so \
     device/actions/gs702a/prebuilt/sensors.goldfish.so:system/lib/hw/sensors.goldfish.so \
-    device/actions/gs702a/prebuilt/udptest:system/bin/udptest \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
@@ -150,9 +132,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/actions/gs702a/prebuilt/plugins,system/lib/plugins)
 
 PRODUCT_COPY_FILES += \
-  device/actions/gs702a/prebuilt/bin/dosfslabel:system/bin/dosfslabel \
   device/actions/gs702a/prebuilt/bin/pfmnceserver:system/bin/pfmnceserver \
-  device/actions/gs702a/prebuilt/bin/stagefright:system/bin/stagefright \
   device/actions/gs702a/prebuilt/bin/rild:system/bin/rild \
   device/actions/gs702a/prebuilt/xbin/iostat:system/xbin/iostat \
   device/actions/gs702a/prebuilt/xbin/tcpdump:system/xbin/tcpdump \
@@ -188,8 +168,14 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
-    make_ext4fs
-
+    make_ext4fs \
+    fsck.fat \
+    fatlabel \
+    mkfs.fat \
+    recovery_fsck.fat \
+    recovery_fatlabel \
+    recovery_mkfs.fat
+    
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.config.softopengles=0 \

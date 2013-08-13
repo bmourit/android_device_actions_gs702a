@@ -1,3 +1,7 @@
+
+import init.mt6620.rc
+import init.eth0.rc
+
 on early-init
     # fixme: disable hotplug by now
     write /sys/devices/system/cpu/autoplug/lock 1
@@ -41,11 +45,6 @@ on early-init
     insmod /misc/modules/atv5202_lcd.ko
     insmod /misc/modules/atv5202_fb.ko
 
-    ro.product.usbdevice.VID=10d6
-    ro.product.usbdevice.PID=fffe
-    ro.product.mtpdevice.PID=4e41
-    ro.product.ptpdevice.PID=4e43
-
 on fs
     # mount disks	
     mount_all /fstab.gs702a
@@ -65,11 +64,64 @@ on fs_selinux
     # SEPolicy Reload check should be done after mount data partition
     setprop selinux.reload_policy 1
 
+on post-fs
+    # pmic
+    insmod /misc/modules/atc260x_onoff.ko
+    insmod /misc/modules/atc260x_adckeypad.ko
+    insmod /misc/modules/atc260x_power.ko
+    insmod /misc/modules/atc260x_rtc.ko
+#    hwclock -s
+    # usb
+    #insmod /misc/modules/dwc3.ko
+    #insmod /misc/modules/dwc3-actions.ko
+    insmod /misc/modules/dummy_udc.ko
+    insmod /misc/modules/g_android.ko
+    insmod /misc/modules/acts_hcd.ko
+    insmod /misc/modules/monitor.ko
+    #sndrv
+    insmod /misc/modules/atc260x_audio.ko
+    insmod /misc/modules/sndrv.ko
+    #vde_drv
+    insmod /misc/modules/vde_drv.ko
+    #vce_drv
+    insmod /misc/modules/vce_drv.ko
+    insmod /misc/modules/galcore.ko
+    # usb 2G/3G option
+    insmod /misc/modules/usb_wwan.ko
+    insmod /misc/modules/option.ko
+    # mmc
+    insmod /misc/modules/mmc_core.ko
+    insmod /misc/modules/mmc_block.ko
+    insmod /misc/modules/atv5202_mmc.ko
+    #insmod /misc/modules/atv5202_mmc.ko sd1=1 use_mt5931=1  use_mt5931_mt6622=1
+    #camera
+    insmod /misc/modules/camera_hi253.ko
+    insmod /misc/modules/camera_gc0308.ko
+    insmod /misc/modules/camera_drv.ko    
+    insmod /misc/modules/atv5202_vout.ko
+    insmod /misc/modules/gl5202_tvout.ko
+    insmod /misc/modules/gl5202_hdmi.ko
+    # soft gauge
+    insmod /misc/modules/atc260x_cap_gauge.ko  
+    #tp
+    #insmod /misc/modules/ctp_ft5x06_ts.ko
+    insmod /misc/modules/ctp_ft5x06.ko
+    #key
+    #insmod /misc/modules/gl5202_matrixkey.ko
+    #gsensor
+    insmod /misc/modules/gsensor_mc3210.ko
+    #vibrate
+#    insmod /misc/modules/act_vibrate.ko
+
+on charger    
+    # pmic
+    insmod /misc/modules/atc260x_onoff.ko
+    insmod /misc/modules/atc260x_power.ko
+
 on post-fs-data
 #
     chmod 06755 /system/xbin/su
     symlink /system/xbin/su /system/bin/su
-    mkdir /data/tombstones 0711 system system
     
 on boot
     chown system system /sys/class/backlight/act_pwm_backlight/brightness
@@ -100,8 +152,18 @@ on boot
     #cancel wipe-data after abnormal shutoff
 	setprop persist.sys.shutok init
 
+on boot
+    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
+    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+
 on init
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/actions.jar
+
+on init
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/android0/f_rndis/manufacturer Actions-semi
+    write /sys/class/android_usb/android0/f_rndis/vendorID 10d6
+    write /sys/class/android_usb/android0/f_rndis/wceis 1
 
 # Allow system service to execute quickboot cmd.
     chown system system /quickboot.sh
@@ -116,5 +178,139 @@ service batteryservice /charger
     class charger
     oneshot
 
+service cp_vendor /cp_vendor_app.sh  &
+    class main
+    oneshot
+    
 on charger
-    # NOTE: class_start is moved to init.modules.rc
+    # soft gauge
+    insmod /misc/modules/atc260x_cap_gauge.ko
+    # start charger
+    class_start charger
+
+on property:sys.usb.config=mtp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4e41
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4e42
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=rndis
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4d01
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/bDeviceClass 224
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+
+on property:sys.usb.config=rndis,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4d02
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/bDeviceClass 224
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=ptp
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4e43
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=ptp,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 4e44
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mass_storage
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct fffe
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mass_storage,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 0c02
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 10d6
+    write /sys/class/android_usb/android0/idProduct 0c01
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+    
+service usbmond /system/bin/usbmond
+    class core
+    user root
+    group root shell
+    ioprio be 2
+
+on post-fs-data
+mkdir /data/misc/wifi 0770 wifi wifi
+mkdir /data/misc/wifi/sockets 0770 wifi wifi
+mkdir /data/misc/dhcp 0770 dhcp dhcp
+chown dhcp dhcp /data/misc/dhcp
+
+#add for realtek wifi
+service rtw_suppl_con /system/bin/wpa_supplicant \
+    -ip2p0 -Dnl80211 -c /data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -N \
+   -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service rtw_suppl /system/bin/wpa_supplicant -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf
+    socket wpa_wlan0 dgram 660 wifi wifi
+    class main
+    disabled
+    oneshot
+    
+service dhcpcd_wlan0 /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
