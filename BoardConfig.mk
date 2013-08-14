@@ -30,9 +30,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := cortex-a9
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-TARGET_ARCH_VARIANT_FPU := neon
+TARGET_CPU_VARIANT := cortex-a5
+TARGET_ARCH_VARIANT_CPU := cortex-a5
+TARGET_ARCH_VARIANT_FPU := neon-vfpv4
 ARCH_ARM_HAVE_ARMV7A := true
 ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_VFP_D32 := true
@@ -100,8 +100,8 @@ USE_CAMERA_STUB := false
 
 TARGET_GCC_VERSION := 4.7
 TARGET_TOOLS_PREFIX :=
-TARGET_GLOBAL_CFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -O3 -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -O3
+TARGET_GLOBAL_CPPFLAGS += -O3
 
 #Recovery
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
