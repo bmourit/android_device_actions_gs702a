@@ -20,17 +20,10 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/charger:root/charger \
-    $(LOCAL_PATH)/ramdisk/cp_vendor_app.sh:root/cp_vendor_app.sh \
     $(LOCAL_PATH)/ramdisk/default.prop:root/default.prop \
     $(LOCAL_PATH)/ramdisk/fstab.gs702a:root/fstab.gs702a \
-    $(LOCAL_PATH)/ramdisk/fstab.sdboot.gs702a:root/fstab.sdboot.gs702a \
-    $(LOCAL_PATH)/ramdisk/init.eth0.rc:root/init.eth0.rc \
     $(LOCAL_PATH)/ramdisk/init.gs702a.rc:root/init.gs702a.rc \
-    $(LOCAL_PATH)/ramdisk/init.gs702a.sdboot.rc:root/init.gs702a.sdboot.rc \
-    $(LOCAL_PATH)/ramdisk/init.modules.sdboot.rc:root/init.modules.sdboot.rc \
-    $(LOCAL_PATH)/ramdisk/init.quickboot.rc:root/init.quickboot.rc \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-    $(LOCAL_PATH)/ramdisk/quickboot.sh:root/quickboot.sh \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
     $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh
@@ -39,13 +32,16 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/dev,root/dev)
 
 PRODUCT_COPY_FILES += \
-    $(shell mkdir -p out/target/product/gs702a/root/data)
-
-PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/lib,root/lib)
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,recovery/root/lib/modules)
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/init.d,system/etc/init.d)
@@ -94,8 +90,6 @@ PRODUCT_COPY_FILES += \
 
 #HAL
 PRODUCT_COPY_FILES += \
-    device/actions/gs702a/prebuilt/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
-    device/actions/gs702a/prebuilt/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     device/actions/gs702a/prebuilt/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
     device/actions/gs702a/prebuilt/camera.ATM702X.so:system/lib/hw/camera.ATM702X.so \
     device/actions/gs702a/prebuilt/camera.goldfish.so:system/lib/hw/camera.goldfish.so \
@@ -168,11 +162,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    fsck.fat \
-    fatlabel \
+    dosfsck \
+    dosfslabel \
     mkfs.fat \
-    recovery_fsck.fat \
-    recovery_fatlabel \
+    recovery_dosfsck \
+    recovery_dosfslabel \
     recovery_mkfs.fat
     
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -186,8 +180,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
     ro.product.ptpdevice.PID=4e43 \
-    ro.usb.descriptor=ainol,Novo10,Hero,3.00 \
-    ro.usbdevice.volumelabel=Novo10,Hero \
+    ro.usb.descriptor="ainol Novo10 Hero,3.00" \
+    ro.usbdevice.volumelabel="Novo10 Hero" \
     ro.serialno=4512482adf0feeee \
     ro.config.quickboot=0 \
     ro.im.keysounddefenable=true \

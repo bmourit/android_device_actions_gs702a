@@ -16,6 +16,10 @@ on early-init
     # This should occur before anything else (e.g. ueventd) is started.
     setcon u:r:init:s0
 
+        # insmod flash driver
+    insmod /lib/modules/blk1drv.ko
+    insmod /lib/modules/blk2drv.ko
+
     start ueventd
 
 # create mountpoints
@@ -39,8 +43,8 @@ sysclktz 0
 loglevel 3
 
 # setup the global environment
-    export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/app/lib:/vendor/lib:/system/lib
+    export PATH /sbin:/bin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+    export LD_LIBRARY_PATH /lib:/vendor/app/lib:/vendor/lib:/system/lib
     export ANDROID_BOOTLOGO 1
     export ANDROID_ROOT /system
     export ANDROID_ASSETS /system/app

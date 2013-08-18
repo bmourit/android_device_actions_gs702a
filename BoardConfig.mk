@@ -55,6 +55,7 @@ TARGET_HAVE_HDMI_OUT := true
 #Vold
 BOARD_VOLD_MAX_PARTITIONS := 20
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/actions-dwc3.1/dwc3.0/gadget/lun%d/file"
 TARGET_USE_CUSTOM_SECOND_LUN_NUM := 1
 
@@ -105,7 +106,7 @@ TARGET_GLOBAL_CPPFLAGS += -O3
 
 #Recovery
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
-TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/rec/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/recovery-kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/actions/gs702a/ramdisk/fstab.gs702a
 RECOVERY_FSTAB_VERSION := 2

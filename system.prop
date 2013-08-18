@@ -1,7 +1,7 @@
 #
 # system.prop
 #
-ro.secure=0
+ro.secure=1
 ro.debuggable=1
 persist.sys.timezone=America/Los_Angeles
 persist.sys.strictmode.disable=true
@@ -10,4 +10,3 @@ wifi.interface=wlan0
 ro.allow.mock.location=1
 persist.sys.usb.config=mass_storage,adb
 ro.sf.lcd_density=160
-

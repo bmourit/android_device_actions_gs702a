@@ -1,9 +1,8 @@
 #
 # ADDITIONAL_DEFAULT_PROPERTIES
 #
-ro.secure=0
+ro.secure=1
 ro.debuggable=1
-ro.setupwizard.mode=DISABLE
 persist.sys.timezone=America/Los_Angeles
 persist.sys.strictmode.disable=true
 wifi.supplicant_scan_interval=120
