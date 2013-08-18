@@ -19,4 +19,4 @@
 /dev/block/acta	/recovery 	vfat	defaults	recoveryonly
 /dev/block/actb	/misc	emmc	defaults	recoveryonly
 /dev/block/actj	/emmc	vfat	defaults	recoveryonly
-/dev/block/mmcblk0p1	/sdcard 	vfat	defaults	recoveryonline
+/dev/block/mmcblk0p1	/sdcard 	vfat	defaults	recoveryonly
