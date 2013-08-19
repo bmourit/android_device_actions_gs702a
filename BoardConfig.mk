@@ -108,8 +108,7 @@ TARGET_GLOBAL_CPPFLAGS += -O3
 TARGET_RECOVERY_INITRC := device/actions/gs702a/init.recovery.gs702a.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/actions/gs702a/recovery-kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/actions/gs702a/ramdisk/fstab.gs702a
-RECOVERY_FSTAB_VERSION := 2
+TARGET_RECOVERY_FSTAB := device/actions/gs702a/ramdisk/recovery.fstab
 
 # Wifi stuff
 WIFI_DRIVER_MODULE_NAME := wlan
@@ -133,13 +132,3 @@ TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 BOARD_HAVE_BLUETOOTH := false
-
-BOARD_SEPOLICY_DIR := \
-	devices/actions/gs702a/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-	file_contexts \
-	file.te \
-	device.te \
-	domain.te \
-	pfmnceserver.te

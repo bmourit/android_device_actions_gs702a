@@ -5,18 +5,5 @@
 
 /dev/block/actc	/system	ext4      ro,noatime,nosuid	wait
 /dev/block/acte	/cache	ext4      noatime,nosuid,nodev	wait
-/dev/block/actd	/data	ext4      noatime,nosuid,nodev	wait,encryptable=footer
+/dev/block/actd	/data	ext4      noatime,nosuid,nodev	wait
 
-# Vold managed volumes
-# SD card
-/devices/virtual/block/actj							/storage/sdcard0	auto      defaults		voldmanaged=sdcard0:auto
-/devices/platform/asoc-mmc0.0/mmc_host/mmc0  		/storage/sdcard1	auto      defaults		voldmanaged=sdcard1:auto
-
-# USB storage
-/devices/platform/actions-dwc3.1/dwc3.0/xhci-hcd 	/storage/usbdisk	auto      defaults  	voldmanaged=usbdisk:auto
-
-/dev/block/actb /boot	vfat	defaults	recoveryonly
-/dev/block/acta	/recovery 	vfat	defaults	recoveryonly
-/dev/block/actb	/misc	emmc	defaults	recoveryonly
-/dev/block/actj	/emmc	vfat	defaults	recoveryonly
-/dev/block/mmcblk0p1	/sdcard 	vfat	defaults	recoveryonly

@@ -26,7 +26,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.gs702a.rc:root/ueventd.gs702a.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc \
-    $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh
+    $(LOCAL_PATH)/ramdisk/usbmond.sh:root/usbmond.sh \
+    $(LOCAL_PATH)/ramdisk/recovery.fstab:root/recovery.fstab
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/dev,root/dev)
@@ -90,7 +91,6 @@ PRODUCT_COPY_FILES += \
 
 #HAL
 PRODUCT_COPY_FILES += \
-    device/actions/gs702a/prebuilt/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
     device/actions/gs702a/prebuilt/camera.ATM702X.so:system/lib/hw/camera.ATM702X.so \
     device/actions/gs702a/prebuilt/camera.goldfish.so:system/lib/hw/camera.goldfish.so \
     device/actions/gs702a/prebuilt/cvbs.ATM702X.so:system/lib/hw/cvbs.ATM702X.so \
@@ -110,6 +110,7 @@ PRODUCT_COPY_FILES += \
     device/actions/gs702a/prebuilt/wfd:system/bin/wfd \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/actions/gs702a/prebuilt/vold.fstab:system/etc/wifi/vold.fstab \
     device/actions/gs702a/prebuilt/updater:system/bin/updater \
     device/actions/gs702a/prebuilt/qemud:system/bin/qemud \
     device/actions/gs702a/prebuilt/qemu-props:system/bin/qemu-props \
@@ -180,12 +181,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.usbdevice.PID=fffe \
     ro.product.mtpdevice.PID=4e41 \
     ro.product.ptpdevice.PID=4e43 \
-    ro.usb.descriptor="ainol Novo10 Hero,3.00" \
-    ro.usbdevice.volumelabel="Novo10 Hero" \
+    ro.usb.descriptor=ainol Novo10 Hero,3.00 \
+    ro.usbdevice.volumelabel=Novo10 Hero \
     ro.serialno=4512482adf0feeee \
-    ro.config.quickboot=0 \
-    ro.im.keysounddefenable=true \
-    ro.support.gpswithwifi=1 \
     ro.product.pribrand=actions \
     ro.product.primodel=owlx1 \
     debug.egl.hw=1 \

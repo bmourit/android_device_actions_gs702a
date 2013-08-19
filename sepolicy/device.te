@@ -1,5 +1,0 @@
-type pfmnceserver_device, dev_type, mlstrustedobject;
-type hdmi_device, dev_type;
-type display_device, dev_type, mlstrustedobject;
-type loopctl_device, dev_type, mlstrustedobject;
-type rfkill_device. dev_type, mlstrustedobject;

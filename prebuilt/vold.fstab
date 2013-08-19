@@ -1,0 +1,18 @@
+## Vold 2.0 Generic fstab
+## - San Mehat (san@android.com)
+## 
+
+#######################
+## Regular device mount
+##
+## Format: dev_mount <label> <mount_point> <part> <sysfs_path1...> 
+## label        - Label for the volume
+## mount_point  - Where the volume will be mounted
+## part         - Partition # (1 based), or 'auto' for first usable partition.
+## <sysfs_path> - List of sysfs paths to source devices
+######################
+
+## For gs702a: mount three partitions
+dev_mount sdcard0 /storage/sdcard0 auto /devices/virtual/block/actj
+dev_mount sdcard1 /storage/sdcard1 auto /devices/platform/asoc-mmc0.0/mmc_host/mmc0
+dev_mount usddisk /storage/usbdisk auto /devices/platform/actions-dwc3.1/dwc3.0/xhci-hcd
