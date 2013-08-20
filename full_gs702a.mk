@@ -39,9 +39,6 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/res,root/res)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,system/lib/modules)
-
-PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/modules,recovery/root/lib/modules)
 
 PRODUCT_COPY_FILES += \
