@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,48 +16,48 @@
 
 """
 Given a target-files zipfile, produces an OTA package that installs
-that build.  An incremental OTA is produced if -i is given, otherwise
+that build. An incremental OTA is produced if -i is given, otherwise
 a full OTA is produced.
 
-Usage:  ota_from_target_files [flags] input_target_files output_ota_package
+Usage: ota_from_target_files [flags] input_target_files output_ota_package
 
-  -b  (--board_config)  <file>
-      Deprecated.
+-b (--board_config) <file>
+Deprecated.
 
-  -k (--package_key) <key> Key to use to sign the package (default is
-      the value of default_system_dev_certificate from the input
-      target-files's META/misc_info.txt, or
-      "build/target/product/security/testkey" if that value is not
-      specified).
+-k (--package_key) <key> Key to use to sign the package (default is
+the value of default_system_dev_certificate from the input
+target-files's META/misc_info.txt, or
+"build/target/product/security/testkey" if that value is not
+specified).
 
-      For incremental OTAs, the default value is based on the source
-      target-file, not the target build.
+For incremental OTAs, the default value is based on the source
+target-file, not the target build.
 
-  -i  (--incremental_from)  <file>
-      Generate an incremental OTA using the given target-files zip as
-      the starting build.
+-i (--incremental_from) <file>
+Generate an incremental OTA using the given target-files zip as
+the starting build.
 
-  -w  (--wipe_user_data)
-      Generate an OTA package that will wipe the user data partition
-      when installed.
+-w (--wipe_user_data)
+Generate an OTA package that will wipe the user data partition
+when installed.
 
-  -n  (--no_prereq)
-      Omit the timestamp prereq check normally included at the top of
-      the build scripts (used for developer OTA packages which
-      legitimately need to go back and forth).
+-n (--no_prereq)
+Omit the timestamp prereq check normally included at the top of
+the build scripts (used for developer OTA packages which
+legitimately need to go back and forth).
 
-  -e  (--extra_script)  <file>
-      Insert the contents of file at the end of the update script.
+-e (--extra_script) <file>
+Insert the contents of file at the end of the update script.
 
-  -a  (--aslr_mode)  <on|off>
-      Specify whether to turn on ASLR for the package (on by default).
+-a (--aslr_mode) <on|off>
+Specify whether to turn on ASLR for the package (on by default).
 
-  --backup <boolean>
-      Enable or disable the execution of backuptool.sh.
-      Disabled by default.
+--backup <boolean>
+Enable or disable the execution of backuptool.sh.
+Disabled by default.
 
-  --override_device <device>
-      Override device-specific asserts. Can be a comma-separated list.
+--override_device <device>
+Override device-specific asserts. Can be a comma-separated list.
 
 """
 
@@ -100,7 +100,7 @@ OPTIONS.override_device = 'auto'
 
 def MostPopularKey(d, default):
   """Given a dict, return the key corresponding to the largest
-  value.  Returns 'default' if the dict is empty."""
+value. Returns 'default' if the dict is empty."""
   x = [(v, k) for (k, v) in d.iteritems()]
   if not x: return default
   x.sort()
@@ -109,17 +109,17 @@ def MostPopularKey(d, default):
 
 def IsSymlink(info):
   """Return true if the zipfile.ZipInfo object passed in represents a
-  symlink."""
+symlink."""
   return (info.external_attr >> 16) & 0770000 == 0120000
 
 def IsRegular(info):
   """Return true if the zipfile.ZipInfo object passed in represents a
-  symlink."""
+symlink."""
   return (info.external_attr >> 28) == 010
 
 class Item:
   """Items represent the metadata (user, group, mode) of files and
-  directories in the system image."""
+directories in the system image."""
   ITEMS = {}
   def __init__(self, name, dir=False):
     self.name = name
@@ -138,12 +138,12 @@ class Item:
 
   def Dump(self, indent=0):
     if self.uid is not None:
-      print "%s%s %d %d %o" % ("  "*indent, self.name, self.uid, self.gid, self.mode)
+      print "%s%s %d %d %o" % (" "*indent, self.name, self.uid, self.gid, self.mode)
     else:
-      print "%s%s %s %s %s" % ("  "*indent, self.name, self.uid, self.gid, self.mode)
+      print "%s%s %s %s %s" % (" "*indent, self.name, self.uid, self.gid, self.mode)
     if self.dir:
-      print "%s%s" % ("  "*indent, self.descendants)
-      print "%s%s" % ("  "*indent, self.best_subtree)
+      print "%s%s" % (" "*indent, self.descendants)
+      print "%s%s" % (" "*indent, self.best_subtree)
       for i in self.children:
         i.Dump(indent=indent+1)
 
@@ -162,7 +162,7 @@ class Item:
       output = input_zip.read("META/filesystem_config.txt")
     except KeyError:
       # Run the external 'fs_config' program to determine the desired
-      # uid, gid, and mode for every Item object.  Note this uses the
+      # uid, gid, and mode for every Item object. Note this uses the
       # one in the client now, which might not be the same as the one
       # used when this target_files was built.
       p = common.Run(["fs_config"], stdin=subprocess.PIPE,
@@ -192,16 +192,16 @@ class Item:
 
   def CountChildMetadata(self):
     """Count up the (uid, gid, mode) tuples for all children and
-    determine the best strategy for using set_perm_recursive and
-    set_perm to correctly chown/chmod all the files to their desired
-    values.  Recursively calls itself for all descendants.
+determine the best strategy for using set_perm_recursive and
+set_perm to correctly chown/chmod all the files to their desired
+values. Recursively calls itself for all descendants.
 
-    Returns a dict of {(uid, gid, dmode, fmode): count} counting up
-    all descendants of this node.  (dmode or fmode may be None.)  Also
-    sets the best_subtree of each directory Item to the (uid, gid,
-    dmode, fmode) tuple that will match the most descendants of that
-    Item.
-    """
+Returns a dict of {(uid, gid, dmode, fmode): count} counting up
+all descendants of this node. (dmode or fmode may be None.) Also
+sets the best_subtree of each directory Item to the (uid, gid,
+dmode, fmode) tuple that will match the most descendants of that
+Item.
+"""
 
     assert self.dir
     d = self.descendants = {(self.uid, self.gid, self.mode, None): 1}
@@ -237,14 +237,14 @@ class Item:
 
   def SetPermissions(self, script):
     """Append set_perm/set_perm_recursive commands to 'script' to
-    set all permissions, users, and groups for the tree of files
-    rooted at 'self'."""
+set all permissions, users, and groups for the tree of files
+rooted at 'self'."""
 
     self.CountChildMetadata()
 
     def recurse(item, current):
       # current is the (uid, gid, dmode, fmode) tuple that the current
-      # item (and all its children) have already been set to.  We only
+      # item (and all its children) have already been set to. We only
       # need to issue set_perm/set_perm_recursive commands if we're
       # supposed to be something different.
       if item.dir:
@@ -269,12 +269,12 @@ class Item:
 def CopySystemFiles(input_zip, output_zip=None,
                     substitute=None):
   """Copies files underneath system/ in the input zip to the output
-  zip.  Populates the Item class with their metadata, and returns a
-  list of symlinks.  output_zip may be None, in which case the copy is
-  skipped (but the other side effects still happen).  substitute is an
-  optional dict of {output filename: contents} to be output instead of
-  certain input files.
-  """
+zip. Populates the Item class with their metadata, and returns a
+list of symlinks. output_zip may be None, in which case the copy is
+skipped (but the other side effects still happen). substitute is an
+optional dict of {output filename: contents} to be output instead of
+certain input files.
+"""
 
   symlinks = []
 
@@ -322,19 +322,19 @@ def AppendAssertions(script, info_dict):
 
 def MakeRecoveryPatch(input_tmp, output_zip, recovery_img, boot_img):
   """Generate a binary patch that creates the recovery image starting
-  with the boot image.  (Most of the space in these images is just the
-  kernel, which is identical for the two, so the resulting patch
-  should be efficient.)  Add it to the output zip, along with a shell
-  script that is run from init.rc on first boot to actually do the
-  patching and install the new recovery image.
+with the boot image. (Most of the space in these images is just the
+kernel, which is identical for the two, so the resulting patch
+should be efficient.) Add it to the output zip, along with a shell
+script that is run from init.rc on first boot to actually do the
+patching and install the new recovery image.
 
-  recovery_img and boot_img should be File objects for the
-  corresponding images.  info should be the dictionary returned by
-  common.LoadInfoDict() on the input target_files.
+recovery_img and boot_img should be File objects for the
+corresponding images. info should be the dictionary returned by
+common.LoadInfoDict() on the input target_files.
 
-  Returns an Item for the shell script, which must be made
-  executable.
-  """
+Returns an Item for the shell script, which must be made
+executable.
+"""
 
   diff_program = ["imgdiff"]
   path = os.path.join(input_tmp, "SYSTEM", "etc", "recovery-resource.dat")
@@ -355,10 +355,10 @@ def MakeRecoveryPatch(input_tmp, output_zip, recovery_img, boot_img):
 
   sh = """#!/system/bin/sh
 if ! applypatch -c %(recovery_type)s:%(recovery_device)s:%(recovery_size)d:%(recovery_sha1)s; then
-  log -t recovery "Installing new recovery image"
-  applypatch %(bonus_args)s %(boot_type)s:%(boot_device)s:%(boot_size)d:%(boot_sha1)s %(recovery_type)s:%(recovery_device)s %(recovery_sha1)s %(recovery_size)d %(boot_sha1)s:/system/recovery-from-boot.p
+log -t recovery "Installing new recovery image"
+applypatch %(bonus_args)s %(boot_type)s:%(boot_device)s:%(boot_size)d:%(boot_sha1)s %(recovery_type)s:%(recovery_device)s %(recovery_sha1)s %(recovery_size)d %(boot_sha1)s:/system/recovery-from-boot.p
 else
-  log -t recovery "Recovery image already installed"
+log -t recovery "Recovery image already installed"
 fi
 """ % { 'boot_size': boot_img.size,
         'boot_sha1': boot_img.sha1,
@@ -375,8 +375,8 @@ fi
 
 
 def WriteFullOTAPackage(input_zip, output_zip):
-  # TODO: how to determine this?  We don't know what version it will
-  # be installed on top of.  For now, we expect the API just won't
+  # TODO: how to determine this? We don't know what version it will
+  # be installed on top of. For now, we expect the API just won't
   # change very often.
   script = edify_generator.EdifyGenerator(3, OPTIONS.info_dict)
 
@@ -398,8 +398,8 @@ def WriteFullOTAPackage(input_zip, output_zip):
       info_dict=OPTIONS.info_dict)
 
   #if not OPTIONS.omit_prereq:
-  #  ts = GetBuildProp("ro.build.date.utc", OPTIONS.info_dict)
-  #  script.AssertOlderBuild(ts)
+  # ts = GetBuildProp("ro.build.date.utc", OPTIONS.info_dict)
+  # script.AssertOlderBuild(ts)
 
   AppendAssertions(script, OPTIONS.info_dict)
   device_specific.FullOTA_Assertions()
@@ -435,7 +435,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   boot_img = common.GetBootableImage("boot.img", "boot.img",
                                      OPTIONS.input_tmp, "BOOT")
   #recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
-  #                                       OPTIONS.input_tmp, "RECOVERY")
+  # OPTIONS.input_tmp, "RECOVERY")
   #MakeRecoveryPatch(OPTIONS.input_tmp, output_zip, recovery_img, boot_img)
 
   Item.GetMetadata(input_zip)
@@ -450,7 +450,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
     script.ShowProgress(0.2, 10)
     script.RunBackup("restore")
 
-  #script.ShowProgress(0.2, 10)
+  script.ShowProgress(0.2, 10)
   #script.WriteRawImage("/boot", "boot.img")
 
   script.ShowProgress(0.1, 0)
@@ -476,7 +476,7 @@ def WriteMetadata(metadata, output_zip):
 
 def LoadSystemFiles(z):
   """Load all the files from SYSTEM/... in a given target-files
-  ZipFile, and return a dict of {filename: File object}."""
+ZipFile, and return a dict of {filename: File object}."""
   out = {}
   for info in z.infolist():
     if info.filename.startswith("SYSTEM/") and not IsSymlink(info):
@@ -578,18 +578,18 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   updating_boot = (source_boot.data != target_boot.data)
 
   #source_recovery = common.GetBootableImage(
-  #    "/tmp/recovery.img", "recovery.img", OPTIONS.source_tmp, "RECOVERY",
-  #    OPTIONS.source_info_dict)
+  # "/tmp/recovery.img", "recovery.img", OPTIONS.source_tmp, "RECOVERY",
+  # OPTIONS.source_info_dict)
   #target_recovery = common.GetBootableImage(
-  #    "/tmp/recovery.img", "recovery.img", OPTIONS.target_tmp, "RECOVERY")
+  # "/tmp/recovery.img", "recovery.img", OPTIONS.target_tmp, "RECOVERY")
   #updating_recovery = (source_recovery.data != target_recovery.data)
   updating_recovery = false
 
   # Here's how we divide up the progress bar:
-  #  0.1 for verifying the start state (PatchCheck calls)
-  #  0.8 for applying patches (ApplyPatch calls)
-  #  0.1 for unpacking verbatim files, symlinking, and doing the
-  #      device-specific commands.
+  # 0.1 for verifying the start state (PatchCheck calls)
+  # 0.8 for applying patches (ApplyPatch calls)
+  # 0.1 for unpacking verbatim files, symlinking, and doing the
+  # device-specific commands.
 
   AppendAssertions(script, OPTIONS.target_info_dict)
   device_specific.IncrementalOTA_Assertions()
@@ -612,7 +612,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   if updating_boot:
     d = common.Difference(target_boot, source_boot)
     _, _, d = d.ComputePatch()
-    print "boot      target: %d  source: %d  diff: %d" % (
+    print "boot target: %d source: %d diff: %d" % (
         target_boot.size, source_boot.size, len(d))
 
     common.ZipWriteStr(output_zip, "patch/boot.img.p", d)
@@ -684,7 +684,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
     # Recovery is generated as a patch using both the boot image
     # (which contains the same linux kernel as recovery) and the file
     # /system/etc/recovery-resource.dat (which contains all the images
-    # used in the recovery UI) as sources.  This lets us minimize the
+    # used in the recovery UI) as sources. This lets us minimize the
     # size of the patch, which must be included in every OTA package.
     #
     # For older builds where recovery-resource.dat is not present, we
@@ -712,7 +712,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   source_symlinks = CopySystemFiles(source_zip, None)
   source_symlinks_d = dict([(i[1], i[0]) for i in source_symlinks])
 
-  # Delete all the symlinks in source that aren't in target.  This
+  # Delete all the symlinks in source that aren't in target. This
   # needs to happen before verbatim files are unpacked, in case a
   # symlink in the source is replaced by a real file in the target.
   to_delete = []
@@ -726,13 +726,13 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
     script.UnpackPackageDir("system", "/system")
 
   #if updating_recovery:
-  #  script.Print("Unpacking new recovery...")
-  #  script.UnpackPackageDir("recovery", "/system")
+  # script.Print("Unpacking new recovery...")
+  # script.UnpackPackageDir("recovery", "/system")
 
   script.Print("Symlinks and permissions...")
 
   # Create all the symlinks that don't already exist, or point to
-  # somewhere different than what we want.  Delete each symlink before
+  # somewhere different than what we want. Delete each symlink before
   # creating it, since the 'symlink' command won't overwrite.
   to_create = []
   for dest, link in target_symlinks:
@@ -771,7 +771,7 @@ def main(argv):
 
   def option_handler(o, a):
     if o in ("-b", "--board_config"):
-      pass   # deprecated
+      pass # deprecated
     elif o in ("-k", "--package_key"):
       OPTIONS.package_key = a
     elif o in ("-i", "--incremental_from"):
@@ -882,6 +882,7 @@ if __name__ == '__main__':
     main(sys.argv[1:])
   except common.ExternalError, e:
     print
-    print "   ERROR: %s" % (e,)
+    print " ERROR: %s" % (e,)
     print
     sys.exit(1)
+    

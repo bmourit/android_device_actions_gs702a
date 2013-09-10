@@ -1,0 +1,160 @@
+import init.modules.rc
+import init.gs702a.usb.rc
+import init.wifi.rc
+import init.mt6620.rc
+import init.eth0.rc
+
+on early-init
+    # fixme: disable hotplug by now
+    write /sys/devices/system/cpu/autoplug/lock 1
+
+    # fixme: avoid suspend by now
+    #write /sys/power/wake_lock 1
+
+    # use legacy virtual memory layout for compatibility
+    write /proc/sys/vm/legacy_va_layout 1
+
+    export EXTERNAL_STORAGE /mnt/sdcard
+    export ASEC_STORAGE /mnt/sdcard
+    export FLASH_STORAGE /mnt/sdcard
+    export TFCARD_STORAGE /mnt/sd-ext
+    export UHOST_STORAGE /mnt/uhost
+    export MEDIA_STORAGE /mnt/media
+    mkdir /mnt/sdcard 0000 system system
+    mkdir /mnt/sd-ext 0000 system system
+    mkdir /mnt/uhost 0000 system system
+    mkdir /mnt/media 0755 system system
+    # for backwards compatibility
+    symlink /mnt/sdcard /sdcard
+
+
+    # pmic
+    insmod /lib/modules/atc260x_onoff.ko
+    insmod /lib/modules/atc260x_adckeypad.ko
+    insmod /lib/modules/atc260x_power.ko
+    insmod /lib/modules/atc260x_rtc.ko
+    
+    # mmc
+    insmod /lib/modules/mmc_core.ko
+    insmod /lib/modules/mmc_block.ko
+    insmod /lib/modules/atv5202_mmc.ko
+    
+	insmod /lib/modules/blk1drv.ko is_probe=1
+	
+    # mount disks
+    mkdir /misc
+    wait /dev/block/mmcblk0p5
+    mount vfat /dev/block/mmcblk0p1 /misc ro wait noatime nodiratime umask=0022
+    # display
+    insmod /misc/modules/atv5202_de.ko
+    insmod /misc/modules/atv5202_backlight.ko
+    insmod /misc/modules/atv5202_lcd.ko
+    insmod /misc/modules/atv5202_fb.ko
+
+on fs
+	
+    mount ext4 /dev/block/mmcblk0p5 /system ro wait noatime nodiratime nosuid nodev noauto_da_alloc
+#    mount ext4 /dev/block/mmcblk0p6 /data wait noatime nodiratime nosuid nodev noauto_da_alloc
+#    mount ext4 /dev/block/mmcblk0p7 /cache wait noatime nodiratime nosuid nodev noauto_da_alloc
+    mount tmpfs tmpfs /data wait noatime nodiratime nosuid nodev
+    mount tmpfs tmpfs /cache wait noatime nodiratime nosuid nodev
+    
+    mount debugfs none /sys/kernel/debug
+
+on post-fs-data
+#
+    chmod 06755 /system/xbin/su
+    symlink /system/xbin/su /system/bin/su	
+    
+on boot
+    chown system system /sys/class/backlight/act_pwm_backlight/brightness
+    chmod 0666 /sys/class/backlight/act_pwm_backlight/brightness
+    chown system system /sys/class/backlight/act_pwm_backlight/actual_brightness
+    chmod 0666 /sys/class/backlight/act_pwm_backlight/actual_brightness
+    chown system system /sys/class/backlight/act_pwm_backlight/auto_adjust
+    chmod 0666 /sys/class/backlight/act_pwm_backlight/auto_adjust
+    chown system system /sys/class/backlight/act_pwm_backlight/max_brightness
+    chmod 0660 /sys/class/backlight/act_pwm_backlight/max_brightness
+    chown system system /sys/class/backlight/act_pwm_backlight/min_brightness
+    chmod 0660 /sys/class/backlight/act_pwm_backlight/min_brightness
+
+on boot
+    chown system system /sys/devices/virtual/input/input0/delay
+    chmod 0660 /sys/devices/virtual/input/input0/delay
+    chown system system /sys/devices/virtual/input/input0/enable
+    chmod 0660 /sys/devices/virtual/input/input0/enable
+    chown system system /sys/devices/virtual/input/input0/calibration_value
+    chmod 0660 /sys/devices/virtual/input/input0/calibration_value
+    chown system system /sys/devices/virtual/input/input0/calibration_reset
+    chmod 0660 /sys/devices/virtual/input/input0/calibration_reset
+    chown system system /sys/devices/virtual/input/input0/calibration_run
+    chmod 0660 /sys/devices/virtual/input/input0/calibration_run
+    
+    chown system system /sys/devices/virtual/input/input1/delay
+    chmod 0660 /sys/devices/virtual/input/input1/delay
+    chown system system /sys/devices/virtual/input/input1/enable
+    chmod 0660 /sys/devices/virtual/input/input1/enable
+    chown system system /sys/devices/virtual/input/input1/calibration_value
+    chmod 0660 /sys/devices/virtual/input/input1/calibration_value
+    chown system system /sys/devices/virtual/input/input1/calibration_reset
+    chmod 0660 /sys/devices/virtual/input/input1/calibration_reset
+    chown system system /sys/devices/virtual/input/input1/calibration_run
+    chmod 0660 /sys/devices/virtual/input/input1/calibration_run
+    
+    chown system system /sys/devices/virtual/input/input2/delay
+    chmod 0660 /sys/devices/virtual/input/input2/delay
+    chown system system /sys/devices/virtual/input/input2/enable
+    chmod 0660 /sys/devices/virtual/input/input2/enable
+    chown system system /sys/devices/virtual/input/input2/calibration_value
+    chmod 0660 /sys/devices/virtual/input/input2/calibration_value
+    chown system system /sys/devices/virtual/input/input2/calibration_reset
+    chmod 0660 /sys/devices/virtual/input/input2/calibration_reset
+    chown system system /sys/devices/virtual/input/input2/calibration_run
+    chmod 0660 /sys/devices/virtual/input/input2/calibration_run
+    
+    chown system system /sys/devices/virtual/input/input3/delay
+    chmod 0660 /sys/devices/virtual/input/input3/delay
+    chown system system /sys/devices/virtual/input/input3/enable
+    chmod 0660 /sys/devices/virtual/input/input3/enable
+    chown system system /sys/devices/virtual/input/input3/calibration_value
+    chmod 0660 /sys/devices/virtual/input/input3/calibration_value
+    chown system system /sys/devices/virtual/input/input3/calibration_reset
+    chmod 0660 /sys/devices/virtual/input/input3/calibration_reset
+    chown system system /sys/devices/virtual/input/input3/calibration_run
+    chmod 0660 /sys/devices/virtual/input/input3/calibration_run
+
+on boot 
+    chown system system /sys/devices/system/cpu/autoplug/usr_lock
+    chmod 0660 /sys/devices/system/cpu/autoplug/usr_lock
+    chown system system /sys/devices/system/cpu/cpu1/online
+    chmod 0660 /sys/devices/system/cpu/cpu1/online
+    chown system system /sys/devices/system/cpu/cpu2/online
+    chmod 0660 /sys/devices/system/cpu/cpu2/online
+    chown system system /sys/devices/system/cpu/cpu3/online
+    chmod 0660 /sys/devices/system/cpu/cpu3/online
+    
+    # add by mg
+    write /data/data/ant_status on
+    chmod 0666 /data/data/ant_status
+    
+    #cancel wipe-data after abnormal shuoff
+	setprop persist.sys.shutok init
+	
+on init
+    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/actions.jar
+
+# Allow system service to execute quickboot cmd.
+    chown system system /quickboot.sh
+
+
+# update system time from rtc
+service hwclock_update /system/xbin/busybox hwclock -s
+    class core
+    oneshot
+
+service batteryservice /charger
+    class charger
+    oneshot
+
+on charger
+    # NOTE: class_start is moved to init.modules.rc

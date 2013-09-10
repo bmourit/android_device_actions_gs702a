@@ -38,7 +38,9 @@
     <string-array translatable="false" name="networkAttributes">
         <item>"wifi,1,1,1,-1,true"</item>
         <item>"wifi_p2p,13,1,0,-1,true"</item>
+        <item>"ethernet,9,9,2,-1,true"</item>
     </string-array>
+
 <!-- This string array should be overridden by the device to present a list of 
     radio attributes.  This is used by the connectivity manager to decide which networks can coexist based on the hardware -->
 <!-- An Array of "[ConnectivityManager connectionType],
@@ -60,16 +62,13 @@
 <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
     <integer-array translatable="false" name="config_tether_upstream_types">
         <item>1</item>
+        <item>9</item>
         <item>13</item>
     </integer-array>
 
-    <!-- Device type information conforming to Annex B format in WiFi Direct specification.
-         The default represents a dual-mode smartphone -->
-    <string translatable="false" name="config_wifi_p2p_device_type">10-0050F204-5</string>
-
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
-	<bool name="config_automatic_brightness_available">false</bool>
+    <bool name="config_automatic_brightness_available">false</bool>
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
@@ -81,40 +80,12 @@
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
 
-    <!-- Flag indicating whether the current device is "voice capable".
-         If true, this means that the device supports circuit-switched
-         (i.e. voice) phone calls over the telephony network, and is
-         allowed to display the in-call UI while a cellular voice call is
-         active.  This can be overridden to false for "data only" devices
-         which can't make voice calls and don't support any in-call UI.
-
-         Note: this flag is subtly different from the
-         PackageManager.FEATURE_TELEPHONY system feature, which is
-         available on *any* device with a telephony radio, even if the
-         device is data-only. -->
-
-        <!-- List of file paths for USB host busses to exclude from USB host support.
-         For example, if the first USB bus on the device is used to communicate
-         with the modem or some other restricted hardware, add "/dev/bus/usb/001/"
-         to this list.  If this is empty, no parts of the host USB bus will be excluded.
-    -->
-    <string-array name="config_usbHostBlacklist" translatable="false">
-        <item>/dev/bus/usb/001/</item>
-    </string-array>
-
     <!-- Enable lockscreen rotation by default -->
     <bool name="config_enableLockScreenRotation">true</bool>
-
-    <!-- Enable emergency call when sim is locked or puk locked. Some countries/carriers do not allow emergency calls to be placed without the IMSI, which is locked in the SIM.
-        If so, this should be set to 'false' in an overlay. -->
-    <bool name="config_enable_emergency_call_while_sim_locked">false</bool>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">150</integer>
-
-    <!-- The default reduced-datarate value in kilobits per sec -->
-    <integer name="config_datause_throttle_kbitsps">400</integer>
 
     <!-- Flag indicating whether the current device is "voice capable".
          If true, this means that the device supports circuit-switched
@@ -155,7 +126,7 @@
 
     <!-- Base "touch slop" value used by ViewConfiguration as a
          movement threshold where scrolling should begin. -->
-    <dimen name="config_viewConfigurationTouchSlop">5dp</dimen>
+    <dimen name="config_viewConfigurationTouchSlop">6dp</dimen>
   
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
@@ -187,3 +158,4 @@
     <integer name="config_deviceHardwareKeys">0</integer>
 
   </resources>
+  

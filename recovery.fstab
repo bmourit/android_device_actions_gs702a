@@ -1,0 +1,11 @@
+# mount point	fstype		device
+
+/emmc		vfat		/dev/block/actj
+/data_bak	vfat		/dev/block/actf
+/system		ext4		/dev/block/actc
+/cache		ext4		/dev/block/acte
+/data		ext4		/dev/block/actd
+/boot		vfat		/dev/block/actb
+/recovery	vfat		/dev/block/acta
+/misc		emmc		/dev/block/actb
+/sdcard		vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0

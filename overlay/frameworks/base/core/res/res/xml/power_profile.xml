@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 **
-** Copyright 2009, The Android Open Source Project
+** Copyright 2010, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -16,36 +16,33 @@
 ** limitations under the License.
 */
 -->
-
 <device name="Android">
-  <!-- Most values are the incremental current used by a feature,
-       in mA (measured at nominal voltage).
-       The default values are deliberately incorrect dummy values.
-       OEM's must measure and provide actual values before
-       shipping a device.
-       Example real-world values are given in comments, but they
-       are totally dependent on the platform and can vary
-       significantly, so should be measured on the shipping platform
-       with a power meter. -->
+  <!-- All values are in mA except as noted -->
   <item name="none">0</item>
-  <item name="screen.on">200</item>  <!-- ~200mA -->
-  <item name="screen.full">300</item>  <!-- ~300mA -->
-  <item name="bluetooth.active">5</item> <!-- Bluetooth data transfer, ~10mA -->
-  <item name="bluetooth.on">0.5</item>  <!-- Bluetooth on & connectable, but not connected, ~0.1mA -->
-  <item name="wifi.on">1</item>  <!-- ~3mA -->
-  <item name="wifi.active">150</item>  <!-- WIFI data transfer, ~200mA -->
-  <item name="wifi.scan">100</item>  <!-- WIFI network scanning, ~100mA -->
-  <item name="dsp.audio">5</item> <!-- ~10mA -->
-  <item name="dsp.video">25</item> <!-- ~50mA -->
-  <item name="radio.active">100</item> <!-- ~200mA -->
-  <item name="radio.scanning">5</item> <!-- cellular radio scanning for signal, ~10mA -->
-  <item name="gps.on">25</item> <!-- ~50mA -->
-  <!-- Current consumed by the radio at different signal strengths, when paging -->
-  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-      <value>1.5</value> <!-- ~2mA -->
-      <value>1</value> <!-- ~1mA -->
+  <item name="screen.on">286</item>
+  <item name="screen.full">318</item>
+  <item name="bluetooth.active">57.0</item>
+      <!--
+      Bluetooth stereo audio playback                          14.0 mA
+      -->
+  <item name="bluetooth.on">7</item>
+      <!--
+      I measured the following value                            1.4 mA
+      but there is a GPIO fix pending that should
+      bring this down to                                        0.2 mA
+      -->
+  <item name="wifi.on">29</item>
+  <item name="wifi.active">126</item>
+  <item name="wifi.scan">216</item>
+  <item name="dsp.audio">87</item>
+  <item name="dsp.video">245</item>
+  <item name="gps.on">29.7</item>
+  <item name="radio.active">71.5</item>
+  <item name="radio.scanning">1.2</item>
+  <array name="radio.on"> <!-- Strength 0 to BINS-1 (4) -->
+      <value>1.2</value>
   </array>
-  <!-- Different CPU speeds as reported in
+      <!-- Different CPU speeds as reported in
        /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
   <array name="cpu.speeds">
       <value>252000</value> <!-- 252 MHz CPU speed -->
@@ -56,18 +53,21 @@
       <value>1008000</value> <!-- 1008 MHz CPU speed -->
       <value>1200000</value> <!-- 1200 MHz CPU speed -->
   </array>
-  <!-- Current when CPU is idle -->
-  <item name="cpu.idle">3</item>
-  <!-- Current at each CPU speed, as per 'cpu.speeds' -->
+  <!-- Power consumption when CPU is idle -->
+  <item name="cpu.idle">125</item>
+  <!-- Power consumption at different speeds -->
   <array name="cpu.active">
-      <value>100</value>  <!-- ~100mA -->
-      <value>120</value>  <!-- ~120mA -->
-      <value>150</value>  <!-- ~150mA -->
-      <value>185</value>  <!-- ~185mA -->
-      <value>200</value>  <!-- ~200mA -->
-      <value>230</value>  <!-- ~230mA -->
-      <value>250</value>  <!-- ~250mA -->
+      <value>450</value> <!-- 252 MHz -->
+      <value>450</value> <!-- 360 MHz -->
+      <value>500</value> <!-- 576 MHz -->
+      <value>700</value> <!-- 720 MHz -->
+      <value>1100</value> <!-- 864 MHz -->
+      <value>1100</value> <!-- 1008 MHz -->
+      <value>1100</value> <!-- 1200 GHz -->
   </array>
-  <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
+  <!-- This is the battery capacity in mAh -->
   <item name="battery.capacity">8000</item>
+      <!--
+      Battery capacity is 8000 mAH (at 7.4 Volts)
+      -->
 </device>

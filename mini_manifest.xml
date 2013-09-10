@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-  <remote  name="github" fetch="git://github.com/"/>
-
-  <project remote="github" revision="master" name="bmourit/android_device_gs702a" path="device/actions/gs702a" />
-</manifest>

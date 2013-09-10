@@ -1,0 +1,55 @@
+adAAC.so		http://srv-al-svn/Music/AAC/trunk/Decoder/ALSP7X_dec_aac					r330
+adAC3.so		http://srv-al-svn/Music/AC3/ALSP7X_dec_ac3									r47
+adACELP.so		http://srv-al-svn/Music/RA/trunk/ALSP7X_dec_rma								r259
+adAMR.so		http://srv-al-svn/Speech/AMR/trunk/decoder/ALSP3X_dec_amr					r42
+adAPE.so		http://srv-al-svn/Music/APE/trunk/Decoder/ALSP7X_dec_ape					r145
+adAWB.so		http://srv-al-svn/Speech/AMR/trunk/decoder/ALSP3X_dec_amr					r42
+adCOOK.so		http://srv-al-svn/Music/RA/trunk/ALSP7X_dec_rma								r259
+adDTS.so		http://srv-al-svn/Music/DTS/ALSP3X_dec_dts									r72
+adFLAC.so		http://srv-al-svn/Music/FLAC/ALSP7X_dec_flac								r42
+adMP3.so		http://srv-al-svn/Music/MP3/trunk/Decoder/ALSP3X_dec_mp3					r313
+adOGG.so		http://srv-al-svn/Music/OGG/trunk/Decoder/ALSP7X_dec_ogg					r158
+adPCM.so		http://srv-al-svn/Speech/ADPCM/ALSP7X_dec_wav								r202
+adWMALSL.so		S
+adWMAPRO.so		S
+adWMASTD.so		S
+aeMP3.so		http://srv-al-svn/Music/MP3/trunk/Encoder/ALSP6X_enc_mp3					r296
+aeWAV.so		http://srv-al-svn/Speech/ADPCM/ALSP7X_enc_wav								r197
+apAAC.so		http://srv-al-svn/Music/AAC/trunk/Decoder/ALSP7X_dec_aac					r330
+apAC3.so		http://srv-al-svn/Music/AC3/ALSP7X_dec_ac3									r47
+apAMR.so		http://srv-al-svn/Speech/AMR/trunk/decoder/ALSP3X_dec_amr					r42
+apAPE.so		http://srv-al-svn/Music/APE/trunk/Decoder/ALSP7X_dec_ape					r145
+apDTS.so		http://srv-al-svn/Music/DTS/ALSP3X_dec_dts									r72
+apFLAC.so		http://srv-al-svn/Music/FLAC/ALSP7X_dec_flac								r42
+apMP3.so		http://srv-al-svn/Music/MP3/trunk/Decoder/ALSP3X_dec_mp3					r313
+apOGG.so		http://srv-al-svn/Music/OGG/trunk/Decoder/ALSP7X_dec_ogg					r158
+apRMA.so		http://srv-al-svn/Music/RA/trunk/ALSP7X_dec_rma								r259
+apWAV.so		http://srv-al-svn/Speech/ADPCM/ALSP7X_dec_wav								r202
+apWMA.so		S
+avd_avi.so http://srv-al-svn/Video/Video_Parser/trunk/AVI/Demuxer/android r1505
+avd_flv.so http://srv-al-svn/Video/Video_Parser/trunk/FLV/Demuxer/5201 r1534
+avd_mkv.so http://srv-al-svn/Video/Video_Parser/trunk/MKV/Demuxer/gsbase r1484
+avd_mp4.so http://srv-al-svn/Video/Video_Parser/trunk/MP4/Demuxer/5201_mp4 r1537
+avd_mpg.so http://srv-al-svn/Video/Video_Parser/trunk/MPG/Demuxer/5201 r1535
+avd_ogm.so http://srv-al-svn/Video/Video_Parser/trunk/OGM/ogm_702a r1428
+avd_rm.so http://srv-al-svn/Video/Video_Parser/trunk/RMVB/Demuxer/GS702A/parser_rm r1452
+avd_ts.so http://srv-al-svn/Video/Video_Parser/trunk/ts/Demuxer/android r1550
+avd_wmv.so		S
+id_jpg.so 		http://srv-al-svn/Image/mmm_image/libjpeg_5202 r277
+libACT_FD.so	http://srv-al-svn/DCDV/VideoEncoder/5202/facepro							r153
+libACT_ISP.so http://srv-al-svn/DCDV/PrePost/5202/ISP/isphal r105
+libbacklight.so	http://srv-al-svn/DCDV/other/backlit/VC2005/Backlight_N						r46
+libimg_en.so 	http://srv-al-svn/DCDV/other/imgEE r52
+libsub.so		http://srv-al-svn/Video/subtitles											r149
+libvde_core.so http://srv-al-svn/Rel/ALSP60/trunk/common/vde_core r1399
+vd_flv1.so http://srv-al-svn/Video/FLV1/trunk/Decoder/5202 r90
+vd_h263.so http://srv-al-svn/Video/H263/trunk/Decoder/GS702A r176
+vd_h264.so http://srv-al-svn/Video/h264/h264_5202 r296
+vd_mjpg.so http://srv-al-svn/Video/MJPEG/trunk/Decoder/mjpeg_5202 r25
+vd_mpeg.so http://srv-al-svn/Video/MPEG2/trunk/Decoder/GS702A r394
+vd_msm4.so http://srv-al-svn/Video/H263/trunk/Decoder/msmpeg4/5202/msmpeg4_5202 r189
+vd_rv34.so http://srv-al-svn/Video/RV/trunk/Decoder/rm_code/GL5202_rv34 r391
+vd_vc1.so		S
+vd_vp6.so http://srv-al-svn/Video/vp6/vp6_5202 r27
+vd_vp8.so http://srv-al-svn/Video/vp8/trunk/decoder/vp8_5202 r44
+vd_xvid.so http://srv-al-svn/Video/XVID/trunk/Decoder/GS702A r498

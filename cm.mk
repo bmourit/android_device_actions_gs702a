@@ -1,12 +1,14 @@
-# Inherit device configuration for gs702a.
+# Inherit device configuration
 $(call inherit-product, device/actions/gs702a/full_gs702a.mk)
 
 # Inherit some common cyanogenmod stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-#
-# Setup device specific product configuration.
-#
+# Inherit GSM common stuff
+$(call inherit-product, vendor/cm/config/gsm.mk)
+
+
+#Device identifier. This must come after all inclusions
 PRODUCT_NAME := cm_gs702a
 PRODUCT_BRAND := Android
 PRODUCT_DEVICE := gs702a

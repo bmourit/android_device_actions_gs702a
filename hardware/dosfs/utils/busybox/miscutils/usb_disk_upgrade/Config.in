@@ -1,0 +1,7 @@
+config UDISK_UPGRADE
+	bool "Udisk upgrade for firmware in usb disk"
+	default n
+	help
+          When boot, we will check a flag to determain if we should burn the 
+	  firmware in udisk to flash.
+
