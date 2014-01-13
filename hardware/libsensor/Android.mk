@@ -36,7 +36,6 @@ LOCAL_SRC_FILES := \
 	InputEventReader.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
-LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
 

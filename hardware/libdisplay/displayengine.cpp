@@ -74,22 +74,21 @@ static struct hw_module_methods_t de_module_methods = {
 	open: open_display_engine,
 };
 
-/* The hal module for de */
+/* The hal module for display */
 /*****************************************************************************/
 
 struct de_module_t HAL_MODULE_INFO_SYM =
 {
-	common:
-	{
-		tag: HARDWARE_MODULE_TAG,
-		version_major: 1,
-		version_minor: 0, id: DE_HARDWARE_MODULE_ID,
-		name: "actions display manger",
-		author: "ywwang",
-		methods: &de_module_methods,
-		dso:0,
-		reserved:
-		{	0,}
+	.common = {
+		.tag = HARDWARE_MODULE_TAG,
+		.version_major = 1,
+		.version_minor = 0,
+		.id = DE_HARDWARE_MODULE_ID,
+		.name = "Actions Display Manger",
+		.author = "ywwang",
+		.methods = &de_module_methods,
+		.dso = 0,
+		.reserved = {	0,}
 	},
 };
 
@@ -110,15 +109,12 @@ static void update_virtual_tv_scale_info(int xscale, int yscale) {
 	sprintf(value, "%d", yscale);
 	ret = property_set("hw.tvout.virtual_tv_yscale", value);
 	usleep(20000);
-
 }
 
 static void update_tvout_gap_info(int gap_top, int gap_bottom) {
-
 	char value[PROPERTY_VALUE_MAX];
 	sprintf(value, "%d", gap_top);
 	property_set("hw.tvout.top_gap", value);
-
 	sprintf(value, "%d", gap_bottom);
 	property_set("hw.tvout.bottom_gap", value);
 
@@ -126,7 +122,7 @@ static void update_tvout_gap_info(int gap_top, int gap_bottom) {
 
 /**
  *
- * determine the ui scale mode: 2x-scale use de graphic layer or arbitary scale use
+ * determine the ui scale mode: 2x-scale use display graphic layer or arbitary scale use
  *  video layer
  *
  */
@@ -367,14 +363,6 @@ static int de_set_content_output_tv(struct de_control_device_t *dev, int set) {
 	return status;
 }
 
-/**
- *  调试电视输出时，画面的缩放比例，共76级
- *
- * @param dev   dev设备结构
- * @param xscale  x方向缩放比例
- * @param yscale  y方向缩放比例
- * @return 0成功, <0失败
- */
 int de_set_tv_display_scale(struct de_control_device_t *dev, int xscale,
 		int yscale) {
 	int de_param;
@@ -417,13 +405,6 @@ int de_get_tv_display_scale(struct de_control_device_t *dev, int *pxscale,
 	return 0;
 }
 
-/**
- *  获取连接电缆的状态
- *
- * @param dev   dev设备结构
- * @param status   用于返回电缆的连接状态
- * @return 0成功, <0失败
- */
 int de_get_tv_cable_status(struct de_control_device_t *dev, int *status) {
 
 	struct de_context_t* ctx = (struct de_context_t*) dev;
@@ -502,7 +483,6 @@ void de_set_display_mode_single(struct de_control_device_t *dev, int mode) {
 		ALOGW("don't support single mode :%d\n", mode);
 		break;
 	}
-
 }
 
 static void de_set_display_mode(struct de_control_device_t *dev, int mode) {

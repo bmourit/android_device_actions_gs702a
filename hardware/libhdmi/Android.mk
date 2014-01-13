@@ -18,20 +18,21 @@ LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation, not prelinked and stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
 include $(CLEAR_VARS)
-#LOCAL_LDFLAGS := -fPIC -shared -ldma_mem
-#LOCAL_SHARED_LIBRARIES := libdma_mem
-#LOCAL_SHARED_LIBRARIES := libdevmem
+#LOCAL_LDFLAGS:= -fPIC -shared -ldma_mem
+#LOCAL_SHARED_LIBRARIES:=libdma_mem
+#LOCAL_SHARED_LIBRARIES:=libdevmem
 
 LOCAL_C_INCLUDES += \
-	device/actions/gs702a/hardware/include/ 
+	device/actions/hardware/include/
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_SRC_FILES := hdmi.cpp
-LOCAL_CFLAGS := -DLOG_TAG=\"hdmi\"	
+LOCAL_CFLAGS:= -DLOG_TAG=\"hdmi\"	
 LOCAL_MODULE := hdmi.$(TARGET_BOARD_PLATFORM)
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS :=eng optional
 
 include $(BUILD_SHARED_LIBRARY)
+
 endif

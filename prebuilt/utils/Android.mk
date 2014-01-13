@@ -1,18 +1,11 @@
 LOCAL_PATH := $(call my-dir)
 
-#include $(CLEAR_VARS)
-#LOCAL_MODULE := libdvm
-#LOCAL_SRC_FILES := libdvm.so
-#LOCAL_MODULE_STEM := libdvm.so
-#LOCAL_MODULE_TAGS := optional
-#LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-#include $(BUILD_PREBUILT)
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := gpu_config
 LOCAL_SRC_FILES := gpu_config
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -20,6 +13,7 @@ LOCAL_MODULE := game_r3
 LOCAL_SRC_FILES := game_r3
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -27,15 +21,17 @@ LOCAL_MODULE := game_r2
 LOCAL_SRC_FILES := game_r2
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/
 include $(BUILD_PREBUILT)
 
-#omx/components/audio_decorder
+#omx/components/audio_decoder
 include $(CLEAR_VARS)
 LOCAL_MODULE := libOMX.Action.Audio.Decoder
 LOCAL_SRC_FILES := libOMX.Action.Audio.Decoder.so
 LOCAL_MODULE_STEM := libOMX.Action.Audio.Decoder.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #omx/components/camera
@@ -45,6 +41,7 @@ LOCAL_SRC_FILES := libOMX.Action.Video.Camera.so
 LOCAL_MODULE_STEM := libOMX.Action.Video.Camera.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -53,6 +50,7 @@ LOCAL_SRC_FILES := libACT_V4L2HAL.so
 LOCAL_MODULE_STEM := libACT_V4L2HAL.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #omx/components/jpeg_decorder
@@ -62,7 +60,8 @@ LOCAL_SRC_FILES := libOMX.Action.Image.Decoder.so
 LOCAL_MODULE_STEM := libOMX.Action.Image.Decoder.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
- include $(BUILD_PREBUILT)
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
+include $(BUILD_PREBUILT)
 
 #omx/components/omx_vce
 include $(CLEAR_VARS)
@@ -71,6 +70,7 @@ LOCAL_SRC_FILES := libOMX.Action.Video.Encoder.so
 LOCAL_MODULE_STEM := libOMX.Action.Video.Encoder.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -79,6 +79,7 @@ LOCAL_SRC_FILES := libACT_EncAPI.so
 LOCAL_MODULE_STEM := libACT_EncAPI.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #omx/components/video_decorder
@@ -88,6 +89,7 @@ LOCAL_SRC_FILES := libOMX.Action.Video.Decoder.so
 LOCAL_MODULE_STEM := libOMX.Action.Video.Decoder.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #omx/libstagefreighthw
@@ -97,6 +99,7 @@ LOCAL_SRC_FILES := libstagefrighthw.so
 LOCAL_MODULE_STEM := libstagefrighthw.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #omx/omx_core
@@ -106,15 +109,17 @@ LOCAL_SRC_FILES := libOMX_Core.so
 LOCAL_MODULE_STEM:= libOMX_Core.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
 
 #gralloc_HW
 include $(CLEAR_VARS)
-LOCAL_MODULE := gralloc.$(TARGET_BOARD_PLATFORM)
-LOCAL_SRC_FILES := gralloc.$(TARGET_BOARD_PLATFORM).so
-LOCAL_MODULE_STEM := gralloc.$(TARGET_BOARD_PLATFORM).so
+LOCAL_MODULE := gralloc.ATM702X
+LOCAL_SRC_FILES := gralloc.ATM702X.so
+LOCAL_MODULE_STEM := gralloc.ATM702X.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib/hw
 include $(BUILD_PREBUILT)
 
 #omx/base
@@ -131,20 +136,13 @@ LOCAL_MODULE := pfmnceserver
 LOCAL_SRC_FILES := pfmnceserver
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := EXECUTABLES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/bin
 include $(BUILD_PREBUILT)
-
-#include $(CLEAR_VARS)
-#LOCAL_MODULE := libjni_mosaic
-#LOCAL_SRC_FILES := libjni_mosaic.so
-#LOCAL_MODULE_STEM := libjni_mosaic.so
-#LOCAL_MODULE_TAGS := optional
-#LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-#include $(BUILD_PREBUILT)
 
 #utils_prebuilt_target :=
 
 #if source code not available do prebuilt
-#ifneq ($(words $(shell find device/actions/gs702a/packages/OTA/Android.mk)),1)
+#ifneq ($(words $(shell find device/actions/packages/OTA/Android.mk)),1)
 #include $(CLEAR_VARS)
 #LOCAL_MODULE := update
 #LOCAL_MODULE_STEM := update.apk
@@ -171,55 +169,59 @@ include $(BUILD_PREBUILT)
 #endif
 
 #prebuilt libhwc 
-ifneq ($(words $(shell find device/actions/gs702a/hardware/libhwc/libhwc/Android.mk)),1)
+#ifneq ($(words $(shell find device/actions/gs702a/hardware/libhwc/libhwc/Android.mk)),1)
 include $(CLEAR_VARS)
-LOCAL_MODULE := hwcomposer.$(TARGET_BOARD_PLATFORM)
-LOCAL_SRC_FILES := $(LOCAL_MODULE).so
-LOCAL_MODULE_STEM := hwcomposer.$(TARGET_BOARD_PLATFORM).so
+LOCAL_MODULE := hwcomposer.ATM702X
+LOCAL_SRC_FILES := hwcomposer.ATM702X.so
+LOCAL_MODULE_STEM := hwcomposer.ATM702X.so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib/hw
 include $(BUILD_PREBUILT)
 #else
 #utils_prebuilt_target += $(TARGET_OUT)/lib/hw/hwcomposer.ATM702X.so
-endif
+#endif
 
 #prebuilt libperformance 
-ifneq ($(words $(shell find device/actions/gs702a/performancemanager/performanceservice/Android.mk)),1)
+ifneq ($(words $(shell find device/actions/performancemanager/performanceservice/Android.mk)),1)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libperformance
 LOCAL_SRC_FILES := $(LOCAL_MODULE).so
 LOCAL_MODULE_STEM:= $(LOCAL_MODULE).so
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := $(TARGET_OUT)/lib
 include $(BUILD_PREBUILT)
-#else
-#utils_prebuilt_target += $(TARGET_OUT)/lib/libperformance.so
+else
+utils_prebuilt_target += $(TARGET_OUT)/lib/libperformance.so
 endif
 
 #prebuilt performancepolicy 
-ifneq ($(words $(shell find device/actions/gs702a/performancemanager/performancepolicy/Android.mk)),1)
-include $(CLEAR_VARS)
-LOCAL_MODULE := performancepolicy
-LOCAL_MODULE_STEM := performancepolicy.apk
-LOCAL_SRC_FILES := performancepolicy.apk
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := APPS
-LOCAL_CERTIFICATE := PRESIGNED
-include $(BUILD_PREBUILT)
+#ifneq ($(words $(shell find device/actions/performancemanager/performancepolicy/Android.mk)),1)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := performancepolicy
+#LOCAL_MODULE_STEM := performancepolicy.apk
+#LOCAL_SRC_FILES := performancepolicy.apk
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE_CLASS := APPS
+#LOCAL_CERTIFICATE := PRESIGNED
+#LOCAL_MODULE_PATH := $(TARGET_OUT)/app
+#include $(BUILD_PREBUILT)
 #else
 #utils_prebuilt_target += $(TARGET_OUT)/app/performancepolicy.apk
-endif
+#endif
 
-#prebuilt performancepolicy 
-ifneq ($(words $(shell find device/actions/gs702a/packages/ActSensorCalib/Android.mk)),1)
+#prebuilt sensorcalib
+#ifneq ($(words $(shell find device/actions/packages/ActSensorCalib/Android.mk)),1)
 include $(CLEAR_VARS)
 LOCAL_MODULE := ActSensorCalib
 LOCAL_MODULE_STEM := ActSensorCalib.apk
 LOCAL_SRC_FILES := ActSensorCalib.apk
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS :=APPS
-LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_MODULE_CLASS := APPS
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_PATH := $(TARGET_OUT)/app
 include $(BUILD_PREBUILT)
 #else
 #utils_prebuilt_target += $(TARGET_OUT)/app/ActSensorCalib.apk
-endif
+#endif

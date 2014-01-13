@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="mTextView">false</item>
+    <item type="id" name="mSensorHost">false</item>
+    <item type="id" name="buttonCalib">false</item>
+    <item type="id" name="buttonReset">false</item>
+    <item type="id" name="ckbXYSwap">false</item>
+    <item type="id" name="ckbLRSwap">false</item>
+    <item type="id" name="ckbUDSwap">false</item>
+    <item type="id" name="ckbFBSwap">false</item>
+    <item type="id" name="mTipsInfo">false</item>
+</resources>

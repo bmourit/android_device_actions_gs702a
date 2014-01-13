@@ -1,6 +1,6 @@
 #ifndef __ACT_DE_DRIVER__H__
 #define __ACT_DE_DRIVER__H__
-//请与\psp\fwsp\include\de.h 保持同步更新
+
 struct mdsb_info
 {
     int drop_line_front;
@@ -78,7 +78,7 @@ enum disp_dev_id
  在获取当前显示设备的时候也是采用类似组合。
  */
 #define DEIOSET_DISPLAYER        0x5702
-#define DEIOGET_DISPLAYER					0x5703
+#define DEIOGET_DISPLAYER		 0x5703
 
 /*
  ioctl DEIOSET_OVERLAY_STATUS
@@ -197,7 +197,7 @@ enum disp_dev_id
  ioctl DEIO_IS_NEED_ROTATION
  add for if lcd and hdmi xres and yres not fit ,then need rotation for hdmi 
  */
-#define DEIO_IS_NEED_ROTATION 0x5717
+#define DEIO_IS_NEED_ROTATION  0x5717
 #define DEIO_SET_NEED_ROTATION 0x5718
 
 #define SCALE_ORIGINAL_SIZE 1
@@ -207,4 +207,3 @@ enum disp_dev_id
 #define SCALE_2X_MODE       5
 
 #endif
-

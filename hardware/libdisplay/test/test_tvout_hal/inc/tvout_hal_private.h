@@ -22,7 +22,8 @@
 
 #define TVOUT_IOC_MAGIC               't'
 /*功能：设置CVBS制式。参数类型:struct tv_settings*/
-#define CVBS_CONFIGURE                  _IOW(TVOUT_IOC_MAGIC, 0x96, struct tv_settings)             
+#define CVBS_SET_CONFIGURE             _IOW(TVOUT_IOC_MAGIC, 0x95, struct tv_settings)
+#define CVBS_GET_CONFIGURE             _IOR(TVOUT_IOC_MAGIC, 0x96, struct tv_settings)
 /*功能：获取CVBS插拔线状态，1：拔出，2：插入。参数类型：u32  */
 #define CVBS_GET_STATUS                 _IOR(TVOUT_IOC_MAGIC, 0x97, u32) 
 /*功能：获取CVBS默认制式。参数类型：U32*/

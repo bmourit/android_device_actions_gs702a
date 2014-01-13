@@ -53,6 +53,7 @@ struct cvbs_device_t {
     int (*disable)(struct cvbs_device_t *dev);
     int (*is_connected)(struct cvbs_device_t *dev);
     int (*set_mode)(struct cvbs_device_t *dev, int mode);
+    int (*get_mode)(struct cvbs_device_t *dev);
 };
 
 

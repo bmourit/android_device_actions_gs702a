@@ -1,0 +1,629 @@
+
+PRODUCT_COPY_FILES += \
+
+
+
+	device/actions/gs702a/usb_modeswitch.d/3f0_002a:system/etc/usb_modeswitch.d/
+	device/actions/gs702a/usb_modeswitch.d/408_ea25
+	device/actions/gs702a/usb_modeswitch.d/408_f000
+	device/actions/gs702a/usb_modeswitch.d/421_060c
+	device/actions/gs702a/usb_modeswitch.d/421_0610
+	device/actions/gs702a/usb_modeswitch.d/421_0618
+	device/actions/gs702a/usb_modeswitch.d/421_061d
+	device/actions/gs702a/usb_modeswitch.d/421_0622
+	device/actions/gs702a/usb_modeswitch.d/421_0627
+	device/actions/gs702a/usb_modeswitch.d/421_062c
+	device/actions/gs702a/usb_modeswitch.d/421_0632
+	device/actions/gs702a/usb_modeswitch.d/421_0637
+	device/actions/gs702a/usb_modeswitch.d/471_1210
+	device/actions/gs702a/usb_modeswitch.d/471_1210_uMa=Philips
+	device/actions/gs702a/usb_modeswitch.d/471_1210_uMa=Wisue
+	device/actions/gs702a/usb_modeswitch.d/471_1237
+	device/actions/gs702a/usb_modeswitch.d/482_024d
+	device/actions/gs702a/usb_modeswitch.d/4bb_bccd
+	device/actions/gs702a/usb_modeswitch.d/4cc_225c
+	device/actions/gs702a/usb_modeswitch.d/4e8_680c
+	device/actions/gs702a/usb_modeswitch.d/4e8_689a
+	device/actions/gs702a/usb_modeswitch.d/4e8_f000
+	device/actions/gs702a/usb_modeswitch.d/4e8_f000_sMo=U209
+	device/actions/gs702a/usb_modeswitch.d/57c_84ff
+	device/actions/gs702a/usb_modeswitch.d/5c6_0010
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_sVe=GT
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_sVe=Option
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=AnyDATA
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=CELOT
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=DGT
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=Option
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=SAMSUNG
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=SSE
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=StrongRising
+	device/actions/gs702a/usb_modeswitch.d/5c6_1000_uMa=Vertex
+	device/actions/gs702a/usb_modeswitch.d/5c6_2000
+	device/actions/gs702a/usb_modeswitch.d/5c6_2001
+	device/actions/gs702a/usb_modeswitch.d/5c6_6503
+	device/actions/gs702a/usb_modeswitch.d/5c6_f000
+	device/actions/gs702a/usb_modeswitch.d/5c7_1000
+	device/actions/gs702a/usb_modeswitch.d/72f_100d
+	device/actions/gs702a/usb_modeswitch.d/7d1_a800
+	device/actions/gs702a/usb_modeswitch.d/7d1_a804
+	device/actions/gs702a/usb_modeswitch.d/922_1001
+	device/actions/gs702a/usb_modeswitch.d/930_0d46
+	device/actions/gs702a/usb_modeswitch.d/ace_2011
+	device/actions/gs702a/usb_modeswitch.d/ace_20ff
+	device/actions/gs702a/usb_modeswitch.d/af0_4007
+	device/actions/gs702a/usb_modeswitch.d/af0_6711
+	device/actions/gs702a/usb_modeswitch.d/af0_6731
+	device/actions/gs702a/usb_modeswitch.d/af0_6751
+	device/actions/gs702a/usb_modeswitch.d/af0_6771
+	device/actions/gs702a/usb_modeswitch.d/af0_6791
+	device/actions/gs702a/usb_modeswitch.d/af0_6811
+	device/actions/gs702a/usb_modeswitch.d/af0_6911
+	device/actions/gs702a/usb_modeswitch.d/af0_6951
+	device/actions/gs702a/usb_modeswitch.d/af0_6971
+	device/actions/gs702a/usb_modeswitch.d/af0_7011
+	device/actions/gs702a/usb_modeswitch.d/af0_7031
+	device/actions/gs702a/usb_modeswitch.d/af0_7051
+	device/actions/gs702a/usb_modeswitch.d/af0_7071
+	device/actions/gs702a/usb_modeswitch.d/af0_7111
+	device/actions/gs702a/usb_modeswitch.d/af0_7211
+	device/actions/gs702a/usb_modeswitch.d/af0_7251
+	device/actions/gs702a/usb_modeswitch.d/af0_7271
+	device/actions/gs702a/usb_modeswitch.d/af0_7301
+	device/actions/gs702a/usb_modeswitch.d/af0_7311
+	device/actions/gs702a/usb_modeswitch.d/af0_7361
+	device/actions/gs702a/usb_modeswitch.d/af0_7381
+	device/actions/gs702a/usb_modeswitch.d/af0_7401
+	device/actions/gs702a/usb_modeswitch.d/af0_7501
+	device/actions/gs702a/usb_modeswitch.d/af0_7601
+	device/actions/gs702a/usb_modeswitch.d/af0_7701
+	device/actions/gs702a/usb_modeswitch.d/af0_7706
+	device/actions/gs702a/usb_modeswitch.d/af0_7801
+	device/actions/gs702a/usb_modeswitch.d/af0_7901
+	device/actions/gs702a/usb_modeswitch.d/af0_7a01
+	device/actions/gs702a/usb_modeswitch.d/af0_7a05
+	device/actions/gs702a/usb_modeswitch.d/af0_8006
+	device/actions/gs702a/usb_modeswitch.d/af0_8200
+	device/actions/gs702a/usb_modeswitch.d/af0_8201
+	device/actions/gs702a/usb_modeswitch.d/af0_8300
+	device/actions/gs702a/usb_modeswitch.d/af0_8302
+	device/actions/gs702a/usb_modeswitch.d/af0_8304
+	device/actions/gs702a/usb_modeswitch.d/af0_8400
+	device/actions/gs702a/usb_modeswitch.d/af0_8600
+	device/actions/gs702a/usb_modeswitch.d/af0_8700
+	device/actions/gs702a/usb_modeswitch.d/af0_8800
+	device/actions/gs702a/usb_modeswitch.d/af0_8900
+	device/actions/gs702a/usb_modeswitch.d/af0_9000
+	device/actions/gs702a/usb_modeswitch.d/af0_9200
+	device/actions/gs702a/usb_modeswitch.d/af0_c031
+	device/actions/gs702a/usb_modeswitch.d/af0_c100
+	device/actions/gs702a/usb_modeswitch.d/af0_d001
+	device/actions/gs702a/usb_modeswitch.d/af0_d013
+	device/actions/gs702a/usb_modeswitch.d/af0_d031
+	device/actions/gs702a/usb_modeswitch.d/af0_d033
+	device/actions/gs702a/usb_modeswitch.d/af0_d035
+	device/actions/gs702a/usb_modeswitch.d/af0_d055
+	device/actions/gs702a/usb_modeswitch.d/af0_d057
+	device/actions/gs702a/usb_modeswitch.d/af0_d058
+	device/actions/gs702a/usb_modeswitch.d/af0_d155
+	device/actions/gs702a/usb_modeswitch.d/af0_d157
+	device/actions/gs702a/usb_modeswitch.d/af0_d255
+	device/actions/gs702a/usb_modeswitch.d/af0_d257
+	device/actions/gs702a/usb_modeswitch.d/af0_d357
+	device/actions/gs702a/usb_modeswitch.d/b3c_c700
+	device/actions/gs702a/usb_modeswitch.d/b3c_f000
+	device/actions/gs702a/usb_modeswitch.d/cf3_20ff
+	device/actions/gs702a/usb_modeswitch.d/d46_45a1
+	device/actions/gs702a/usb_modeswitch.d/d46_45a5
+	device/actions/gs702a/usb_modeswitch.d/df7_0800
+	device/actions/gs702a/usb_modeswitch.d/e8d_0002
+	device/actions/gs702a/usb_modeswitch.d/e8d_0002_uPr=MT
+	device/actions/gs702a/usb_modeswitch.d/e8d_7109
+	device/actions/gs702a/usb_modeswitch.d/fca_8020
+	device/actions/gs702a/usb_modeswitch.d/fce_d0cf
+	device/actions/gs702a/usb_modeswitch.d/fce_d0e1
+	device/actions/gs702a/usb_modeswitch.d/fce_d103
+	device/actions/gs702a/usb_modeswitch.d/fd1_1000
+	device/actions/gs702a/usb_modeswitch.d/004_1000
+	device/actions/gs702a/usb_modeswitch.d/004_607f
+	device/actions/gs702a/usb_modeswitch.d/004_613a
+	device/actions/gs702a/usb_modeswitch.d/004_613f
+	device/actions/gs702a/usb_modeswitch.d/004_614e
+	device/actions/gs702a/usb_modeswitch.d/004_6156
+	device/actions/gs702a/usb_modeswitch.d/004_6190
+	device/actions/gs702a/usb_modeswitch.d/004_61aa
+	device/actions/gs702a/usb_modeswitch.d/004_61dd
+	device/actions/gs702a/usb_modeswitch.d/004_61e7
+	device/actions/gs702a/usb_modeswitch.d/004_61eb
+	device/actions/gs702a/usb_modeswitch.d/004_6327
+	device/actions/gs702a/usb_modeswitch.d/033_0035
+	device/actions/gs702a/usb_modeswitch.d/06c_3b03
+	device/actions/gs702a/usb_modeswitch.d/06c_3b05
+	device/actions/gs702a/usb_modeswitch.d/06c_3b06
+	device/actions/gs702a/usb_modeswitch.d/06c_3b11
+	device/actions/gs702a/usb_modeswitch.d/06c_3b14
+	device/actions/gs702a/usb_modeswitch.d/076_7f40
+	device/actions/gs702a/usb_modeswitch.d/09b_f009
+	device/actions/gs702a/usb_modeswitch.d/0a9_6080
+	device/actions/gs702a/usb_modeswitch.d/199_0fff
+	device/actions/gs702a/usb_modeswitch.d/266_1000
+	device/actions/gs702a/usb_modeswitch.d/2d1_1001
+	device/actions/gs702a/usb_modeswitch.d/2d1_1003
+	device/actions/gs702a/usb_modeswitch.d/2d1_1009
+	device/actions/gs702a/usb_modeswitch.d/2d1_101e
+	device/actions/gs702a/usb_modeswitch.d/2d1_1030
+	device/actions/gs702a/usb_modeswitch.d/2d1_1031
+	device/actions/gs702a/usb_modeswitch.d/2d1_1414
+	device/actions/gs702a/usb_modeswitch.d/2d1_1446
+	device/actions/gs702a/usb_modeswitch.d/2d1_1449
+	device/actions/gs702a/usb_modeswitch.d/2d1_14ad
+	device/actions/gs702a/usb_modeswitch.d/2d1_14b5
+	device/actions/gs702a/usb_modeswitch.d/2d1_14b7
+	device/actions/gs702a/usb_modeswitch.d/2d1_14ba
+	device/actions/gs702a/usb_modeswitch.d/2d1_14c1
+	device/actions/gs702a/usb_modeswitch.d/2d1_14c3
+	device/actions/gs702a/usb_modeswitch.d/2d1_14c4
+	device/actions/gs702a/usb_modeswitch.d/2d1_14c5
+	device/actions/gs702a/usb_modeswitch.d/2d1_14d1
+	device/actions/gs702a/usb_modeswitch.d/2d1_14fe
+	device/actions/gs702a/usb_modeswitch.d/2d1_1505
+	device/actions/gs702a/usb_modeswitch.d/2d1_151a
+	device/actions/gs702a/usb_modeswitch.d/2d1_1520
+	device/actions/gs702a/usb_modeswitch.d/2d1_1521
+	device/actions/gs702a/usb_modeswitch.d/2d1_1523
+	device/actions/gs702a/usb_modeswitch.d/2d1_1526
+	device/actions/gs702a/usb_modeswitch.d/2d1_1553
+	device/actions/gs702a/usb_modeswitch.d/2d1_1557
+	device/actions/gs702a/usb_modeswitch.d/2d1_155b
+	device/actions/gs702a/usb_modeswitch.d/2d1_156a
+	device/actions/gs702a/usb_modeswitch.d/2d1_1805
+	device/actions/gs702a/usb_modeswitch.d/2d1_1c0b
+	device/actions/gs702a/usb_modeswitch.d/2d1_1c1b
+	device/actions/gs702a/usb_modeswitch.d/2d1_1c24
+	device/actions/gs702a/usb_modeswitch.d/2d1_1d50
+	device/actions/gs702a/usb_modeswitch.d/2d1_1da1
+	device/actions/gs702a/usb_modeswitch.d/2d1_1f01
+	device/actions/gs702a/usb_modeswitch.d/2d1_1f03
+	device/actions/gs702a/usb_modeswitch.d/2d1_1f11
+	device/actions/gs702a/usb_modeswitch.d/2d1_1f15
+	device/actions/gs702a/usb_modeswitch.d/2d1_380b
+	device/actions/gs702a/usb_modeswitch.d/307_1169
+	device/actions/gs702a/usb_modeswitch.d/410_5010
+	device/actions/gs702a/usb_modeswitch.d/410_5020
+	device/actions/gs702a/usb_modeswitch.d/410_5023
+	device/actions/gs702a/usb_modeswitch.d/410_5030
+	device/actions/gs702a/usb_modeswitch.d/410_5031
+	device/actions/gs702a/usb_modeswitch.d/410_5041
+	device/actions/gs702a/usb_modeswitch.d/410_5059
+	device/actions/gs702a/usb_modeswitch.d/410_7001
+	device/actions/gs702a/usb_modeswitch.d/48e_a000
+	device/actions/gs702a/usb_modeswitch.d/48f_2578
+	device/actions/gs702a/usb_modeswitch.d/5eb_7153
+	device/actions/gs702a/usb_modeswitch.d/6d8_6281
+	device/actions/gs702a/usb_modeswitch.d/6d8_6803
+	device/actions/gs702a/usb_modeswitch.d/6d8_6804
+	device/actions/gs702a/usb_modeswitch.d/6d8_700a
+	device/actions/gs702a/usb_modeswitch.d/6d8_700b
+	device/actions/gs702a/usb_modeswitch.d/6d8_f000
+	device/actions/gs702a/usb_modeswitch.d/726_f00e
+	device/actions/gs702a/usb_modeswitch.d/98a_0003
+	device/actions/gs702a/usb_modeswitch.d/98f_bccd
+	device/actions/gs702a/usb_modeswitch.d/9d2_0003
+	device/actions/gs702a/usb_modeswitch.d/9d2_0013
+	device/actions/gs702a/usb_modeswitch.d/9d2_0026
+	device/actions/gs702a/usb_modeswitch.d/9d2_0031
+	device/actions/gs702a/usb_modeswitch.d/9d2_0040
+	device/actions/gs702a/usb_modeswitch.d/9d2_0053
+	device/actions/gs702a/usb_modeswitch.d/9d2_0083
+	device/actions/gs702a/usb_modeswitch.d/9d2_0083_uPr=WCDMA
+	device/actions/gs702a/usb_modeswitch.d/9d2_0101
+	device/actions/gs702a/usb_modeswitch.d/9d2_0103
+	device/actions/gs702a/usb_modeswitch.d/9d2_0110
+	device/actions/gs702a/usb_modeswitch.d/9d2_0115
+	device/actions/gs702a/usb_modeswitch.d/9d2_0120
+	device/actions/gs702a/usb_modeswitch.d/9d2_0146
+	device/actions/gs702a/usb_modeswitch.d/9d2_0149
+	device/actions/gs702a/usb_modeswitch.d/9d2_0150
+	device/actions/gs702a/usb_modeswitch.d/9d2_0154
+	device/actions/gs702a/usb_modeswitch.d/9d2_0166
+	device/actions/gs702a/usb_modeswitch.d/9d2_0169
+	device/actions/gs702a/usb_modeswitch.d/9d2_0266
+	device/actions/gs702a/usb_modeswitch.d/9d2_0325
+	device/actions/gs702a/usb_modeswitch.d/9d2_1001
+	device/actions/gs702a/usb_modeswitch.d/9d2_1007
+	device/actions/gs702a/usb_modeswitch.d/9d2_1009
+	device/actions/gs702a/usb_modeswitch.d/9d2_1013
+	device/actions/gs702a/usb_modeswitch.d/9d2_1017
+	device/actions/gs702a/usb_modeswitch.d/9d2_1171
+	device/actions/gs702a/usb_modeswitch.d/9d2_1175
+	device/actions/gs702a/usb_modeswitch.d/9d2_1179
+	device/actions/gs702a/usb_modeswitch.d/9d2_1201
+	device/actions/gs702a/usb_modeswitch.d/9d2_1216
+	device/actions/gs702a/usb_modeswitch.d/9d2_1224
+	device/actions/gs702a/usb_modeswitch.d/9d2_1227
+	device/actions/gs702a/usb_modeswitch.d/9d2_1514
+	device/actions/gs702a/usb_modeswitch.d/9d2_1517
+	device/actions/gs702a/usb_modeswitch.d/9d2_1520
+	device/actions/gs702a/usb_modeswitch.d/9d2_1523
+	device/actions/gs702a/usb_modeswitch.d/9d2_1528
+	device/actions/gs702a/usb_modeswitch.d/9d2_1542
+	device/actions/gs702a/usb_modeswitch.d/9d2_2000
+	device/actions/gs702a/usb_modeswitch.d/9d2_bccd
+	device/actions/gs702a/usb_modeswitch.d/9d2_ffde
+	device/actions/gs702a/usb_modeswitch.d/9d2_ffe6
+	device/actions/gs702a/usb_modeswitch.d/9d2_fff5
+	device/actions/gs702a/usb_modeswitch.d/9d2_fff6
+	device/actions/gs702a/usb_modeswitch.d/a8d_1000
+	device/actions/gs702a/usb_modeswitch.d/a8d_2000
+	device/actions/gs702a/usb_modeswitch.d/ab7_5700
+	device/actions/gs702a/usb_modeswitch.d/b7d_0700
+	device/actions/gs702a/usb_modeswitch.d/bbb_000f
+	device/actions/gs702a/usb_modeswitch.d/bbb_00ca
+	device/actions/gs702a/usb_modeswitch.d/bbb_f000
+	device/actions/gs702a/usb_modeswitch.d/bbb_f017
+	device/actions/gs702a/usb_modeswitch.d/bbb_f052
+	device/actions/gs702a/usb_modeswitch.d/c9e_1001
+	device/actions/gs702a/usb_modeswitch.d/c9e_6061
+	device/actions/gs702a/usb_modeswitch.d/c9e_9200
+	device/actions/gs702a/usb_modeswitch.d/c9e_9800
+	device/actions/gs702a/usb_modeswitch.d/c9e_98ff
+	device/actions/gs702a/usb_modeswitch.d/c9e_9e00
+	device/actions/gs702a/usb_modeswitch.d/c9e_9e08
+	device/actions/gs702a/usb_modeswitch.d/c9e_f000
+	device/actions/gs702a/usb_modeswitch.d/da5_f000
+	device/actions/gs702a/usb_modeswitch.d/dd6_1000
+	device/actions/gs702a/usb_modeswitch.d/de1_1101
+	device/actions/gs702a/usb_modeswitch.d/e0e_f000
+	device/actions/gs702a/usb_modeswitch.d/e89_f000
+	device/actions/gs702a/usb_modeswitch.d/edf_6003
+	device/actions/gs702a/usb_modeswitch.d/ee8_0009
+	device/actions/gs702a/usb_modeswitch.d/ee8_0013
+	device/actions/gs702a/usb_modeswitch.d/ee8_0040
+	device/actions/gs702a/usb_modeswitch.d/ee8_004a
+	device/actions/gs702a/usb_modeswitch.d/ee8_0054
+	device/actions/gs702a/usb_modeswitch.d/ee8_0060
+	device/actions/gs702a/usb_modeswitch.d/ee8_0063
+	device/actions/gs702a/usb_modeswitch.d/ee8_0068
+	device/actions/gs702a/usb_modeswitch.d/f28_0021
+	device/actions/gs702a/usb_modeswitch.d/fac_0032
+	device/actions/gs702a/usb_modeswitch.d/fac_0130
+	device/actions/gs702a/usb_modeswitch.d/fac_0150
+	device/actions/gs702a/usb_modeswitch.d/fac_0151
+	device/actions/gs702a/usb_modeswitch.d/001_a706
+	device/actions/gs702a/usb_modeswitch.d/001_a707
+	device/actions/gs702a/usb_modeswitch.d/001_a708
+	device/actions/gs702a/usb_modeswitch.d/001_a805
+	device/actions/gs702a/usb_modeswitch.d/001_a80b
+	device/actions/gs702a/usb_modeswitch.d/01e_1023
+	device/actions/gs702a/usb_modeswitch.d/01e_2009
+	device/actions/gs702a/usb_modeswitch.d/020_0002
+	device/actions/gs702a/usb_modeswitch.d/020_f00e
+	device/actions/gs702a/usb_modeswitch.d/077_1000
+	device/actions/gs702a/usb_modeswitch.d/077_f000
+	device/actions/gs702a/usb_modeswitch.d/1f5_1000
+	device/actions/gs702a/usb_modeswitch.d/2de_6801
+	device/actions/gs702a/usb_modeswitch.d/2de_6803
+	device/actions/gs702a/usb_modeswitch.d/2f4_0021
+	device/actions/gs702a/usb_modeswitch.d/30d_0001
+	device/actions/gs702a/usb_modeswitch.d/30d_0007
+	device/actions/gs702a/usb_modeswitch.d/30d_0101
+	device/actions/gs702a/usb_modeswitch.d/30d_0103
+	device/actions/gs702a/usb_modeswitch.d/357_0200
+	device/actions/gs702a/usb_modeswitch.d/357_f000
+	device/actions/gs702a/usb_modeswitch.d/8888_6500
+	device/actions/gs702a/usb_modeswitch.d/u3glist.sh
+	device/actions/gs702a/usb_modeswitch.d/u3glist.txt
+
+
+
+
+
+	Boyds-MacBook-Pro:usb_modeswitch.d boydmouritsen$ ls -1
+03f0_002a
+0408_ea25
+0408_f000
+0421_060c
+0421_0610
+0421_0618
+0421_061d
+0421_0622
+0421_0627
+0421_062c
+0421_0632
+0421_0637
+0471_1210
+0471_1210_uMa=Philips
+0471_1210_uMa=Wisue
+0471_1237
+0482_024d
+04bb_bccd
+04cc_225c
+04e8_680c
+04e8_689a
+04e8_f000
+04e8_f000_sMo=U209
+057c_84ff
+05c6_0010
+05c6_1000_sVe=GT
+05c6_1000_sVe=Option
+05c6_1000_uMa=AnyDATA
+05c6_1000_uMa=CELOT
+05c6_1000_uMa=DGT
+05c6_1000_uMa=Option
+05c6_1000_uMa=SAMSUNG
+05c6_1000_uMa=SSE
+05c6_1000_uMa=StrongRising
+05c6_1000_uMa=Vertex
+05c6_2000
+05c6_2001
+05c6_6503
+05c6_f000
+05c7_1000
+072f_100d
+07d1_a800
+07d1_a804
+0922_1001
+0930_0d46
+0ace_2011
+0ace_20ff
+0af0_4007
+0af0_6711
+0af0_6731
+0af0_6751
+0af0_6771
+0af0_6791
+0af0_6811
+0af0_6911
+0af0_6951
+0af0_6971
+0af0_7011
+0af0_7031
+0af0_7051
+0af0_7071
+0af0_7111
+0af0_7211
+0af0_7251
+0af0_7271
+0af0_7301
+0af0_7311
+0af0_7361
+0af0_7381
+0af0_7401
+0af0_7501
+0af0_7601
+0af0_7701
+0af0_7706
+0af0_7801
+0af0_7901
+0af0_7a01
+0af0_7a05
+0af0_8006
+0af0_8200
+0af0_8201
+0af0_8300
+0af0_8302
+0af0_8304
+0af0_8400
+0af0_8600
+0af0_8700
+0af0_8800
+0af0_8900
+0af0_9000
+0af0_9200
+0af0_c031
+0af0_c100
+0af0_d001
+0af0_d013
+0af0_d031
+0af0_d033
+0af0_d035
+0af0_d055
+0af0_d057
+0af0_d058
+0af0_d155
+0af0_d157
+0af0_d255
+0af0_d257
+0af0_d357
+0b3c_c700
+0b3c_f000
+0cf3_20ff
+0d46_45a1
+0d46_45a5
+0df7_0800
+0e8d_0002
+0e8d_0002_uPr=MT
+0e8d_7109
+0fca_8020
+0fce_d0cf
+0fce_d0e1
+0fce_d103
+0fd1_1000
+1004_1000
+1004_607f
+1004_613a
+1004_613f
+1004_614e
+1004_6156
+1004_6190
+1004_61aa
+1004_61dd
+1004_61e7
+1004_61eb
+1004_6327
+1033_0035
+106c_3b03
+106c_3b05
+106c_3b06
+106c_3b11
+106c_3b14
+1076_7f40
+109b_f009
+10a9_6080
+1199_0fff
+1266_1000
+12d1_1001
+12d1_1003
+12d1_1009
+12d1_101e
+12d1_1030
+12d1_1031
+12d1_1414
+12d1_1446
+12d1_1449
+12d1_14ad
+12d1_14b5
+12d1_14b7
+12d1_14ba
+12d1_14c1
+12d1_14c3
+12d1_14c4
+12d1_14c5
+12d1_14d1
+12d1_14fe
+12d1_1505
+12d1_151a
+12d1_1520
+12d1_1521
+12d1_1523
+12d1_1526
+12d1_1553
+12d1_1557
+12d1_155b
+12d1_156a
+12d1_1805
+12d1_1c0b
+12d1_1c1b
+12d1_1c24
+12d1_1d50
+12d1_1da1
+12d1_1f01
+12d1_1f03
+12d1_1f11
+12d1_1f15
+12d1_380b
+1307_1169
+1410_5010
+1410_5020
+1410_5023
+1410_5030
+1410_5031
+1410_5041
+1410_5059
+1410_7001
+148e_a000
+148f_2578
+15eb_7153
+16d8_6281
+16d8_6803
+16d8_6804
+16d8_700a
+16d8_700b
+16d8_f000
+1726_f00e
+198a_0003
+198f_bccd
+19d2_0003
+19d2_0013
+19d2_0026
+19d2_0031
+19d2_0040
+19d2_0053
+19d2_0083
+19d2_0083_uPr=WCDMA
+19d2_0101
+19d2_0103
+19d2_0110
+19d2_0115
+19d2_0120
+19d2_0146
+19d2_0149
+19d2_0150
+19d2_0154
+19d2_0166
+19d2_0169
+19d2_0266
+19d2_0325
+19d2_1001
+19d2_1007
+19d2_1009
+19d2_1013
+19d2_1017
+19d2_1171
+19d2_1175
+19d2_1179
+19d2_1201
+19d2_1216
+19d2_1224
+19d2_1227
+19d2_1514
+19d2_1517
+19d2_1520
+19d2_1523
+19d2_1528
+19d2_1542
+19d2_2000
+19d2_bccd
+19d2_ffde
+19d2_ffe6
+19d2_fff5
+19d2_fff6
+1a8d_1000
+1a8d_2000
+1ab7_5700
+1b7d_0700
+1bbb_000f
+1bbb_00ca
+1bbb_f000
+1bbb_f017
+1bbb_f052
+1c9e_1001
+1c9e_6061
+1c9e_9200
+1c9e_9800
+1c9e_98ff
+1c9e_9e00
+1c9e_9e08
+1c9e_f000
+1da5_f000
+1dd6_1000
+1de1_1101
+1e0e_f000
+1e89_f000
+1edf_6003
+1ee8_0009
+1ee8_0013
+1ee8_0040
+1ee8_004a
+1ee8_0054
+1ee8_0060
+1ee8_0063
+1ee8_0068
+1f28_0021
+1fac_0032
+1fac_0130
+1fac_0150
+1fac_0151
+2001_a706
+2001_a707
+2001_a708
+2001_a805
+2001_a80b
+201e_1023
+201e_2009
+2020_0002
+2020_f00e
+2077_1000
+2077_f000
+21f5_1000
+22de_6801
+22de_6803
+22f4_0021
+230d_0001
+230d_0007
+230d_0101
+230d_0103
+2357_0200
+2357_f000
+8888_6500
+u3glist.sh
+u3glist.txt

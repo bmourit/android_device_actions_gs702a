@@ -43,37 +43,24 @@ static int camera_device_close(hw_device_t* device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
 
-static struct hw_module_methods_t camera_module_methods =
-{
-open:
-    camera_device_open
+static struct hw_module_methods_t camera_module_methods = {
+    .open = camera_device_open
 };
 
-camera_module_t HAL_MODULE_INFO_SYM =
-{
-common:
-    {
-tag:
-        HARDWARE_MODULE_TAG,
-        version_major: 1,
-        version_minor: 0,
-id:
-        CAMERA_HARDWARE_MODULE_ID,
-name: "Actions CameraHal Module"
-        ,
-author: "TI"
-        ,
-methods:
-        &camera_module_methods,
-dso:
-        NULL, /* remove compilation warnings */
-reserved:
-        {0}, /* remove compilation warnings */
+camera_module_t HAL_MODULE_INFO_SYM = {
+    .common = {
+        .tag = HARDWARE_MODULE_TAG,
+        .version_major = 1,
+        .version_minor = 0,
+        .id = CAMERA_HARDWARE_MODULE_ID,
+        .name = "Actions CameraHal Module",
+        .author = "TI",
+        .methods = &camera_module_methods,
+        .dso = NULL, /* remove compilation warnings */
+        .reserved = {0}, /* remove compilation warnings */
     },
-get_number_of_cameras:
-    camera_get_number_of_cameras,
-get_camera_info:
-    camera_get_camera_info,
+    .get_number_of_cameras = camera_get_number_of_cameras,
+    .get_camera_info = camera_get_camera_info,
 };
 
 typedef struct ti_camera_device
@@ -777,8 +764,3 @@ end:
 	LOG_IF_FUNCTION_NAME_EXIT(rv);
     return rv;
 }
-
-
-
-
-

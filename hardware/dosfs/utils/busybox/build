@@ -1,8 +1,0 @@
-#!/bin/sh
-#build and install busybox
-
-cp -fv config_busybox .config
-
-make clean -j2
-make CROSS_COMPILE=mipsel-linux-gnu- -j2
-make CONFIG_PREFIX=../../../../lsdk600a/case/images/sysroot install

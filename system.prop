@@ -1,4 +1,5 @@
-# Actions gs702a config
+# system.prop for gs702a
+#
 ro.debuggable=1
 persist.sys.timezone=America/Los_Angeles
 persist.sys.strictmode.disable=true
@@ -7,32 +8,57 @@ wifi.interface=wlan0
 ro.allow.mock.location=1
 persist.sys.usb.config=mass_storage,adb
 ro.sf.lcd_density=160
+ro.build.selinux=0
+
 ro.opengles.version=131072
 ro.config.softopengles=0
 ro.config.used_hw_vsync=0
-#force to tabletui: navigatbar move to statubar 
-#ro.config.forcetabletui=1
+service.adb.root=1
+ro.setupwizard.enable_bypass=1
+ro.bq.gpu_to_cpu_unsupported=1
 ro.settings.config.hdmi=off
-ro.soundrecorder.format=amr
+persist.sys.ubs.config=mtp
 ro.product.usbdevice.VID=10d6
 ro.product.usbdevice.PID=fffe
 ro.product.mtpdevice.PID=4e41
 ro.product.ptpdevice.PID=4e43
-ro.usb.descriptor=ainol,Novo10,3.00
-ro.usbdevice.volumelabel=Tablet
+ro.usb.descriptor=ainol,Novo10 Hero,3.00
+ro.usbdevice.volumelabel=Novo10 Hero
 ro.serialno=4512482adf0feeee
 ro.config.quickboot=0
 ro.im.keysounddefenable=true
-ro.wifi.signal.level.1=-70
-ro.wifi.signal.level.2=-65
-ro.wifi.signal.level.3=-60
-ro.wifi.signal.level.4=-55
-#for certification of some apk
-ro.product.pribrand=actions   
+ro.support.gpswithwifi=1
+ro.product.pribrand=actions
 ro.product.primodel=owlx1
+debug.egl.hw=1
+debug.sf.hw=1
+debug.performance.tuning=1
+debug.composition.type=gpu
+persist.sys.ui.hw=1
 ro.device.model=unknown
-# for browser
-#ro.browser.forcescale=0
-ro.browser.maxtabs=8
-ro.config.shutdown.screenoff=0
-
+debug.hwui.render_dirty_regions=false
+dalvik.vm.checkjni=0
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.dexopt-flags=v=n,o=v
+dalvik.vm.checkjni=false
+dalvik.vm.heapgrowthlimit=80m
+ro.sf.hwrotation=270
+ro.sf.hdmi_rotation=0
+ro.sf.default_rotation=0
+ro.camerahal.configorientation=90
+ro.camerahal.prevres0=SVGA,HD
+ro.camerahal.imageres0=SVGA,2M
+ro.camerahal.prevresdft0=SVGA
+ro.camerahal.imageresdft0=2M
+ro.camerahal.fpsdft0=30
+ro.camerahal.prevres1=QVGA,VGA
+ro.camerahal.imageres1=QVGA,VGA
+ro.camerahal.prevresdft1=VGA
+ro.camerahal.imageresdft1=VGA
+ro.camerahal.fpsdft1=30
+ro.hdmi.onoffmode=alwayson
+windowsmgr.max_events_per_sec=300
+ro.min.fling_velocity=8000
+ro.max.fling_velocity=12000
+view.touch_slop=2
+view.minimum_fling_velocity=30

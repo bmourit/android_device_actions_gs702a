@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="classes-jarjar55" level="project" />
+    <orderEntry type="library" name="sdk_v16_intermediates" level="project" />
+    <orderEntry type="library" name="classes-jarjar11" level="project" />
+    <orderEntry type="library" name="android5" level="project" />
+    <orderEntry type="library" name="17" level="project" />
+    <orderEntry type="library" name="16" level="project" />
+    <orderEntry type="library" name="sdk_v8_intermediates" level="project" />
+    <orderEntry type="library" name="android14" level="project" />
+    <orderEntry type="library" name="sdk_v14_intermediates" level="project" />
+    <orderEntry type="library" name="apktool" level="project" />
+    <orderEntry type="library" name="android7" level="project" />
+    <orderEntry type="library" name="android_stubs_current_intermediates" level="project" />
+    <orderEntry type="library" name="sdk_v15_intermediates" level="project" />
+    <orderEntry type="library" name="core_intermediates" level="project" />
+    <orderEntry type="library" name="sdk_v5_intermediates" level="project" />
+    <orderEntry type="library" name="sdk_v9_intermediates" level="project" />
+    <orderEntry type="library" name="javalib5" level="project" />
+    <orderEntry type="library" name="sdk_v17_intermediates" level="project" />
+    <orderEntry type="library" name="android13" level="project" />
+    <orderEntry type="library" name="javalib68" level="project" />
+    <orderEntry type="library" name="android2" level="project" />
+    <orderEntry type="library" name="android6" level="project" />
+    <orderEntry type="library" name="actions_intermediates" level="project" />
+    <orderEntry type="library" name="android10" level="project" />
+    <orderEntry type="library" name="android3" level="project" />
+    <orderEntry type="library" name="classes-jarjar15" level="project" />
+    <orderEntry type="library" name="framework5" level="project" />
+    <orderEntry type="library" name="android9" level="project" />
+    <orderEntry type="library" name="android11" level="project" />
+    <orderEntry type="library" name="android4" level="project" />
+    <orderEntry type="library" name="android12" level="project" />
+    <orderEntry type="library" name="sdk_v13_intermediates" level="project" />
+    <orderEntry type="library" name="sdk_v11_intermediates" level="project" />
+    <orderEntry type="library" name="javalib164" level="project" />
+    <orderEntry type="library" name="framework_intermediates" level="project" />
+    <orderEntry type="library" name="android1" level="project" />
+    <orderEntry type="library" name="android8" level="project" />
+    <orderEntry type="library" name="sdk_v4_intermediates" level="project" />
+    <orderEntry type="module" module-name="bridge" />
+    <orderEntry type="module" module-name="benchmarks1" />
+    <orderEntry type="module" module-name="core" />
+    <orderEntry type="module" module-name="graphics1" />
+    <orderEntry type="module" module-name="systemproperties" />
+    <orderEntry type="module" module-name="android_stubs_current_intermediates" />
+    <orderEntry type="module" module-name="graphicstests" />
+    <orderEntry type="module" module-name="main24" />
+    <orderEntry type="module" module-name="coretests" />
+    <orderEntry type="module" module-name="core1" />
+    <orderEntry type="module" module-name="notificationtests" />
+    <orderEntry type="module" module-name="tests13" />
+    <orderEntry type="module" module-name="core3" />
+    <orderEntry type="module" module-name="core2" />
+    <orderEntry type="module" module-name="tests7" />
+  </component>
+</module>
+

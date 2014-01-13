@@ -18,11 +18,10 @@
  * Contains implemenation of framebuffer conversion routines.
  */
 #include "CameraHalDebug.h"
-
+#include <cutils/log.h>
 #include "Converters.h"
 
-namespace android
-{
+namespace android {
 
 static void _YUV420SToRGB565(const uint8_t* Y,
                              const uint8_t* U,
@@ -35,26 +34,19 @@ static void _YUV420SToRGB565(const uint8_t* Y,
     const uint8_t* U_pos = U;
     const uint8_t* V_pos = V;
 
-    for (int y = 0; y < height; y++)
-    {
-        for (int x = 0; x < width; x += 2, U += dUV, V += dUV)
-        {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x += 2, U += dUV, V += dUV) {
             const uint8_t nU = *U;
             const uint8_t nV = *V;
             *rgb = YUVToRGB565(*Y, nU, nV);
-            Y++;
-            rgb++;
+            Y++; rgb++;
             *rgb = YUVToRGB565(*Y, nU, nV);
-            Y++;
-            rgb++;
+            Y++; rgb++;
         }
-        if (y & 0x1)
-        {
+        if (y & 0x1) {
             U_pos = U;
             V_pos = V;
-        }
-        else
-        {
+        } else {
             U = U_pos;
             V = V_pos;
         }
@@ -105,26 +97,19 @@ static void _YUV420SToRGB32(const uint8_t* Y,
     const uint8_t* U_pos = U;
     const uint8_t* V_pos = V;
 
-    for (int y = 0; y < height; y++)
-    {
-        for (int x = 0; x < width; x += 2, U += dUV, V += dUV)
-        {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x += 2, U += dUV, V += dUV) {
             const uint8_t nU = *U;
             const uint8_t nV = *V;
             *rgb = YUVToRGB32(*Y, nU, nV);
-            Y++;
-            rgb++;
+            Y++; rgb++;
             *rgb = YUVToRGB32(*Y, nU, nV);
-            Y++;
-            rgb++;
+            Y++; rgb++;
         }
-        if (y & 0x1)
-        {
+        if (y & 0x1) {
             U_pos = U;
             V_pos = V;
-        }
-        else
-        {
+        } else {
             U = U_pos;
             V = V_pos;
         }
@@ -135,8 +120,8 @@ void YV12ToRGB565(const void* yv12, void* rgb, int width, int height)
 {
     const int pix_total = width * height;
     const uint8_t* Y = reinterpret_cast<const uint8_t*>(yv12);
-    const uint8_t* V = Y + pix_total;
-    const uint8_t* U = V + pix_total / 4;
+    const uint8_t* U = Y + pix_total;
+    const uint8_t* V = U + pix_total / 4;
     _YUV420SToRGB565(Y, U, V, 1, reinterpret_cast<uint16_t*>(rgb), width, height);
 }
 

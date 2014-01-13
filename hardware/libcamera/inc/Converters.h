@@ -39,8 +39,7 @@
  * 0xff000000, and blue color would be masked as 0x0000ff00,
  */
 
-namespace android
-{
+namespace android {
 
 /*
  * RGB565 color masks
@@ -116,21 +115,13 @@ static const uint32_t kWhite32  = kRed8 | kGreen8 | kBlue8;
 
 /* An union that simplifies breaking 32 bit RGB into separate R, G, and B colors.
  */
-typedef union RGB32_t
-{
+typedef union RGB32_t {
     uint32_t    color;
-    struct
-    {
+    struct {
 #if __BYTE_ORDER == __LITTLE_ENDIAN
-        uint8_t r;
-        uint8_t g;
-        uint8_t b;
-        uint8_t a;
+        uint8_t r; uint8_t g; uint8_t b; uint8_t a;
 #else   // __BYTE_ORDER
-        uint8_t a;
-        uint8_t b;
-        uint8_t g;
-        uint8_t r;
+        uint8_t a; uint8_t b; uint8_t g; uint8_t r;
 #endif  // __BYTE_ORDER
     };
 } RGB32_t;
@@ -215,9 +206,7 @@ static __inline__ uint16_t
 YUVToRGB565(int y, int u, int v)
 {
     /* Calculate C, D, and E values for the optimized macro. */
-    y -= 16;
-    u -= 128;
-    v -= 128;
+    y -= 16; u -= 128; v -= 128;
     const uint16_t r = (YUV2RO(y,u,v) >> 3) & 0x1f;
     const uint16_t g = (YUV2GO(y,u,v) >> 2) & 0x3f;
     const uint16_t b = (YUV2BO(y,u,v) >> 3) & 0x1f;
@@ -229,9 +218,7 @@ static __inline__ uint32_t
 YUVToRGB32(int y, int u, int v)
 {
     /* Calculate C, D, and E values for the optimized macro. */
-    y -= 16;
-    u -= 128;
-    v -= 128;
+    y -= 16; u -= 128; v -= 128;
     RGB32_t rgb;
     rgb.r = YUV2RO(y,u,v) & 0xff;
     rgb.g = YUV2GO(y,u,v) & 0xff;
@@ -240,8 +227,7 @@ YUVToRGB32(int y, int u, int v)
 }
 
 /* YUV pixel descriptor. */
-struct YUVPixel
-{
+struct YUVPixel {
     uint8_t     Y;
     uint8_t     U;
     uint8_t     V;
@@ -263,9 +249,7 @@ struct YUVPixel
 
     inline void get(uint8_t* pY, uint8_t* pU, uint8_t* pV) const
     {
-        *pY = Y;
-        *pU = U;
-        *pV = V;
+        *pY = Y; *pU = U; *pV = V;
     }
 };
 

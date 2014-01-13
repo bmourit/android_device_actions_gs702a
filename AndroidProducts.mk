@@ -13,6 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/full_gs702a.mk
+	$(LOCAL_DIR)/full_gs702a.mk \
+	$(LOCAL_DIR)/omni_gs702a.mk

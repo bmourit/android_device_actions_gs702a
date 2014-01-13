@@ -31,22 +31,22 @@ struct displayer_config {
     int displayer_id;
 
 };
-#define    HAL_DE_LCD_DISPLAYER		       	 0x1
+#define HAL_DE_LCD_DISPLAYER		 0x1
 #define	HAL_DE_HDMI_DISPLAYER		 0x2
-#define	HAL_DE_CVBS_DISPLAYER                 0x4
+#define	HAL_DE_CVBS_DISPLAYER        0x4
 
 //keep sync with device/actions/hardware/libdisplay/de_drv.h
 #define HAL_HDMI_CABLE_STATUS_BIT     2
-#define HAL_CVBS_CABLE_STATUS_BIT       0
+#define HAL_CVBS_CABLE_STATUS_BIT     0
 
 
 /*tvout ui display related*/
 #define HAL_DEFAULT_TVOUT_VIRTUAL_WIDTH     960
 #define HAL_DEFAULT_TVOUT_VIRTUAL_HEIGHT    540
-#define HAL_DEFAULT_TVOUT_TV_WIDTH                1920
-#define HAL_DEFAULT_TVOUT_TV_HEIGHT               1080
-#define HAL_TVOUT_TOP_GAP_DEFAULT                   73
-#define HAL_TVOUT_BOTTOM_GAP_DEFAULT                         73
+#define HAL_DEFAULT_TVOUT_TV_WIDTH          1920
+#define HAL_DEFAULT_TVOUT_TV_HEIGHT         1080
+#define HAL_TVOUT_TOP_GAP_DEFAULT           73
+#define HAL_TVOUT_BOTTOM_GAP_DEFAULT        73
 
 
 #define DEIO_SET_SCALE_RATE_FULL_SCREEN_MIN_X  0

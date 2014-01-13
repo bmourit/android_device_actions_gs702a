@@ -17,7 +17,15 @@
  */
 -->
 <resources>
-     
+
+	     <!-- default input method setting  -->
+     <add-resource type="string" name="def_input_method_config"/>
+     <string name="def_input_method_config" translatable="false">com.google.android.inputmethod.latin/.LatinIME</string>
+
+     <!-- default wifi sleep policy   -->
+     <add-resource type="integer" name="def_wifi_sleep_policy"/>
+     <integer name="def_wifi_sleep_policy">0</integer> 
+
      <!-- default  development settings enabled   -->
      <add-resource type="bool" name="def_development_settings_enabled"/>
      <bool name="def_development_settings_enabled">true</bool>

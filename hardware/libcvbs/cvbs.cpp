@@ -38,18 +38,16 @@ static struct hw_module_methods_t cvbs_module_methods =
  */
 struct cvbs_module_t HAL_MODULE_INFO_SYM =
 {
-	common :
-	{
-		tag : HARDWARE_MODULE_TAG,
-		version_major : 1,
-		version_minor : 0,
-		id : CVBS_HARDWARE_MODULE_ID,
-		name : "Action tvout Module",
-		author : "Action-Semi co.ltd",
-		methods : &cvbs_module_methods,
-		dso: 0,
-		reserved:
-		{	0,}
+	.common = {
+		.tag = HARDWARE_MODULE_TAG,
+		.version_major = 1,
+		.version_minor = 0,
+		.id = CVBS_HARDWARE_MODULE_ID,
+		.name = "Action tvout Module",
+		.author = "Action-Semi co.ltd",
+		.methods = &cvbs_module_methods,
+		.dso = 0,
+		.reserved = {	0,}
 	}
 };
 

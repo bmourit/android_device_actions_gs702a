@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">重力校准</string>
+    <string name="buttonCalib_name">重力校准</string>
+    <string name="buttonReset_name">清除校准</string>
+    <string name="info_reset">清除重力校准数据</string>
+    <string name="info_calib">保存重力校准数据</string>
+    <string name="info_tips">将此装置水平放置, 点击校准按钮。</string>
+</resources>

@@ -2,7 +2,7 @@
 #define __HDMI_TX_DRV_H__
 /******************************************************************
  this head file must keep the same with actsdk/psp/fwsp/include/asoc_ioctl.h,
- the node path £º"/dev/hdmi"
+ the node path "/dev/hdmi"
  *******************************************************************/
 
 #define u32 unsigned int

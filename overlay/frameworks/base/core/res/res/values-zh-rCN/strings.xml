@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="storage_sd_card" msgid="3282948861378286745">"外置SD卡"</string>
+    <string name="storage_usb" msgid="3017954059538517278">"内置SD卡"</string>
+
+    <string name="storage_uhost" >"U盘"</string>    
+    <string name="uh_media_checking_notification_title" product="default" msgid="5457603418970994050">"正在准备 U 盘"</string>
+    <string name="uh_media_checking_notification_message" product="default" msgid="8287319882926737053">"正在检查是否有错误。"</string>
+    <string name="uh_media_nofs_notification_title" product="default" msgid="780477838241212997">"空 U 盘"</string>
+    <string name="uh_media_nofs_notification_message" product="default" msgid="3817704088027829380">"U 盘无文件系统，或文件系统不受支持。"</string>
+    <string name="uh_media_unmountable_notification_title" product="default" msgid="6410723906019100189">"U 盘受损"</string>
+    <string name="uh_media_unmountable_notification_message" product="default" msgid="6902531775948238989">"U 盘已损坏。您可能必须将其重新格式化。"</string>
+    <string name="uh_media_badremoval_notification_title" product="default" msgid="6872152882604407837">"U 盘未正常移除"</string>
+    <string name="uh_media_badremoval_notification_message" product="default" msgid="7260183293747448241">"请先卸载 U 盘，再将其移除，以防数据丢失。"</string>
+    <string name="uh_media_safe_unmount_notification_title" product="default" msgid="6729801130790616200">"U 盘已安全移除"</string>
+    <string name="uh_media_safe_unmount_notification_message" product="default" msgid="568841278138377604">"您现在可以安全移除 U 盘。"</string>
+    <string name="uh_media_nomedia_notification_title" product="default" msgid="8902518030404381318">"已移除 U 盘"</string>
+    <string name="uh_media_nomedia_notification_message" product="default" msgid="3870120652983659641">"U 盘已移除。请插入新的 U 盘。"</string> 
+    <string name="accelerometer_coordinate">重力感应坐标系</string>      
+    <string name="accele_coord_default">默认坐标系</string>
+    <string name="accele_coord_special">特殊坐标以适应部分游戏</string>
+</resources>

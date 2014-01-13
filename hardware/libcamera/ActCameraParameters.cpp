@@ -24,8 +24,7 @@
 
 #include "CameraHal.h"
 
-namespace android
-{
+namespace android {
 
 const char ActCameraParameters::KEY_SATURATION[] = "saturation";
 const char ActCameraParameters::KEY_BRIGHTNESS[] = "brightness";

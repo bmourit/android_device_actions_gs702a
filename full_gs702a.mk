@@ -12,15 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, device/actions/gs702a/gs702a.mk)
-$(call inherit-product, device/actions/gs702a/wifi.mk)
-$(call inherit-product, device/actions/gs702a/usb_modeswitch.d/usb_modeswitch.mk)
-$(call inherit-product-if-exists, device/actions/gs702a/prebuilt/codec/actcodec.mk)	
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+PRODUCT_PROPERTY_OVERRIDES := \
+        net.dns1=8.8.8.8 \
+        net.dns2=8.8.4.4
 
-#$(call inherit-product, device/actions/gs702a/prebuilt/gpu/gpu.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, build/target/product/aosp_base.mk)
+$(call inherit-product, device/actions/gs702a/device.mk)
+$(call inherit-product-if-exists, device/actions/gs702a/prebuilt/codec/actcodec.mk)
+
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 1280
+
+PRODUCT_AAPT_CONFIG += large xlarge mdpi hdpi tvdpi
+PRODUCT_AAPT_PREF_CONFIG := xlarge
+
+PRODUCT_CHARACTERISTICS := tablet
+
+PRODUCT_TAGS += dalvik.gc.type-precise	
 
 # Set variables here to overwrite the inherited values.
 PRODUCT_NAME := full_gs702a

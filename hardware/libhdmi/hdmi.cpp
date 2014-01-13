@@ -114,18 +114,16 @@ static struct hw_module_methods_t hdmi_module_methods =
  */
 struct hdmi_module_t HAL_MODULE_INFO_SYM =
 {
-	common :
-	{
-		tag : HARDWARE_MODULE_TAG,
-		version_major : 1,
-		version_minor : 0,
-		id : HDMI_HARDWARE_MODULE_ID,
-		name : "actions  HDMI Module",
-		author : "Action-Semi, Co.Ltd",
-		methods : &hdmi_module_methods,
-		dso:0,
-		reserved:
-		{	0,}
+	.common = {
+		.tag = HARDWARE_MODULE_TAG,
+		.version_major = 1,
+		.version_minor = 0,
+		.id = HDMI_HARDWARE_MODULE_ID,
+		.name = "actions  HDMI Module",
+		.author = "Action-Semi, Co.Ltd",
+		.methods = &hdmi_module_methods,
+		.dso = 0,
+		.reserved = {	0,}
 	}
 };
 

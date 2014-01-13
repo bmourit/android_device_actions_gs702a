@@ -26,8 +26,7 @@
 #include "CameraHal.h"
 #include "CameraProperties.h"
 
-namespace android
-{
+namespace android {
 
 const char CameraProperties::INVALID[]="prop-invalid-key";
 const char CameraProperties::CAMERA_NAME[]="prop-camera-name";

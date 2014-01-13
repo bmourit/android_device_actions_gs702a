@@ -75,136 +75,85 @@
 
 /* Support SENSORS Module */
 static const struct sensor_t sSensorSupportList[] = {   
-        { 
-          "BMA220 3-axis Accelerometer",
+        { "BMA220 3-axis Accelerometer",
           "Bosch Sensortec",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (4.0f * GRAVITY_EARTH), 
-          (4.0f * GRAVITY_EARTH) / 64.0f,     // -2G ~ +2G, 6 bit
-          0.20f, 10, 
-          { (void*)"bma220" }    // reserved[0] --> input device name
-        }, 
-        { 
-          "BMA222 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 4.0f), 
+          (GRAVITY_EARTH * 4.0f) / 64.0f, 0.20f, 10, 0, 0, {(void*)"bma220"} }, 
+
+        { "BMA222 3-axis Accelerometer",
           "Bosch Sensortec",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (4.0f * GRAVITY_EARTH), 
-          (4.0f * GRAVITY_EARTH) / 256.0f,     // -2G ~ +2G, 8 bit
-          0.20f, 10, 
-          { (void*)"bma222" }    // reserved[0] --> input device name
-        },
-        { 
-          "BMA250 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 4.0f),
+          (GRAVITY_EARTH * 4.0f) / 256.0f, 0.20f, 10, 0, 0, {(void*)"bma222"} },
+        
+        { "BMA250 3-axis Accelerometer",
           "Bosch Sensortec",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (4.0f * GRAVITY_EARTH), 
-          (4.0f * GRAVITY_EARTH) / 1024.0f,     // -2G ~ +2G, 10 bit
-          0.20f, 10, 
-          { (void*)"bma250" }    // reserved[0] --> input device name
-        },
-        { 
-          "MMA7660 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 4.0f), 
+          (GRAVITY_EARTH * 4.0f) / 1024.0f, 0.20f, 10, 0, 0, {(void*)"bma250"} },
+
+        { "MMA7660 3-axis Accelerometer",
           "Freescale Semi",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (3.0f * GRAVITY_EARTH), 
-          (3.0f * GRAVITY_EARTH) / 64.0f,     // -1.5G ~ +1.5G, 6 bit
-          0.20f, 10, 
-          { (void*)"mma7660" }    // reserved[0] --> input device name
-        },
-        { 
-          "MMA8452 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 3.0f), 
+          (GRAVITY_EARTH * 3.0f) / 64.0f, 0.20f, 10, 0, 0, {(void*)"mma7660"} },
+
+        { "MMA8452 3-axis Accelerometer",
           "Freescale Semi",
-          1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (4.0f * GRAVITY_EARTH), 
-          (4.0f * GRAVITY_EARTH) / 4096.0f,     // -2G ~ +2G, 12 bit
-          0.20f, 10, 
-          { (void*)"mma8452" }    // reserved[0] --> input device name
-        },
-        { 
-          "DMARD10 3-axis Accelerometer",
+          1,
+          SENSORS_ACCELERATION_HANDLE,
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 4.0f), 
+          (GRAVITY_EARTH * 4.0f) / 4096.0f, 0.20f, 10, 0, 0, {(void*)"mma8452"} },
+
+        { "DMARD10 3-axis Accelerometer",
           "DMT",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (8.0f * GRAVITY_EARTH), 
-          (8.0f * GRAVITY_EARTH) / 1024.0f,     // -4G ~ +4G, 10 bit
-          0.20f, 10, 
-          { (void*)"dmard10" }    // reserved[0] --> input device name
-        },
-        { 
-          "MC3230 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 8.0f), 
+          (GRAVITY_EARTH * 8.0f) / 1024.0f, 0.20f, 10, 0, 0, {(void*)"dmard10"} },
+        
+        { "MC3230 3-axis Accelerometer",
           "mCube",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (3.0f * GRAVITY_EARTH), 
-          (3.0f * GRAVITY_EARTH) / 256.0f,    // -1.5G ~ +1.5G, 8 bit
-          0.20f, 10, 
-          { (void*)"mc3230" }    // reserved[0] --> input device name
-        },
-        { 
-          "MC3210 3-axis Accelerometer",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 3.0f), 
+          (GRAVITY_EARTH * 3.0f) / 256.0f, 0.20f, 10, 0, 0, {(void*)"mc3230"} },
+        
+        { "MC3210 3-axis Accelerometer",
           "mCube",
           1, SENSORS_ACCELERATION_HANDLE,
-          SENSOR_TYPE_ACCELEROMETER, 
-          (16.0f * GRAVITY_EARTH), 
-          (16.0f * GRAVITY_EARTH) / 16384.0f,    // -8G ~ +8G, 14 bit
-          0.20f, 10, 
-          { (void*)"mc3210" }    // reserved[0] --> input device name
-        },
-        { 
-          "LTR-301 Light sensor",
+          SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 16.0f), 
+          (GRAVITY_EARTH * 16.0f) / 16384.0f, 0.20f, 10, 0, 0, {(void*)"mc3210"} },
+
+        { "LTR-301 Light sensor",
           "LITE-ON",
           1, SENSORS_LIGHT_HANDLE,
-          SENSOR_TYPE_LIGHT, 
-          64000.0f,     // 2 ~ 64k
-          1.0f,
-          0.20f, 500, 
-          { (void*)"ltr301" }    // reserved[0] --> input device name
-        },
-        { 
-          "MC6420 3-axis Magnetic field sensor",
+          SENSOR_TYPE_LIGHT, 64000.0f, 1.0f, 0.20f, 500, 0, 0, {(void*)"ltr301"} },
+        
+        { "MC6420 3-axis Magnetic field sensor",
           "mCube",
           1, SENSORS_MAGNETIC_FIELD_HANDLE,
-          SENSOR_TYPE_MAGNETIC_FIELD, 
-          400.0f,           // -200uT ~ +200uT
-          1.0f / 80.0f,    // 80 LSB/uT
-          0.5f, 10, 
-          { (void*)"mc6420" }    // reserved[0] --> input device name
-        },	
-        { 
-          "L3G4200D Gyroscope sensor",
+          SENSOR_TYPE_MAGNETIC_FIELD, 400.0f, 
+          1.0f / 80.0f, 0.5f, 10, 0, 0, {(void*)"mc6420"} },
+
+        { "L3G4200D Gyroscope sensor",
           "ST Microelectronics",
           1, SENSORS_GYROSCOPE_HANDLE,
-          SENSOR_TYPE_GYROSCOPE, 
-          (4000.0f*(float)M_PI/180.0f),         // -2000dps ~ +2000dps
-          ((70.0f / 1000.0f) * ((float)M_PI / 180.0f)),    // 70 mdps/LSB
-          6.1f, 10, 
-          { (void*)"l3g4200d" }    // reserved[0] --> input device name
-        },
-        { 
-          "MPU3050C Gyroscope sensor",
+          SENSOR_TYPE_GYROSCOPE, (4000.0f * (float)M_PI / 180.0f),
+          ((70.0f / 1000.0f) * ((float)M_PI / 180.0f)),
+          6.1f, 10, 0, 0, {(void*)"l3g4200d"} },
+
+        { "MPU3050C Gyroscope sensor",
           "InvenSense Inc.",
           1, SENSORS_GYROSCOPE_HANDLE,
-          SENSOR_TYPE_GYROSCOPE, 
-          (4000.0f*(float)M_PI/180.0f),         // -2000dps ~ +2000dps
-          ((1.0f / 16.4f) * ((float)M_PI / 180.0f)),    // 1/16.4 dps/LSB
-          6.1f, 10, 
-          { (void*)"mpu3050c" }    // reserved[0] --> input device name
-        },
-        { 
-          "BMA250 Thermometer",
+          SENSOR_TYPE_GYROSCOPE, (4000.0f * (float)M_PI / 180.0f),
+          ((1.0f / 16.4f) * ((float)M_PI / 180.0f)),
+          6.1f, 10, 0, 0, {(void*)"mpu3050c"} },
+
+        { "BMA250 Thermometer",
           "Bosch Sensortec",
           1, SENSORS_TEMPERATURE_HANDLE,
           SENSOR_TYPE_TEMPERATURE, 
-          128.0f,        // -40 ~ +87.5 centigrade
-          0.5f,     // 0.5 centigrade/LSB, 8 bit
-          0.20f, 10, 
-          { (void*)"bma250t" }    // reserved[0] --> input device name
-        },
+          128.0f, 0.5f, 0.20f, 10, 0, 0, {(void*)"bma250t"} },
 };
 
 /* Current SENSORS Module */
@@ -275,20 +224,20 @@ static int sensors__get_sensors_list(struct sensors_module_t* module,
 }
 
 static struct hw_module_methods_t sensors_module_methods = {
-        open: open_sensors
+        .open = open_sensors
 };
 
 struct sensors_module_t HAL_MODULE_INFO_SYM = {
-        common: {
-                tag: HARDWARE_MODULE_TAG,
-                version_major: 1,
-                version_minor: 0,
-                id: SENSORS_HARDWARE_MODULE_ID,
-                name: "Actions Sensors Module",
-                author: "The Android Open Source Project",
-                methods: &sensors_module_methods,
+        .common = {
+                .tag = HARDWARE_MODULE_TAG,
+                .version_major = 1,
+                .version_minor = 0,
+                .id = SENSORS_HARDWARE_MODULE_ID,
+                .name = "Actions Sensors Module",
+                .author = "The Android Open Source Project",
+                .methods = &sensors_module_methods,
         },
-        get_sensors_list: sensors__get_sensors_list,
+        .get_sensors_list = sensors__get_sensors_list,
 };
 
 struct sensors_poll_context_t {
@@ -302,7 +251,7 @@ struct sensors_poll_context_t {
 
 private:
     enum {
-        accel   = 0,
+        accel = 0,
         magnetic,
         orietation,
         light,
@@ -622,7 +571,7 @@ static int open_sensors(const struct hw_module_t* module, const char* id,
 
         memset(&dev->device, 0, sizeof(sensors_poll_device_t));
 
-        dev->device.common.tag = HARDWARE_DEVICE_TAG;
+        dev->device.common.tag      = HARDWARE_DEVICE_TAG;
         dev->device.common.version  = 0;
         dev->device.common.module   = const_cast<hw_module_t*>(module);
         dev->device.common.close    = poll__close;

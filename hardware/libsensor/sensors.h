@@ -39,7 +39,7 @@ __BEGIN_DECLS
 #define ID_L  (3)
 #define ID_P  (4)
 #define ID_GY (5)
-#define ID_T (6)
+#define ID_T  (6)
 
 /*****************************************************************************/
 

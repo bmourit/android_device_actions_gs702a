@@ -170,6 +170,24 @@ static int set_light_backlight(struct light_device_t *dev,
 	return err;
 }
 
+#ifdef BUTTONS_FILE
+static int set_light_buttons(struct light_device_t *dev,
+        struct light_state_t const *state)
+{
+	int touch_led_control = !!(state->color & 0x00ffffff);
+	int res;
+
+	ALOGD("set_light_buttons: color=%#010x, tlc=%u.", state->color,
+         touch_led_control);
+
+	pthread_mutex_lock(&g_lock);
+	res = write_int(BUTTONS_FILE, touch_led_control);
+	pthread_mutex_unlock(&g_lock);
+
+	return res;
+}
+#endif
+
 /** Close the lights device */
 static int close_lights(struct light_device_t *dev) 
 {
