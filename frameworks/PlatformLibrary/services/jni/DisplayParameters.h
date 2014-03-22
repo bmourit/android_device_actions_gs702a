@@ -67,6 +67,7 @@ public:
 	static const char KEY_YPBPR_RES_HZ[];
 	static const char KEY_YPBPR_RES_PG[];
 	static const char KEY_YPBPR_RES_ASPECT[];
+	static const char KEY_LCD_SCALE[];
 
 	// Paramerter keys about Display Device
 	static const char KEY_ID[];

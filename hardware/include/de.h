@@ -31,13 +31,14 @@ struct displayer_config {
     int displayer_id;
 
 };
-#define HAL_DE_LCD_DISPLAYER		 0x1
-#define	HAL_DE_HDMI_DISPLAYER		 0x2
-#define	HAL_DE_CVBS_DISPLAYER        0x4
+
+#define HAL_DE_LCD_DISPLAYER		0x1
+#define	HAL_DE_HDMI_DISPLAYER		0x2
+#define	HAL_DE_CVBS_DISPLAYER		0x4
 
 //keep sync with device/actions/hardware/libdisplay/de_drv.h
-#define HAL_HDMI_CABLE_STATUS_BIT     2
-#define HAL_CVBS_CABLE_STATUS_BIT     0
+#define HAL_HDMI_CABLE_STATUS_BIT	2
+#define HAL_CVBS_CABLE_STATUS_BIT	0
 
 
 /*tvout ui display related*/
@@ -69,7 +70,8 @@ struct de_control_device_t {
 	int (*de_get_tv_display_scale)(struct de_control_device_t *dev, int  *xscale, int *yscale);
 	int (*de_get_tv_cable_status)(struct de_control_device_t *dev, int *status);
 	void (*de_set_display_mode_single)(struct de_control_device_t *dev, int mode);
-	void(*de_set_display_mode)(struct de_control_device_t *dev, int mode);
+	void (*de_set_display_mode)(struct de_control_device_t *dev, int mode);
+	int (*de_set_lcd_display_scale)(struct de_control_device_t *dev, int scale_rate);
 };
 
 /*****************************************************************************/

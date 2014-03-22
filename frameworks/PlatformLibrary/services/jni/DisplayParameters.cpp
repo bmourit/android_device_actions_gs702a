@@ -49,6 +49,7 @@ const char DisplayParameters::KEY_WIDTH[] = "width";
 const char DisplayParameters::KEY_HEIGHT[] = "height";
 const char DisplayParameters::KEY_NAME[] = "name";
 const char DisplayParameters::KEY_DES[] = "description";
+const char DisplayParameters::KEY_LCD_SCALE[] = "lcd-scale-rate";
 
 DisplayParameters::DisplayParameters() :
 		mMap() {
@@ -123,13 +124,13 @@ void DisplayParameters::set(const char *key, const char *value) {
 }
 
 void DisplayParameters::setInt(const char *key, int value) {
-	char str[20];
+	char str[16];
 	sprintf(str, "%d", value);
 	set(key, str);
 }
 
 void DisplayParameters::setFloat(const char *key, float value) {
-	char str[20]; // 14 should be enough. We overestimate to be safe.
+	char str[16]; // 14 should be enough. We overestimate to be safe.
 	snprintf(str, sizeof(str), "%g", value);
 	set(key, str);
 }

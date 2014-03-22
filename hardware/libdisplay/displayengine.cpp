@@ -74,7 +74,7 @@ static struct hw_module_methods_t de_module_methods = {
 	open: open_display_engine,
 };
 
-/* The hal module for display */
+/* The hal module for the display engine */
 /*****************************************************************************/
 
 struct de_module_t HAL_MODULE_INFO_SYM =
@@ -84,7 +84,7 @@ struct de_module_t HAL_MODULE_INFO_SYM =
 		.version_major = 1,
 		.version_minor = 0,
 		.id = DE_HARDWARE_MODULE_ID,
-		.name = "Actions Display Manger",
+		.name = "Actions Display Engine",
 		.author = "ywwang",
 		.methods = &de_module_methods,
 		.dso = 0,
@@ -122,7 +122,7 @@ static void update_tvout_gap_info(int gap_top, int gap_bottom) {
 
 /**
  *
- * determine the ui scale mode: 2x-scale use display graphic layer or arbitary scale use
+ * determine the ui scale mode: 2x-scale use the display engine graphic layer or arbitary scale use
  *  video layer
  *
  */
@@ -393,6 +393,28 @@ int de_set_tv_display_scale(struct de_control_device_t *dev, int xscale,
 	return 0;
 }
 
+/**
+ * When debugging TV output, scaling picture of 76
+ *
+ * @param dev     device structure
+ * @param xscale  x direction scaling
+ * @param yscale  y direction scaling
+ * @return 0 success, <0 failure
+ */
+int de_set_lcd_display_scale(struct de_control_device_t *dev, int scale_rate) {
+	int de_param;
+	struct de_context_t* ctx = (struct de_context_t*) dev;
+	if (ctx == 0) {
+		return -EINVAL;
+	}
+	de_param = 0x10000 | scale_rate;
+	ALOGE("DEIO_SET_SCALE_RATE_FULL_SCREEN ~~~ %x ~~~~~~~s", de_param);
+	if (ioctl(ctx->mFD, DEIO_SET_SCALE_RATE_FULL_SCREEN, &de_param) < 0) {
+		return -ENOSYS;
+	}
+	return 0;
+}
+
 int de_get_tv_display_scale(struct de_control_device_t *dev, int *pxscale,
 		int *pyscale) {
 	int de_param;
@@ -536,6 +558,7 @@ static int open_display_engine(const struct hw_module_t* module,
 	ctx->device.de_get_tv_cable_status = de_get_tv_cable_status;
 	ctx->device.de_set_display_mode_single = de_set_display_mode_single;
 	ctx->device.de_set_display_mode = de_set_display_mode;
+	ctx->device.de_set_lcd_display_scale = de_set_lcd_display_scale;
 
 	ctx->mFD = open(DE_HARDWARE_DEVICE, O_RDWR, 0);
 	ctx->scale_x = DEIO_SET_SCALE_RATE_FULL_SCREEN_MAX_X;
